@@ -616,7 +616,7 @@ a {
     height: 24rem;
     left: -1.4em;
     bottom: -1.3em;
-    background: url('asset/circle.GIF') no-repeat center center;
+    background: url('/asset/circle.GIF') no-repeat center center;
     background-size: contain;
 }
 
