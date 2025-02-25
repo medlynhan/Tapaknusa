@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reward Koin Nusantara</title>
+
+   <!--css-->
+   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="gamifikasi.css">
+
+   <!--css font, jquery-->
+   <link rel="stylesheet" href="plugin/animate.css">
+   <link rel="stylesheet" href="plugin/fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/css/all.css">
+
+
+   <!--google font-->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+   <!--flaticon-->
+   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-rounded/css/uicons-thin-rounded.css'>
+</head>
+
+<body class="medium-text-font">
+    
+    <header class="animated fadeInDown">
+        <div class="container1">
+            <a href="beranda.html"><h1 class="logo sub-heading-font"><span class="big-text-font"><i class="fi fi-tr-island-tropical"></i></i></span>apaknusa</h1></a>
+            <nav class="big-text-font">
+                <ul class="hover-color">
+                    <li><a href="mitra.html"><i class="fa-regular fa-handshake"></i></a></li>
+                    <li><a href="cart.html"><i class="fa fa-cart-shopping"></i></a></li>                    
+                </ul>
+            </nav>
+            <div class="toggle-btn">
+                <button class="btn-login active medium-text-font" id="openLogin">Login</button>
+                <button class="btn-signin medium-text-font" id="openSignin">SignIn</button>
+            </div>
+
+            <div id="user-info" class="hidden">
+                <span id="username">Madeline Handoyo</span>
+                <div id="user-points">
+                    <img src="asset/coin.png" alt="Coin Icon" width="20">
+                    <span id="totalPoints">0 Point</span>
+                </div>
+            </div>
+            
+            <div class="burger-menu">
+                <i class="fa-solid fa-bars medium-text-font"></i>
+            </div>   
+        </div>
+        <div class="container2">
+            <nav class="medium-text-font">
+                <ul>
+                    <li><a href="atraksi.html">Atraksi</a></li>
+                    <li><a href="festival.html">Festival</a></li>
+                    <li><a href="wawasannusantara.html">Wawasan Nusantara</a></li>
+                </ul>
+            </nav>         
+        </div>
+    </header>
+
+
+    <!-- Login Section -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-content">
+            <span class="close" id="closeLogin">&times;</span>
+            <h2 class="small-heading-font">Hi, Sahabat Nusa!</h2>
+            <p class="small-text-font">Temukan 1001 keindahan, budaya, dan sejarah di berbagai sudut Indonesia </p>
+            
+            <form class="small-text-font">
+                <input type="text" placeholder="First name" required>
+                <input type="text" placeholder="Last name" required>
+                <input type="email" placeholder="Email" required>
+                
+                <label >Birthday</label>
+                <div class="birthday-inputs">
+                    <input type="text" placeholder="MM" required>
+                    <input type="text" placeholder="DD" required>
+                    <input type="text" placeholder="YYYY" required>
+                </div>
+    
+                <button type="submit" class="submit-btn small-text-font">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <nav class="burger-menu-open medium-text-font">
+        <ul>
+            <li id="openLogin" >Login</li>
+            <li id="openSignin" >SignIn</li>
+            <li><a href="atraksi.html">Atraksi</a></li>
+            <li><a href="festival.html">Festival</a></li>
+            <li><a href="wawasannusantara.html">Wawasan Nusantara</a></li>
+            <li><a href="mitra.html">Mitra & Kolaborasi</a></li>
+        </ul>
+    </nav>   
+
+    <!-- SignIn Section -->
+    <div class="signin-modal" id="signinModal">
+        <div class="signin-content">
+            <span class="close" id="closeSignIn">&times;</span>
+            <h2 class="small-heading-font">Selamat datang kembali!</h2>
+            <p class="small-text-font">Temukan 1001 keindahan, budaya, dan sejarah di berbagai sudut Indonesia </p>
+            
+            <form class="small-text-font">
+                <input type="text" placeholder="First name" required>
+                <input type="email" placeholder="Email" required>
+    
+                
+                <button type="submit" class="submit-btn small-text-font">Submit</button>
+            </form>
+        </div>
+    </div>
+   
+    <section class=" hero-gamifikasi animated fadeInDown">
+        <div class="hero-content animated fadeInDown delay-1s">
+            <h2 class="heading-font title">Wawasan Nusantara</h2>
+            <p class="medium-text-font">Selamat Datang di Wawasan Nusantara ! Ayo, kumpulkan poin sebanyak-banyaknya ! </p>
+        </div>
+    </section>
+
+    <div class="container-reward  animated fadeInDown delay-1s">
+        <h1 class="title-reward sub-heading-font bold-weight ">Reward Koin Nusantara</h1>
+        <p class="claim-point">Yuk ambil poin kamu tiap harinya !</p>
+        <div class="reward-flex">
+        <div class="reward-tracker">
+            <div>
+                <div class="day" id="day1">20</div>
+                <p>Hari ke-1</p>
+            </div>
+            <div>
+                <div class="day" id="day2">30</div>
+                <p>Hari ke-2</p>
+            </div>
+            <div>
+                <div class="day" id="day3">40</div>
+                <p>Hari ke-3</p>
+            </div>
+            <div>
+                <div class="day" id="day4">50</div>
+                <p>Hari ke-4</p>
+            </div>
+            <div>
+                <div class="day" id="day5">60</div>
+                <p>Hari ke-5</p>
+            </div>
+            <div>
+                <div class="day" id="day6">70</div>
+                <p>Hari ke-6</p>
+            </div>
+            <div>
+                <div class="day" id="day7">200</div>
+                <p>Hari ke-7</p>
+            </div>
+        </div>
+        </div>
+
+        <button class="button medium-text-font" id="collect-coins">Klaim Reward Hari Ini</button>
+    </div>
+
+    <div class="reward-popup t" id="reward-popup">
+        <h3 class="medium-text-font">Selamat! Kamu Mendapatkan 20 Koin!</h3>
+    </div>
+
+    <div class="extra-coins animated fadeInDown delay-1s ">
+        <h2 class="sub-heading-font title-reward">Dapatkan Koin Nusantara Tambahan</h2>
+        <a href="kuis.html" id="kuis-link">
+            <img src="asset/kuis.png" alt="Game Kuis" class="game-image">
+        </a>
+    </div>
+
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-content">
+                <h2 class="small-heading-font"><i class="fi fi-tr-island-tropical"></i> Get in touch</h2>
+                <p class="medium-text-font">helo@tapaknusa.com</p>
+            </div>
+            
+            <div class="footer-links">
+                <ul class="medium-text-font">
+                    <li><a href="atraksi.html">Atraksi</a></li>
+                    <li><a href="festival.html">Festival</a></li>
+                    <li><a href="#">Wawasan Nusantara</a></li>
+                    <li><a href="mitra.html">Mitra & Kolaborasi</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="medium-text-font">© 2025 Tapaknusa. Made in Tangerang, Indonesia</p>
+        </div>
+    </footer>
+
+
+    <script src="plugin/jquery-1.7.1.min.js"></script>
+    <script src="gamifikasi.js"></script>
+    <script src="header.js"></script>
+    <script>
+            $(window).bind("scroll", function () {
+                if ($(window).scrollTop() > 0) {
+                    $("header").addClass("scrolled"); // Tambahkan class saat discroll
+                } else {
+                    $("header").removeClass("scrolled"); // Hapus class jika kembali ke atas
+                }
+            });  
+    </script>
+</body>
+</html>

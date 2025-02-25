@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keranjang Belanja - Tapaknusa</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font & Icon -->
+    <link rel="stylesheet" href="plugin/animate.css">
+    <link rel="stylesheet" href="plugin/fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/css/all.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Parkinsans:wght@300..800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Flaticon -->
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-rounded/css/uicons-thin-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-straight/css/uicons-thin-straight.css'>
+
+</head>
+<body class="medium-text-font go-to-pay">
+
+    <!-- Header -->
+    <header class="back-position black">
+        <a href="javascript:history.back()"><i class="fa-solid fa-arrow-left"></i></a>
+    </header>
+
+    <!-- Cart Section -->
+    <section class="cart animated fadeInDown">
+        <div class="cart-empty">
+            <p class="big-text-font">Oops... Keranjang belanjamu masih Kosong!</p>
+        </div>
+        <div class="cart-container">
+            <p class="big-text-font " >Keranjangnya udah mantap? Kalau iya, yuk kita lanjut!</p>
+        </div>
+    </section>
+
+    <!-- Rekomendasi Produk -->
+    <section class="recommendations animated fadeInDown">
+        <h2 class="small-heading-font title">Mungkin, Tertarik dengan Ini?</h2>
+        <div class="carousel-container">
+            <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+            <div class="carousel">
+                <div class="cards-container"></div>
+            </div>
+            <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <section class="go-to-pay-box">
+        <div>
+            <p class="medium-text-font">Harga Total:</p>
+            <h3 id="total-price-to-pay" class="big-text-font">Rp 0,00</h3>
+        </div>
+        <div></div>
+        <button id="pay-button" class="go-to-pay-btn medium-text-font">Lanjutkan Pembayaran -></button>
+    </section>
+    
+
+    <script src="plugin/jquery-1.7.1.min.js"></script>
+    <script src="data.js"></script>
+    <script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+$(document).ready(function () {
+    const container = $(".cards-container");
+    const prevBtn = $(".prev-btn");
+    const nextBtn = $(".next-btn");
+    const carousel = $(".carousel");
+    const titleSection = $(".attractions h2");
+
+    // Filter hanya atraksi dari semua destinasi
+    const atraksiData = wisataBudaya.filter(item => item.status === "atraksi");
+
+    function updateButtons() {
+        let scrollLeft = carousel.scrollLeft();
+        let maxScroll = carousel[0].scrollWidth - carousel[0].clientWidth;
+
+        prevBtn.toggle(scrollLeft > 0);
+        nextBtn.toggle(scrollLeft < maxScroll);
+    }
+
+    function updateTotalPrice() {
+        let total = 0;
+        // Memeriksa item yang dicentang
+        $(".cart-item-check:checked").each(function () {
+            let index = $(this).data("index");
+            let priceText = $(`.cart-item-price[data-index="${index}"]`).text().replace("Rp ", "").replace(/\./g, "");
+            let price = parseInt(priceText);
+            let quantity = cart[index].quantity;
+            total += price * quantity;
+        });
+        $("#total-price-to-pay").text(`Rp ${total.toLocaleString('id-ID')},00`);
+    }
+
+    function updateCheckoutButton() {
+        let anyChecked = $(".cart-item-check:checked").length > 0;
+        let total = $("#total-price-to-pay").text().replace("Rp ", "").replace(/,/g, "");
+        $("#pay-button").prop("disabled", !(anyChecked && total > 0));
+    }
+
+  
+    $(document).on("change", ".cart-item-check", function () {
+        updateTotalPrice();
+        updateCheckoutButton();
+    });
+
+    $("#pay-button").on("click", function(e) {
+    let total = $("#total-price-to-pay").text().replace("Rp ", "").replace(/,/g, "");
+    let anyChecked = $(".cart-item-check:checked").length > 0;
+
+    if (!anyChecked || total == 0) {
+        e.preventDefault();
+        alert("Silakan pilih item terlebih dahulu.");
+    } else {
+        // Simpan data keranjang ke localStorage
+        let selectedItems = [];
+        $(".cart-item-check:checked").each(function () {
+            let index = $(this).data("index");
+            selectedItems.push(cart[index]);
+        });
+        localStorage.setItem("selectedCart", JSON.stringify(selectedItems));
+
+        window.location.href = "pay.html"; // Redirect ke halaman pembayaran
+    }
+});
+
+
+    // Set initial state of button
+    updateCheckoutButton();
+
+    // Menampilkan kartu berdasarkan data yang difilter
+    function firstGenerateCards(data) {
+        container.empty();
+
+        data.forEach(item => {
+            let card = `
+                <div class="card" data-title="${item.title}" onclick="redirectToDetail('${item.title}', '${item.status}')">
+                    <img src="${item.image}" alt="${item.title}" loading="lazy">
+                    <h3>${item.title}</h3>
+                    <p>⭐⭐⭐⭐⭐ ${item.rating} (${item.reviews.length})</p>
+                    <p class="price">${item.startPrice}</p>
+                </div>
+            `;
+            container.append(card);
+        });
+
+        updateButtons();
+    }
+
+    // Load data atraksi
+    firstGenerateCards(atraksiData);
+
+    $(document).on("click", ".card", function () {
+        let title = $(this).data("title");
+        let encodedTitle = encodeURIComponent(title);
+        window.location.href = `detailFestival.html?title=${encodedTitle}`;
+    });
+
+    // Carousel Navigation
+    nextBtn.click(function () {
+        carousel.animate({ scrollLeft: "+=500px" }, "smooth", updateButtons);
+    });
+
+    prevBtn.click(function () {
+        carousel.animate({ scrollLeft: "-=500px" }, "smooth", updateButtons);
+    });
+
+    carousel.on("scroll", updateButtons);
+    updateButtons(); // Jalankan update tombol saat pertama kali halaman dimuat
+
+    // Mengelola Local Storage dan menampilkan item di keranjang
+    const cartContainer = $(".cart-container");
+
+    if (cart.length === 0) {
+        $(".cart-empty").show();
+        $(".cart-container").hide();
+        $(".recommendations").show();
+        $(".go-to-pay-box").hide();
+    } else {
+        $(".cart-empty").hide();
+        $(".recommendations").hide();
+        $(".cart-container").show();
+
+        cart.forEach((item, index) => {
+            if (item.quantity >= 1) {
+                let atraksi = wisataBudaya.find(a => a.title === item.title);
+                let cartItemHTML = `
+                <div class="cart-item">
+                    <input type="checkbox" class="cart-item-check" data-index="${index}">
+                    <img src="${atraksi.image}" alt="${item.title}" class="cart-item-image">
+                    <div class="cart-item-1">
+                        <h3 class="medium-text-font cart-item-title">${item.title}</h3>
+                        <p class="medium-text-font cart-item-details">${item.ticket}</p>
+                    </div>
+                    <div class="cart-item-2">
+                        <p class="cart-item-price" data-index="${index}">${item.price}</p>
+                        <p>Jumlah: ${item.quantity}</p>
+                    </div>
+                    <button class="remove-item small-text-font" data-index="${index}">Hapus</button>
+                </div>
+                `;
+                cartContainer.append(cartItemHTML);
+            }
+        });
+
+    }
+
+    // Hapus item dari keranjang
+    $(document).on("click", ".remove-item", function () {
+        let index = $(this).data("index");
+        cart.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        location.reload();
+    });
+});
+
+
+    </script>
+
+</body>
+</html>

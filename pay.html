@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+     <!-- CSS -->
+     <link rel="stylesheet" href="style.css">
+     
+     <!-- Font & Icon -->
+     <link rel="stylesheet" href="plugin/animate.css">
+     <link rel="stylesheet" href="plugin/fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/css/all.css">
+ 
+     <!-- Google Font -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Parkinsans:wght@300..800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+ 
+     <!-- Flaticon -->
+     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-rounded/css/uicons-thin-rounded.css'>
+     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-straight/css/uicons-thin-straight.css'>  
+</head>
+<body>
+    <!-- Header -->
+    <header class="back-position black">
+        <a href="javascript:history.back()"><i class="fa-solid fa-arrow-left"></i></a>
+    </header>
+
+    <div class="checkout-container medium-text-font">
+        <!-- Summary Section -->
+        <div class="summary animated fadeInDown">
+            <h2 class="big-text-font">Checkout</h2>
+            <h1 id="total-amount" class="sub-heading-font ">Rp 0,00</h1>
+            <div id="cart-items">
+                <!-- Item keranjang akan dimasukkan di sini -->
+            </div>
+            <div class="total-due">
+                <p class="bold-weight">Total due</p>
+                <p id="total-due-amount" class="big-text-font bold-weight">Rp 0,00</p>
+            </div>
+        </div>
+
+        <!-- Payment Section -->
+        <div class="payment animated fadeInDown">
+            <h2 class="big-text-font">Pilih Metode Pembayaran</h2>
+            <div class="payment-section">
+                <h3 class="big-text-font bold-weight">E-Wallet</h3>
+                <div class="payment-options">
+                    <label>
+                        <input type="radio" name="ewallet" value="gopay">
+                        <img src="asset/gopay.png" alt="GoPay Icon" />
+                        Gopay
+                    </label>
+                    <label>
+                        <input type="radio" name="ewallet" value="shopeepay">
+                        <img src="asset/shopee.jpg" alt="ShopeePay Icon" />
+                        Shopeepay
+                    </label>
+                    <label>
+                        <input type="radio" name="ewallet" value="ovo">
+                        <img src="asset/ovo.webp" alt="OVO Icon" />
+                        OVO
+                    </label>
+                    <label>
+                        <input type="radio" name="ewallet" value="dana">
+                        <img src="asset/dana.jpg" alt="Dana Icon" />
+                        DANA
+                    </label>
+                </div>
+            </div>
+    
+            <!-- Virtual Account Payment Section -->
+            <div class="payment-section ">
+                <h3 class="big-text-font bold-weight">Virtual Account</h3>
+                <div class="payment-options">
+                    <label>
+                        <input type="radio" name="virtualaccount" value="bca">
+                        <img src="asset/BCA.jpg" alt="BCA Icon" />
+                        BCA Virtual Account
+                    </label>
+                    <label>
+                        <input type="radio" name="virtualaccount" value="mandiri">
+                        <img src="asset/mandiri.webp" alt="Mandiri Icon" />
+                        Mandiri Virtual Account
+                    </label>
+                </div>
+            </div>
+    
+            <!-- Submit Button -->
+            <button type="button" id="pay-btn" class="medium-text-font">Bayar</button>
+                
+        </div>
+    </div>
+
+    <!-- Pop-up Modal -->
+    <div class="overlay " id="overlay"></div>
+    
+    <div class="popup medium-text-font " id="popup">
+
+        <span class="close big-text-font" id="closeLogin">&times;</span>
+        <div>
+            
+            <h3 class="small-heading-font ">Pembayaran Berhasil!</h3>
+            <p>Terima kasih telah melakukan pembayaran.</p>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="plugin/jquery-1.7.1.min.js"></script>
+    <script src="data.js"></script>
+    <script>
+        let cart = JSON.parse(localStorage.getItem("selectedCart")) || [];
+        let shippingCost = 15000;
+
+        function parsePrice(priceString) {
+            return parseInt(priceString.replace(/[^\d]/g, ''));
+        }
+
+        function initializeCart() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            let total = 0;
+            cartItemsContainer.innerHTML = ''; 
+            cart.forEach(item => {
+                const itemPrice = parsePrice(item.price) / 100;
+                total += itemPrice * item.quantity;
+                let itemDiv = `
+                <div class="item">
+                    <div class="item-name bold-weight big-text-font">${item.title}</div>
+                    <div class="item-ticket ">${item.ticket}</div>
+                    <div class="item-price">Rp ${itemPrice.toLocaleString('id-ID')},00</div>
+                    <div class="item-quantity">Jumlah: ${item.quantity}</div>
+                </div>`;
+                cartItemsContainer.innerHTML += itemDiv;
+            });
+
+            let totalAmount = total;
+            document.getElementById('total-amount').innerText = `Rp ${total.toLocaleString('id-ID')},00`;
+            document.getElementById('total-due-amount').innerText = `Rp ${totalAmount.toLocaleString('id-ID')},00`;
+        }
+
+        // Inisialisasi cart pada load
+        initializeCart();
+
+        // Handle button click to show pop-up
+        $('#pay-btn').click(function() {
+            console.log('Pay button clicked'); 
+            $('#overlay, #popup').show(); 
+        });
+
+        // Handle close button to hide pop-up
+        $('#closeLogin').click(function() {
+            $('#overlay, #popup').hide(); 
+            window.location.href = "beranda.html";
+        });
+    </script>
+</body>
+</html>

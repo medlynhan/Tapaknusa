@@ -1,0 +1,248 @@
+/*  Wawasan Nusantara*/
+:root {
+    --red: rgb(169, 67, 76);
+    --yellow: rgb(245 221 63);
+    --cream: rgb(245 240 232);
+    --white:rgb(255, 255, 255);  
+    --black: rgb(51, 51, 51);
+    --grey: rgb(136, 136, 136); 
+}
+
+
+.hero-gamifikasi{
+    min-height: 10vh;
+    background: 
+    linear-gradient(rgba(51, 51, 51, 0.2), rgba(51, 51, 51, 0.2)), 
+    url('asset/wawasannusa.png') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 2em 4em;
+}
+
+.container-reward {
+    margin: 1em;
+    text-align: center;
+    color: var(--black);
+}
+
+
+.claim-point{
+    margin: 0em 5.1em;
+    padding-bottom: 0.5em;
+    text-align: left;
+}
+
+.title-reward {
+    padding-bottom:0.7em;
+    color: var(--red);
+    text-align: justify;
+    margin: 0em 1.8em;
+}
+
+.reward-tracker {
+    display: flex;
+    justify-content: space-around;
+    padding: 3em 0em;
+    background-color: var(--white);
+    border-radius: 0.5em;
+    margin: 0em 5em;
+}
+
+.reward-flex{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.day {
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    background-color: var(--yellow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.day.collected {
+    background-color: var(--grey);
+    transform: scale(1.2);
+}
+
+.total-coins {
+    margin-top: 1em;
+    font-weight: 600;
+}
+
+#kembaliButton, .button {
+    margin-top: 1em;
+    padding: 0.5em 2rem;
+    background: var(--red);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 2rem;
+    transition: all 0.3s ease-in-out;
+}
+
+#kembaliButton:hover, .button:hover {
+    transform: scale(1.05);
+}
+
+.reward-popup {
+    position: fixed;
+    bottom: 25%;
+    left: 35%;
+    transform: scale(0) translateX(-50%);
+    background-color: var(--white);
+    color: var(--black);
+    padding: 3em;
+    border-radius: 0.5em;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: all 0.5s ease;
+    z-index: 1000;
+
+}
+
+.extra-coins {
+    text-align: center;
+    color: var(--red);
+    padding-bottom: 4em;
+}
+
+.extra-coins h2 {
+    margin-bottom: 1em;
+    padding-top: 2em;
+    padding-left: 0.7em;
+}
+
+
+.game-image {
+    width: 85%;
+    border-radius: 0.5em;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease;
+}
+
+.game-image:hover {
+    transform: scale(1.05); /* Animasi hover untuk memperbesar sedikit */
+}
+
+.game-image:active {
+    transform: scale(0.95); /* Animasi ketika diklik untuk memberikan efek klik */
+    opacity: 0.8;
+}
+
+
+.quiz-container {
+    background-color: #fff;
+    padding: 1em;
+    border-radius: 0.5em;
+    margin: 2em auto;
+    width: 60%;
+    min-height: 90vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    color: var(--black);
+}
+
+
+
+.question {
+    padding: 2em 2em;
+
+}
+
+.quizh1{
+    text-align: center;
+}
+.question ul {
+    list-style: none;
+    padding: 0;
+}
+
+.question li {
+    background-color: var(--red);
+    color: white;
+    padding: 1em;
+    margin: 0.7em 0;
+    border-radius: 0.5em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.question li:hover {
+    background-color:rgb(111, 37, 43);
+}
+
+#totalCoinsDisplay {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+#result{
+    display: flexbox;
+    text-align: center;
+    gap: 2em;
+}
+
+#result p{
+    color: var(--red);
+}
+
+
+@keyframes moveRightZoomBackground {
+    0% { background-position: left center; background-size: 102%; }
+    100% { background-position: right center; background-size: 105%; }
+}
+
+.element {
+    animation: moveRightZoomBackground 5s linear infinite;
+}
+
+
+#user-info {
+    display: flex;
+    align-items: center;
+    background: #924E50; /* Warna merah yang sesuai */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    gap: 10px;
+}
+
+#user-points {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    color: black;
+    font-weight: bold;
+}
+
+#user-points img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+#user-info {
+    display: none; /* Awalnya disembunyikan */
+}
+
+#user-info.show {
+    display: flex;
+}
