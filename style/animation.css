@@ -1,0 +1,91 @@
+/*Scroll Behaviour*/
+html{
+    scroll-behavior: smooth;
+}
+
+
+/*Delay*/
+
+.delay-1s {
+    transition-delay: 1s;
+    animation-delay: 1s;
+}
+
+.delay-2s {
+    transition-delay: 2s;
+    animation-delay: 2s;
+}
+
+.delay-4s {
+    transition-delay: 4s;
+    animation-delay: 4s;
+}
+
+
+
+/*Keyframes*/
+@keyframes moveZoomBackground {
+    0% { background-position: center bottom; }
+    100% { background-position: center center;}
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.98);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown2 {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+
+
+
+.fadeInDown {
+    animation: fadeInDown 1s ease-out; 
+}
+
+.fadeInDown2 {
+    animation: fadeInDown 0.5s ease-out;
+}
+
+.typing-text {
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid white;
+    width: 0;
+    animation: typing 1.5s steps(20, end) forwards, blink 0.7s ;
+}
+
+

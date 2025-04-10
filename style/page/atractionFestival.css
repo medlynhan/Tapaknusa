@@ -1,0 +1,368 @@
+/*Hero Section*/
+.hero-atraction, .hero-festival, .hero-culture {
+    min-height: 80vh;
+    background: 
+    linear-gradient(rgba(51, 51, 51, 0.2), rgba(51, 51, 51, 0.2)), 
+    url('../../asset/atraksi.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    animation: moveZoomBackground 20s infinite alternate ease-in-out;
+    padding-top: 5em ;
+}
+
+.hero-festival{
+    background: 
+    linear-gradient(rgba(51, 51, 51, 0.2), rgba(51, 51, 51, 0.2)), 
+    url('../../asset/festival.jpg') no-repeat center center/cover;   
+}
+
+.hero-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    justify-items: flex-start;
+    gap: 2em;
+
+}
+
+
+.search-box{
+    padding-top: 1em;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 0.2fr 0.2fr;
+    gap: 0.5em;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    align-items: center ;
+    
+}
+
+
+.search-container{
+    width: 100%; ;
+    display: grid;
+    grid-template-columns: 1.5fr 0.2fr;
+    background-color: var(--white);
+    border: 0.1em solid transparent;
+    border-radius: 2em;
+    
+
+}
+
+
+.location-ddl{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    justify-content: center;
+    justify-items: center;
+    align-content: start;
+    align-items: start;
+    position: relative;
+   
+}
+
+
+.location-choices{
+    display: grid;
+    align-items: center;
+    align-content:center ;
+    background-color: none;
+    border: 0.15em solid var(--white);
+    border-radius:2em;
+    padding: 0.4em 1.5em;
+}
+
+
+.location-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(51, 51, 51, 0.5); 
+    backdrop-filter: blur(5px);
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.locationSelect{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    border-radius: 0.5em;
+    outline: none; 
+    position: relative;
+    padding : 2em;
+    max-width: 80%;
+    max-height: 80%;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+
+}
+
+.location-header{
+    display: grid;
+    grid-template-columns: 95% 5%;
+    align-items: center;
+    align-content: center;
+    justify-items: start;
+    justify-content: start;
+}
+
+.close-location{
+    font-size: 3em;
+}
+
+.location-grid{
+    width: 100%;
+    opacity: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 20%));
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3em;
+    overflow: hidden;
+
+}
+
+
+
+
+.location-grid .culture-card{
+    background-color: var(--white);
+}
+
+
+
+.search-box input {
+    padding: 0.7em;
+    padding-left: 1em;
+    width: 90%;
+    border: none;
+    border-radius: 2em;
+    outline: none;
+}
+
+.date-picker-container{
+    width: 100%;
+    height: 100%;
+    border-radius: 2em;
+    padding-left: 2em;
+    padding-right: 1em;
+    position: relative;
+    display: flex;
+    justify-items: flex-end;
+    align-items: center;
+    gap: 2em;
+}
+
+.date-picker{
+    border: 1em  solid var(--black);
+    opacity:0;
+    z-index: 500;
+    position: absolute;
+    top: 50;
+    left: 0;
+    background-color: transparent;
+    
+}
+
+.calendar-icon{
+    z-index: 300;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.btn-search{
+    padding: 0.7em 1.8em;
+    background: var(--red);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 2em;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-search:hover {
+    transform: scale(1.05);
+    
+}
+
+
+
+/* Explore Festival + Atraction Section */
+
+.explore-text{
+    padding: 4em 0em;
+    color: var(--black);
+    text-align: left;
+}
+
+.explore-content{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    padding-top: 5em;
+}
+
+.explore-text h2 {
+    margin-bottom: 0.5em;
+}
+
+.explore-text a{
+    text-decoration: underline;
+}
+
+.explore-addition{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lihat-lanjut{
+    margin-top: 2em;
+    padding: 0.5em 1.8em;
+    color: var(--red);
+    border: 0.1em solid var(--red) ;
+    cursor: pointer;
+    border-radius: 0.2em;
+    width: 20%;
+}
+
+.lihat-lanjut p{
+    text-align: center;
+    text-align: center;
+}
+
+
+
+
+
+/*Culture Section */
+
+.culture-section{
+    padding-top: 5em;
+    padding-bottom: 7em;
+}
+
+.culture-grid {
+    width: 100%;
+    opacity: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    justify-content: center;
+    align-items: center;
+    margin-top: 3em;
+    overflow: hidden;
+}
+
+
+
+.culture-card {
+    background-color: var(--cream);
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+    position: relative;
+    padding: 0.5em;
+    box-shadow: none;
+}
+
+
+.culture-card img {
+    height:100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+    transform-origin: bottom;
+    border-radius: 0.2em;
+}
+
+.label {
+    position: absolute;
+    top: 0.8em;
+    left:0.8em;
+    background: var(--red);
+    color: var(--white);
+    padding: 0.3em 0.3em;
+    border-radius: 0.2em;
+}
+
+.info {
+    position: absolute;
+    top: 3.2em;
+    left: 0.8em;
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--white);
+    padding: 0.3em 0.3em;
+    border-radius: 0.2em;
+}
+
+
+/*Advertisment Section*/
+.advertisment-section {
+    padding-top: 5em;
+}
+
+.advertisment-section img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+    transform-origin: bottom;
+    border-radius: 0.2em;
+}
+
+
+@media only screen and (min-width: 1600px) {
+    
+}
+
+@media only screen and (max-width: 1599px) and (min-width: 1400px) {
+}
+
+@media only screen and (max-width: 1399px) and (min-width: 1200px) {
+}
+
+@media only screen and (max-width: 1199px) {
+    
+
+
+    .header-date-picker-container{
+        padding: 0em 0.5em;
+    }
+
+    .hero{
+        min-height: 80vh;
+    }
+
+    
+    
+
+}
+
+@media only screen and (max-width: 767px) {
+}
+
+@media only screen and (max-width: 540px) {
+    .culture-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+
+    .location-grid{
+        grid-template-columns: repeat(auto-fit, minmax(80px, 20%));
+
+    }
+}
+

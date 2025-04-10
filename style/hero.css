@@ -1,0 +1,32 @@
+.hero {
+    min-height: 100vh;
+    background: 
+    linear-gradient(rgba(51, 51, 51, 0.2), rgba(51, 51, 51, 0.2)), 
+    url('../asset/bali background.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    animation: moveZoomBackground 20s infinite alternate ease-in-out;
+    padding-top: 5em ;
+}
+
+.hero-half{
+    min-height: 60vh;
+}
+
+.hero-mitra{
+    min-height: 60vh;
+    background: 
+    linear-gradient(rgba(51, 51, 51, 0.2), rgba(51, 51, 51, 0.2)), 
+    url('../asset/mitra.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 2em 4em;
+}
+
+.hero-content{
+    width: 100%;
+}

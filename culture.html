@@ -1,332 +1,439 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Culture - Tapaknusa</title>
-        <!--css-->
-        <link rel="stylesheet" href="style.css">
+    <title>Tapaknusa - Atraction</title>
+    <!--css-->
+    <link rel="stylesheet" href="style/animation.css">
+    <link rel="stylesheet" href="style/carousel.css">
+    <link rel="stylesheet" href="style/font.css">
+    <link rel="stylesheet" href="style/headerFooter.css">
+    <link rel="stylesheet" href="style/layout.css">
 
-        <!--css font, jquery-->
-        <link rel="stylesheet" href="plugin/animate.css">
-        <link rel="stylesheet" href="plugin/fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/css/all.css">
-    
-    
-        <!--google font-->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    
-        <!--flaticon-->
-        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-rounded/css/uicons-thin-rounded.css'>
-        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-straight/css/uicons-thin-straight.css'>
+
+
+    <!--css atraction-->
+    <link rel="stylesheet" href="style/page/atractionFestival.css">
+
+    <!--css font, jquery-->
+    <link rel="stylesheet" href="plugin/animate.css">
+    <link rel="stylesheet" href="plugin/fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/css/all.css">
+
+
+    <!--google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+
+
+    <!--flaticon-->
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+
 </head>
 <body class="medium-text-font">
+    <!--Header-->
+    <header class="fadeInDown">
+        <!--Container 1-->
+        <div class="container1 page-padding-left-right">
+            <a class="small-heading-font logo" href="home.html"><h1 class="big-text-font"><span class="big-text-font"><i class="fi fi-rr-island-tropical"></i></span>apaknusa</h1></a>
+            
+            <div class="header-search-box black medium-text-font">
+                <div class="header-search-container">
+                    <!--Search-->
+                    <input type="text" id="header-search-input" class=" black medium-text-font" placeholder="Cari atraksi...">
+                    <!--Dropdown list-->  
+                    <div class="header-date-picker-container">
+                        <input type="date" class="header-date-picker" onClick="change">
+                        <p class="header-this-day-date black"></p>
+                        <i class="fi fi-br-calendar big-text-font black"></i>
+                    </div> 
+                </div>
+                <!--Submit button-->
+                <button class="header-btn-search medium-text-font">Cari</button>
+            </div>
 
-    <header class="animated fadeInDown">
-        <div class="container1">
-            <a href="beranda.html"><h1 class="logo sub-heading-font"><span class="big-text-font"><i class="fi fi-tr-island-tropical"></i></i></span>apaknusa</h1></a>
-            <nav class="big-text-font">
+
+
+            <nav class="big-text-font icon">
                 <ul class="hover-color">
                     <li><a href="mitra.html"><i class="fa-regular fa-handshake"></i></a></li>
                     <li><a href="cart.html"><i class="fa fa-cart-shopping"></i></a></li>                    
                 </ul>
             </nav>
+            <!--Login SignIn Button-->
             <div class="toggle-btn">
                 <button class="btn-login active medium-text-font" id="openLogin">Login</button>
-                <button class="btn-signin medium-text-font" id="openSignin">SignUp</button>
+                <button class="btn-signin medium-text-font" id="openSignUp">SignUp</button>
             </div>
-            <div class="burger-menu">
+            <!--Burger Menu Header Icon-->
+            <div class="burger-menu big-text-font">
                 <i class="fa-solid fa-bars medium-text-font"></i>
-            </div>   
+            </div>    
         </div>
-        <div class="container2">
-            <nav class="medium-text-font">
+        <!--Container 2-->
+        <div class="container2 page-padding-left-right">
+            <nav>
                 <ul>
-                    <li><a href="atraksi.html">Atraksi</a></li>
-                    <li><a href="festival.html">Festival</a></li>
-                    <li><a href="wawasannusantara.html">Wawasan Nusantara</a></li>
+                    <li ><a class="medium-text-font" href="atraction.html">Atraksi</a></li>
+                    <li ><a class="medium-text-font" href="festival.html">Festival</a></li>
+                    <li ><a class="medium-text-font" href="gamification.html">Wawasan Nusantara</a></li>
                 </ul>
             </nav>         
-        </div>
+        </div>    
     </header>
+
+
+    <!--Burger Menu Open-->
+    <div class="burger-modal" id="burgerModal">
+        <div class="burger-menu-open"> 
+            <div class="burger-menu-open-title">
+                <h2 class="small-heading-font">Menu</h2>
+                <span class="close-burger" id="closeBurger">&times;</span>
+            </div>
+
+            <div class="burger-menu-open-list">
+                <p><a class="medium-text-font " href="cart.html">Keranjang Belanja</a></p>
+                <p><a class="medium-text-font " href="atraction.html">Atraksi</a></p>
+                <p><a class="medium-text-font " href="festival.html">Festival</a></p>
+                <p><a class="medium-text-font " href="gamification.html">Wawasan Nusantara</a></p>
+                <p><a class="medium-text-font " href="patner.html">Mitra & Kolaborasi</a></p>
+
+
+                <div  class="login-signup-menu">
+                    <p  class="medium-text-font " id="openLogin" >Login</p>
+                    <p  class="medium-text-font " id="openSignUp" >SignUp</p>
+                </div>
+
+            </div>  
+
+        </div>
+    </div> 
+
+
+
+    <!-- Hero Section -->
+    <section class="hero-culture" >
+        <div class="hero-content fadeInDown page-padding-left-right  ">
+            <h2 class="sub-heading-font"></h2>
+        
+            <div class="search-box black medium-text-font fadeInDown delay-4s ">
+                <div class="search-container">
+                    <!--Search-->
+                    <input type="text" id="search-input" class=" black medium-text-font" placeholder="Cari atraksi...">
+                    <!--Dropdown list-->  
+                    <div class="date-picker-container">
+                        <input type="date" class="date-picker" onClick="change">
+                        <p class="this-day-date black"></p>
+                        <div class="calendar-icon">
+                            <i class="fi fi-br-calendar calendar-icon big-text-font black"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="location-ddl fadeInDown delay-4s">
+                    <div class="location-choices">
+                            <i class="fi fi-br-marker big-text-font white"></i>
+                    </div>
+                    <div class="location-modal fadeInDown2">
+                        <div class="locationSelect medium-text-font white">
+                            <div class="location-header">
+                                <h2 class="superbig-text-font black">Pilih Destinasi Lokasi</h2>
+                                <span class="close-location black">&times;</span>
+                            </div>
+                            <div class="location-grid thin">
+                                <div class="culture-card card1" data-attribute="Yogyakarta">
+                                    <img src="asset/yogyakarta.jpg" alt="Yogyakarta" loading="lazy">
+                                    <div class="label">Yogyakarta</div>
+                                    <div class="info">21 Aktivitas</div>
+                                </div>
+                                <div class="culture-card card2" data-attribute="Sumatera">
+                                    <img src="asset/sumatera.jpg" alt="Sumatera" loading="lazy">
+                                    <div class="label">Sumatera</div>
+                                    <div class="info ">13 Aktivitas</div>
+                                </div>
+                                <div class="culture-card card3" data-attribute="Pulau Bali">
+                                    <img src="asset/pulau-bali.jpg" alt="Bali" loading="lazy">
+                                    <div class="label">Bali</div>
+                                    <div class="info">26 Aktivitas</div>
+                                </div>
+                                <div class="culture-card card4" data-attribute="Kalimantan">
+                                    <img src="asset/kalimantan.jpg" alt="Kalimantan" loading="lazy">
+                                    <div class="label">Kalimantan</div>
+                                    <div class="info">15 Aktivitas</div>
+                                </div>
+                                <div class="culture-card card5" data-attribute="Jawa Timur">
+                                    <img src="asset/jawa-timur.jpg" alt="Jawa Timur" loading="lazy">
+                                    <div class="label">Jawa Timur</div>
+                                    <div class="info">9 Aktivitas</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Submit button-->
+                <button class="btn-search medium-text-font">Cari</button>
+            </div>
+    </section>
+
+
+
 
     <!-- Login Section -->
     <div class="login-modal" id="loginModal">
         <div class="login-content">
             <span class="close" id="closeLogin">&times;</span>
-            <h2 class="small-heading-font">Hi, Sahabat Nusa!</h2>
+            <h2 class="small-heading-font black">Hi, Sahabat Nusa!</h2>
             <p class="small-text-font">Temukan 1001 keindahan, budaya, dan sejarah di berbagai sudut Indonesia </p>
             
             <form class="small-text-font">
-                <input type="text" placeholder="First name" required>
-                <input type="text" placeholder="Last name" required>
-                <input type="email" placeholder="Email" required>
+                <input class="small-text-font black" type="text" placeholder="First name" required>
+                <input class="small-text-font black" type="text" placeholder="Last name" required>
+                <input class="small-text-font black" type="email" placeholder="Email" required>
                 
                 <label >Birthday</label>
-                <div class="birthday-inputs">
+                <div class="birthday-inputs small-text-font">
                     <input type="text" placeholder="MM" required>
                     <input type="text" placeholder="DD" required>
                     <input type="text" placeholder="YYYY" required>
                 </div>
     
-                <button type="submit" class="submit-btn small-text-font">Submit</button>
+                <button type="submit" class="btn-login-content small-text-font">Submit</button>
             </form>
         </div>
     </div>
 
-    <!-- SignIn Section -->
-    <div class="signin-modal" id="signinModal">
-        <div class="signin-content">
-            <span class="close" id="closeSignIn">&times;</span>
-            <h2 class="small-heading-font">Selamat datang kembali!</h2>
+    <!-- SignUp Section -->
+    <div class="signUp-modal" id="signUpModal">
+        <div class="signUp-content">
+            <span class="close" id="closeSignUp">&times;</span>
+            <h2 class="small-heading-font black">Selamat datang kembali!</h2>
             <p class="small-text-font">Temukan 1001 keindahan, budaya, dan sejarah di berbagai sudut Indonesia </p>
             
-            <form class="small-text-font">
-                <input type="text" placeholder="First name" required>
-                <input type="email" placeholder="Email" required>
+            <form >
+                <input class="small-text-font black" type="text" placeholder="First name" required>
+                <input class="small-text-font black" type="email" placeholder="Email" required>
     
                 
-                <button type="submit" class="submit-btn small-text-font">Submit</button>
+                <button type="submit" class="btn-signUp-content small-text-font">Submit</button>
             </form>
         </div>
     </div>
 
+    <!-- Explore Atraction Section -->
 
-    <nav class="burger-menu-open medium-text-font">
-        <ul>
-            <li id="openLogin" >Login</li>
-            <li id="openSignin" >SignIn</li>
-            <li><a href="atraksi.html">Atraksi</a></li>
-            <li><a href="festival.html">Festival</a></li>
-            <li><a href="wawasannusantara.html">Wawasan Nusantara</a></li>
-            <li><a href="mitra.html">Mitra & Kolaborasi</a></li>
-        </ul>
-    </nav>   
+    <section class="page-padding-left-right" id="top-atraction" >
+        <div class="explore-content">
+            <p class="superbig-text-font black">
+                <i class="fi fi-bs-castle supersmall-heading-font black"></i> Atraksi Untuk Kamu
+            </p>            
+            <p class="medium-text-font black">Top Atraksi Unik yang harus kamu rasain</p>
+            <!--Carousell-->
 
-    <!-- Hero Section -->
-    <section class="hero hero-half" style="background: url('asset/yogyakarta.jpg') no-repeat center center/cover;">
-        <div class="hero-content animated fadeInDown delay-1s">
-            <h2 class="heading-font title typing-text2 ">Yogyakarta</h2>
-            <div class="search-box">
-                <input type="text" id="search-input" class="medium-text-font" placeholder="Atraksi / Festival apa yang kamu cari ?">
-                <button id="search-btn" class="btn-search medium-text-font ">Cari</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Atraksi -->
-    <section class="attractions ">
-        <h2 class="small-heading-font title">Jelajahi Atraksi Budaya </h2>
-        <div class="carousel-container">
-            <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
             <div class="carousel">
-                <div class="cards-container"></div>
+                <button class="prev-btn"><i class="fas fa-chevron-left white big-text-font"></i></button>
+                <div class="content">
+                    <div class="cards-atraksi medium-text-font"></div>
+                </div>
+                <button class="next-btn"><i class="fas fa-chevron-right  white big-text-font"></i></button>
             </div>
-            <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
         </div>
     </section>
 
-    <script src="plugin/jquery-1.7.1.min.js"></script>
-    <script src="data.js"></script>
-    <script src="header.js"></script>
-    <script>
-        $(document).ready(function () {
-            const container = $(".cards-container");
-            const prevBtn = $(".prev-btn");
-            const nextBtn = $(".next-btn");
-            const carousel = $(".carousel");
-            const titleSection = $(".hero-content h2");
 
-            // Ambil query parameter dari URL
-            function getQueryParam(name) {
-                let params = new URLSearchParams(window.location.search);
-                return params.get(name);
-            }
+    <section class="page-padding-left-right page-padding-bottom" id="top-festival" >
+        <div class="explore-content">
+            <p class="superbig-text-font black">
+                <i class="fi fi-bs-stage-concert supersmall-heading-font black"></i> Festival Untuk Kamu
+            </p>            
+            <p class="medium-text-font black">Top Festival Unik yang harus kamu rasain</p>
+            <!--Carousell-->
 
-            let destination = getQueryParam("destination");
-            
-            if (!destination) {
-                destination = "Indonesia"; // Default jika tidak ada parameter
-            }
-
-            // Ubah judul halaman berdasarkan destinasi
-            titleSection.text(destination);
-
-            // **Filter Data berdasarkan Destinasi**
-            let filteredData = wisataBudaya.filter(item => item.destination === destination);
-
-            // **Ganti Background Hero Sesuai Destinasi**
-            $(".hero").css("background", `url('asset/${destination.toLowerCase().replace(/ /g, "-")}.jpg') no-repeat center center/cover`);
-
-            function generateCards(data) {
-                container.empty();
-                if (data.length === 0) {
-                    titleSection.text("Maaf, tidak ada aktivitas yang tersedia untuk " + destination);
-                    return;
-                }
-
-                data.forEach(item => {
-                    let card = `
-                        <div class="card">
-                            <img src="${item.image}" alt="${item.title}" loading="lazy">
-                            <h3>${item.title}</h3>
-                            <p>⭐⭐⭐⭐⭐ ${item.rating} (${item.reviews.length})</p>
-                            <p class="price">${item.startPrice}</p>
-                        </div>
-                    `;
-                    container.append(card);
-                });
-
-                updateButtons();
-            }
-
-            // **Load Data Sesuai Destinasi**
-            generateCards(filteredData);
-
-            function updateButtons() {
-                let scrollLeft = carousel.scrollLeft();
-                let maxScroll = carousel[0].scrollWidth - carousel[0].clientWidth;
-                
-                prevBtn.toggle(scrollLeft > 0);
-                nextBtn.toggle(scrollLeft < maxScroll);
-            }
-
-            // **Carousel Navigation**
-            nextBtn.click(function () {
-                carousel.animate({ scrollLeft: "+=500px" }, "smooth", updateButtons);
-            });
-
-            prevBtn.click(function () {
-                carousel.animate({ scrollLeft: "-=500px" }, "smooth", updateButtons);
-            });
-
-            carousel.on("scroll", updateButtons);
-            updateButtons(); // Jalankan update tombol saat pertama kali halaman dimuat
-
-            // **Search Function**
-            $("#search-btn").click(function () {
-                let searchText = $("#search-input").val().toLowerCase();
-
-                // Jika input kosong, tampilkan semua
-                if (searchText.trim() === "") {
-                    titleSection.text(destination);
-                    generateCards(filteredData);
-                    return;
-                }
-
-                // **Tampilkan Loading**
-                $("#search-btn").html("<i class='fi fi-ss-dots-loading loading-icon'></i>");
-
-                setTimeout(() => {
-                    let searchedData = filteredData.filter(item =>
-                        item.title.toLowerCase().includes(searchText) ||
-                        item.status.toLowerCase().includes(searchText)
-                    );
-
-                    if (searchedData.length === 0) {
-                        titleSection.text("Maaf, tidak ditemukan.");
-                        container.empty();
-                    } else {
-                        titleSection.text("Hasil Pencarian");
-                        generateCards(searchedData);
-                    }
-
-                    // **Kembalikan Tombol Setelah Pencarian Selesai**
-                    $("#search-btn").html("Cari");
-                }, 3000);
-            });
-
-            // **Enter Key untuk Pencarian**
-            $("#search-input").keypress(function (e) {
-                if (e.which === 13) {
-                    $("#search-btn").click();
-                }
-            });
-
-
-             $(".btn-login").click(function () {
-                $(".toggle-btn").removeClass("active");
-            });
-
-            $(".btn-signin").click(function () {
-                $(".toggle-btn").addClass("active");
-            });
-            
-
-
-            //login
-            $("#openLogin").click(function () {
-                setTimeout(function () {
-                    $("#loginModal").fadeIn();
-                    $("#loginModal").css("display", "flex");
-                }, 300);
-            });
-
-
-            // Ketika tombol close (X) diklik
-            $("#closeLogin").click(function () {
-                $("#loginModal").fadeOut();
-            });
-
-            // Jika klik di luar modal
-            $(window).click(function (event) {
-                if ($(event.target).is("#loginModal")) {
-                    $("#loginModal").fadeOut();
-                }
-            });
-
-
-
-            //signin
-            $("#openSignin").click(function () {
-                setTimeout(function () {
-                $("#signinModal").fadeIn();
-                $("#signinModal").css("display","flex");
-                },300);
-            });
-
-            // Ketika tombol close (X) diklik
-            $("#closeSignIn").click(function () {
-                $("#signinModal").fadeOut();
-            });
-
-
-            $(".btn-closing").click(function () {
-                setTimeout(function () {
-                    $("#loginModal").fadeIn();
-                    $("#loginModal").css("display", "flex");
-                }, 300);
-            });
-            // Jika klik di luar modal
-            $(window).click(function (event) {
-                if ($(event.target).is("#signinModal")) {
-                    $("#signInModal").fadeOut();
-                }
-            });
-
-            $(window).bind("scroll", function () {
-                if ($(window).scrollTop() > 0) {
-                    $("header").addClass("scrolled"); // Tambahkan class saat discroll
-                } else {
-                    $("header").removeClass("scrolled"); // Hapus class jika kembali ke atas
-                }
-            });
-
-            //header
-
-            $(window).bind("scroll", function () {
-                if ($(window).scrollTop() > 0) {
-                    $("header").addClass("scrolled"); // Tambahkan class saat discroll
-                } else {
-                    $("header").removeClass("scrolled"); // Hapus class jika kembali ke atas
-                }
-            });  
-
-            });
-        
+            <div class="carousel">
+                <button class="prev-btn"><i class="fas fa-chevron-left white big-text-font"></i></button>
+                <div class="content">
+                    <div class="cards-atraksi medium-text-font"></div>
+                </div>
+                <button class="next-btn"><i class="fas fa-chevron-right  white big-text-font"></i></button>
+            </div>
+        </div>
+    </section>
+ 
 
  
+        
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="footer-container page-padding-left-right">
+            <div class="footer-content">
+                <h2 class="small-heading-font">Get in touch <i class="fi fi-rr-island-tropical big-text-font"></i></h2>
+                <div  class="footer-social-media">
+                    <i class="fi fi-brands-instagram big-text-font"></i><i class="fi fi-brands-facebook big-text-font"></i><i class="fi fi-brands-tik-tok big-text-font"></i>
+                </div>
+                <p class="medium-text-font">helo@tapaknusa.com</p>
+            </div>
+            <div class="footer-categories"> 
+                <div class="footer-links">
+                    <ul>
+                        <li><a class="medium-text-font bold" href="atraction.html">Atraksi</a></li>
+                        <li><a class="medium-text-font" href="festival.html">Yogyakarta</a></li>
+                        <li><a class="medium-text-font" href="patner.html">Bali</a></li>
+                        <li><a class="medium-text-font" href="gamification.html">Jawa Timur</a></li>
+                        <li><a class="medium-text-font" href="patner.html">Sumatera</a></li>
+                        <li><a class="medium-text-font" href="patner.html">Kalimantan</a></li>
+                        <li><a class="medium-text-font" href="patner.html">NTT</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a class="medium-text-font bold" href="festival.html">Festival</a></li>
+                        <li><a class="medium-text-font" href="festival.html">Yogyakarta</a></li>
+                        <li><a class="medium-text-font" href="patner.html">Bali</a></li>
+                        <li><a class="medium-text-font" href="gamification.html">Jawa Timur</a></li>
+                        <li><a class="medium-text-font" href="patner.html">Sumatera</a></li>
+                        <li><a class="medium-text-font" href="patner.html">Kalimantan</a></li>
+                        <li><a class="medium-text-font" href="patner.html">NTT</a></li>
+                    </ul>
+                </div>                       
+                <div class="footer-links">
+                    <ul>
+                        <li><a class="medium-text-font bold" href="atraction.html">Lainnya</a></li>
+                        <li><a class="medium-text-font" href="festival.html">Wawasan Nusantara</a></li>
+                        <li><a class="medium-text-font" href="patner.html">Mitra & Kolaborasi</a></li>
+                        <li><a class="medium-text-font" href="patner.html">Kontak</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom ">
+            <p class="medium-text-font">© 2025 Tapaknusa. Made in Tangerang, Indonesia</p>
+        </div>
+    </footer>
+
+
+    <div class="search-modal"></div>
+
+    <script src="js/jquery-1.7.1.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/searchBox.js"></script>
+    <script src="js/carousell.js"></script>
+    
+    <script>
+     $(document).ready(function () {
+
+        console.log("test");
+
+        headerScroll();
+        loginRegister();
+
+        menuPopUp();
+
+        dateCek($(".date-picker"),$(".this-day-date"));
+        dateCek($(".header-date-picker"),$(".header-this-day-date"));
+
+
+        searchBoxHeader();
+        hideContainer2();
+
+
+        getDetailCultureTopAtractionData($("#top-atraction .cards-atraksi"));
+        carousellButton($("#top-atraction .cards-atraksi"),$("#top-atraction .prev-btn"),$("#top-atraction .next-btn") );
+        clickCardContent("#top-atraction .cards-atraksi .card", "detailAtraction");
+
+
+        getDetailCultureTopFestivalData($("#top-festival .cards-atraksi"));
+        carousellButton($("#top-festival .cards-atraksi"),$("#top-festival .prev-btn"),$("#top-festival .next-btn") );
+        clickCardContent("#top-festival .cards-atraksi .card", "detailAtraction");
+        
+    
+        clickCardContent(".culture-card", "culture");
+
+        function responsiveHero(){
+
+            function applyResponsiveHero(){             
+                if ($(window).width() > $(window).height()){//laptop
+                    $(".hero-culture ").css({"min-height":"70vh"});
+                }else{
+                    if ($(window).width() * 1.5 >  ($(window).height())){ //ipad
+                        $(".hero-culture ").css({"min-height":"45vh"});
+                    }else if ($(window).width() * 1.5  < ($(window).height())){ //phone
+                        $(".hero-culture ").css({"min-height":"40vh"});
+                    }
+                }
+
+            }
+
+            applyResponsiveHero();
+            $(window).on("resize",applyResponsiveHero);
+            }
+
+        responsiveHero();
+
+
+        function selectLocation(){
+            $(".location-choices").click(function(){
+                $(".location-modal").toggle();
+            });
+
+            $(".close-location").click(function(){
+                $(".location-modal").hide();
+            });
+
+            $(document).click(function (e) {
+                if (!$(e.target).closest(".location-choices, .locationSelect").length) {
+                    $(".location-modal").hide();
+                }
+            });
+
+        }
+
+        selectLocation();
+
+
+        
+        let urlParams = new URLSearchParams(window.location.search); 
+        let searchQueryItem = urlParams.get("find") || "";
+        $(".hero-culture h2").text(searchQueryItem);
+
+        let heroCultureImage = searchQueryItem.toLowerCase().replace(/\s+/g, '-');
+
+        $(".hero-culture").css("background", `url("asset/${heroCultureImage}.jpg")`);
+
+        
+
+        $(".hero-culture .btn-search").click(function () {
+            let searchQuery = $(".hero-culture #search-input").val();
+            let tempDate = $(" .hero-culture .date-picker").val();
+                $(".hero-culture .date-picker").val("");
+                $(".hero-culture .search-container input").val("");
+
+                window.location.href = "searchResult.html?find=" + encodeURIComponent(searchQuery) + "&status=all&tanggal=" + tempDate;
+
+            
+        });
+
+        
+        
+    });  
+
     </script>
+
+
 </body>
 </html>

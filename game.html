@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Nusantara</title>
+       <!--css-->
+       <link rel="stylesheet" href="style.css">
+       <link rel="stylesheet" href="gamifikasi.css">
+
+       <!--css font, jquery-->
+       <link rel="stylesheet" href="plugin/animate.css">
+       <link rel="stylesheet" href="plugin/fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/css/all.css">
+   
+   
+       <!--google font-->
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+   
+       <!--flaticon-->
+       <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-rounded/css/uicons-thin-rounded.css'>
+</head>
+<body class="medium-text-font">
+
+    <header class="back-position black">
+        <a href="javascript:history.back()"><i class="fa-solid fa-arrow-left"></i></a>
+    </header>
+    
+    <div class="quiz-container animated fadeInDown">
+        <h1 class="quizh1 sub-heading-font">Kuis Nusantara</h1>
+        <div id="totalCoinsDisplay" class="bold-weight">Total Koin: <span id="totalCoins">0</span></div>
+
+        <!-- Soal 1 -->
+        <div class="question animated fadeInDown delay-1s" id="question1">
+            <h2 class="small-heading-font">1. Apa ibukota Indonesia?</h2>
+            <ul>
+                <li data-answer="A">A. Kalimantan</li>
+                <li data-answer="B">B. Jakarta</li>
+                <li data-answer="C">C. Surabaya</li>
+                <li data-answer="D">D. Medan</li>
+            </ul>
+        </div>
+
+        <!-- Soal 2 -->
+        <div class="question" id="question2" style="display: none;">
+            <h2 class="small-heading-font">2. Gunung tertinggi di Indonesia?</h2>
+            <ul>
+                <li data-answer="A">A. Gunung Bromo</li>
+                <li data-answer="B">B. Gunung Semeru</li>
+                <li data-answer="C">C. Puncak Jaya</li>
+                <li data-answer="D">D. Gunung Rinjani</li>
+            </ul>
+        </div>
+
+        <!-- Soal 3 -->
+        <div class="question" id="question3" style="display: none;">
+            <h2 class="small-heading-font">3. Pulau terbesar di Indonesia?</h2>
+            <ul>
+                <li data-answer="A">A. Pulau Sumatera</li>
+                <li data-answer="B">B. Pulau Kalimantan</li>
+                <li data-answer="C">C. Pulau Jawa</li>
+                <li data-answer="D">D. Pulau Sulawesi</li>
+            </ul>
+        </div>
+
+        <!-- Soal 4 -->
+        <div class="question" id="question4" style="display: none;">
+            <h2 class="small-heading-font">4. Danau terbesar di Indonesia?</h2>
+            <ul>
+                <li data-answer="A">A. Danau Toba</li>
+                <li data-answer="B">B. Danau Sentani</li>
+                <li data-answer="C">C. Danau Maninjau</li>
+                <li data-answer="D">D. Danau Kelimutu</li>
+            </ul>
+        </div>
+
+        <!-- Soal 5 -->
+        <div class="question" id="question5" style="display: none;">
+            <h2 class="small-heading-font">5. Ibu kota provinsi Jawa Barat?</h2>
+            <ul>
+                <li data-answer="A">A. Bogor</li>
+                <li data-answer="B">B. Depok</li>
+                <li data-answer="C">C. Bekasi</li>
+                <li data-answer="D">D. Bandung</li>
+            </ul>
+        </div>
+
+        <!-- Akhir -->
+        <div class="question" id="result" style="display: none;">
+            <h2 class="big-text-font">Terima Kasih Telah Mengikuti Kuis!</h2>
+            <p>Total Koin Anda: <span id="finalCoins">0</span></p>
+            <button id="kembaliButton" class="medium-text-font" onclick="kembaliKeHalamanUtama()">Kembali ke Halaman Utama</button>
+        </div>
+    </div>
+
+<script src="plugin/jquery-1.7.1.min.js"></script>
+<script src="gamifikasi.js"></script>
+</body>
+</html>

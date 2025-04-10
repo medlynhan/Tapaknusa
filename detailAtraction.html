@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tapaknusa - Atraction</title>
+    <!--css-->
+    <link rel="stylesheet" href="style/animation.css">
+    <link rel="stylesheet" href="style/carousel.css">
+    <link rel="stylesheet" href="style/font.css">
+    <link rel="stylesheet" href="style/headerFooter.css">
+    <link rel="stylesheet" href="style/layout.css">
+
+
+
+    <!--css atraction-->
+    <link rel="stylesheet" href="style/page/detailAtraction.css">
+
+    <!--css font, jquery-->
+    <link rel="stylesheet" href="plugin/animate.css">
+    <link rel="stylesheet" href="plugin/fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/css/all.css">
+
+
+    <!--google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+
+
+    <!--flaticon-->
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+
+</head>
+<body class="medium-text-font">
+    <!--Header-->
+    <header class="fadeInDown2">
+        <!--Container 1-->
+        <div class="container1 page-padding-left-right">
+            <a class="small-heading-font logo" href="home.html"><h1 class="big-text-font"><span class="big-text-font"><i class="fi fi-rr-island-tropical"></i></span>apaknusa</h1></a>
+            
+            <div class="header-search-box black medium-text-font">
+                <div class="header-search-container">
+                    <!--Search-->
+                    <input type="text" id="header-search-input" class=" black medium-text-font" placeholder="Cari atraksi...">
+                    <!--Dropdown list-->  
+                    <div class="header-date-picker-container">
+                        <input type="date" class="header-date-picker" onClick="change">
+                        <p class="header-this-day-date black"></p>
+                        <i class="fi fi-br-calendar big-text-font black"></i>
+                    </div> 
+                </div>
+                <!--Submit button-->
+                <button class="header-btn-search medium-text-font">Cari</button>
+            </div>
+
+
+
+            <nav class="big-text-font icon">
+                <ul class="hover-color">
+                    <li><a href="mitra.html"><i class="fa-regular fa-handshake"></i></a></li>
+                    <li><a href="cart.html"><i class="fa fa-cart-shopping"></i></a></li>                    
+                </ul>
+            </nav>
+            <!--Login SignIn Button-->
+            <div class="toggle-btn">
+                <button class="btn-login active medium-text-font" id="openLogin">Login</button>
+                <button class="btn-signin medium-text-font" id="openSignUp">SignUp</button>
+            </div>
+            <!--Burger Menu Header Icon-->
+            <div class="burger-menu big-text-font">
+                <i class="fa-solid fa-bars medium-text-font"></i>
+            </div>    
+        </div>
+        <!--Container 2-->
+        <div class="container2 page-padding-left-right">
+            <nav>
+                <ul>
+                    <li ><a class="medium-text-font" href="atraction.html">Atraksi</a></li>
+                    <li ><a class="medium-text-font" href="festival.html">Festival</a></li>
+                    <li ><a class="medium-text-font" href="gamification.html">Wawasan Nusantara</a></li>
+                </ul>
+            </nav>         
+        </div>    
+    </header>
+
+
+    <!--Burger Menu Open-->
+    <div class="burger-modal" id="burgerModal">
+        <div class="burger-menu-open"> 
+            <div class="burger-menu-open-title">
+                <h2 class="small-heading-font">Menu</h2>
+                <span class="close-burger" id="closeBurger">&times;</span>
+            </div>
+
+            <div class="burger-menu-open-list">
+                <p><a class="medium-text-font " href="cart.html">Keranjang Belanja</a></p>
+                <p><a class="medium-text-font " href="atraction.html">Atraksi</a></p>
+                <p><a class="medium-text-font " href="festival.html">Festival</a></p>
+                <p><a class="medium-text-font " href="gamification.html">Wawasan Nusantara</a></p>
+                <p><a class="medium-text-font " href="patner.html">Mitra & Kolaborasi</a></p>
+
+
+                <div  class="login-signup-menu">
+                    <p  class="medium-text-font " id="openLogin" >Login</p>
+                    <p  class="medium-text-font " id="openSignUp" >SignUp</p>
+                </div>
+
+            </div>  
+
+        </div>
+    </div> 
+    
+    <section class="back-btn-section page-padding-left-right fadeInDown2">
+        <button class="back-btn" onclick="window.history.back()"> <i class="fi fi-br-arrow-small-left sub-heading-font black"></i></button>
+        <h3 class="title  superbig-text-font black"></h3>
+    </section>
+
+
+    <!-- Container Section -->
+    <section class="container page-padding-left-right black fadeInDown2" >
+        <!--Detail-->
+        <div class="detail">
+            <div class="title superbig-text-font black"><p></p></div>
+            <div class="schedule">
+                <i class="fi fi-br-clock-three big-text-font black"></i>
+                <p></p>
+            </div>
+            <div class="address">
+                <i class="fi fi-br-marker big-text-font black"></i>
+                <p></p>
+            </div>
+        </div>
+
+        <!--Image-->
+        <div class="image">
+            
+        </div>
+        <!--Ticket Button-->
+        <div class="ticket-button">
+            <div> 
+                <h2 class="medium-text-font bold">Mulai dari</h2>
+                <p class="big-text-font"></p>
+            </div>
+            <a href="#searchTicketContainer"><button  class="btn-cari-ticket medium-text-font">Cari ticket</button></a>
+        </div>
+         <!--Description-->
+        <div class="description">
+            <h2 class="superbig-text-font black">Deskripsi</h2>
+        </div>
+        <!--Ulasan-->
+        <div class="ulasan" id="searchTicketContainer">
+            <h2 class="superbig-text-font black">Ulasan</h2>
+            <div class="ulasan-container"></div>
+        </div>
+        <!--Ticket-->
+        <div class="ticket-container">
+            <div class="search-ticket">
+                <h2 class="superbig-text-font black">Cari Ticket</h2>
+            </div>
+
+            <div class="ticket-types">
+
+            </div>
+
+            <div class="ticket-price ">
+                <div>
+                    <p class="medium-text-font bold">Harga Total</p>
+                    <div class="price-text">
+                        <p class="big-text-font">Rp</p>
+                        <p class="total-price big-text-font">0</p>
+                        <p class="big-text-font">,00</p>
+                    </div>
+                    
+                </div>
+                <div class="ticket-price-button">
+                    <button  class="btn-keranjang medium-text-font">Masukkan Keranjang</button>
+                    <button  class="btn-pesan medium-text-font">Pesan Sekarang</button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <!-- Login Section -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-content">
+            <span class="close" id="closeLogin">&times;</span>
+            <h2 class="small-heading-font black">Hi, Sahabat Nusa!</h2>
+            <p class="small-text-font">Temukan 1001 keindahan, budaya, dan sejarah di berbagai sudut Indonesia </p>
+            
+            <form class="small-text-font">
+                <input class="small-text-font black" type="text" placeholder="First name" required>
+                <input class="small-text-font black" type="text" placeholder="Last name" required>
+                <input class="small-text-font black" type="email" placeholder="Email" required>
+                
+                <label >Birthday</label>
+                <div class="birthday-inputs small-text-font">
+                    <input type="text" placeholder="MM" required>
+                    <input type="text" placeholder="DD" required>
+                    <input type="text" placeholder="YYYY" required>
+                </div>
+    
+                <button type="submit" class="btn-login-content small-text-font">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SignUp Section -->
+    <div class="signUp-modal" id="signUpModal">
+        <div class="signUp-content">
+            <span class="close" id="closeSignUp">&times;</span>
+            <h2 class="small-heading-font black">Selamat datang kembali!</h2>
+            <p class="small-text-font">Temukan 1001 keindahan, budaya, dan sejarah di berbagai sudut Indonesia </p>
+            
+            <form >
+                <input class="small-text-font black" type="text" placeholder="First name" required>
+                <input class="small-text-font black" type="email" placeholder="Email" required>
+    
+                
+                <button type="submit" class="btn-signUp-content small-text-font">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!--Rekomendasi item serupa-->
+    <section class="page-padding-left-right fadeInDown2" id="fyp-atraction" >
+        <div class="explore-content">
+            <p class="superbig-text-font black">
+                <i class="fi fi-br-face-smile-hearts supersmall-heading-font black"></i> Aktivitas Serupa Lainnya
+            </p>            
+            <p class="medium-text-font black">Mungkin ada aktivitas yang sesuai dengan minat kamu ? </p>
+            <!--Carousell-->
+            <div class="carousel">
+                <button class="prev-btn"><i class="fas fa-chevron-left white big-text-font"></i></button>
+                <div class="content">
+                    <div class="cards-atraksi medium-text-font"></div>
+                </div>
+                <button class="next-btn"><i class="fas fa-chevron-right  white big-text-font"></i></button>
+            </div>
+        </div>
+        <div class="recomendation-addition">
+            <div class="lihat-lanjut">
+                <a href="javascript:window.history.back()" class="medium-text-font red"><p>Kembali ke Beranda</p></a>
+            </div>
+        </div>
+    </section>
+        
+    <!-- Footer -->
+    <footer class="footer-section ">
+        <div class="footer-container page-padding-left-right">
+            <div class="footer-content">
+                <h2 class="small-heading-font">Get in touch <i class="fi fi-rr-island-tropical big-text-font"></i></h2>
+                <div  class="footer-social-media">
+                    <i class="fi fi-brands-instagram big-text-font"></i><i class="fi fi-brands-facebook big-text-font"></i><i class="fi fi-brands-tik-tok big-text-font"></i>
+                </div>
+                <p class="medium-text-font">helo@tapaknusa.com</p>
+            </div>
+            <div class="footer-categories"> 
+                <div class="footer-links">
+                    <ul>
+                        <li><a class="medium-text-font bold" href="atraction.html">Atraksi</a></li>
+                        <li><a class="medium-text-font" href="festival.html">Yogyakarta</a></li>
+                        <li><a class="medium-text-font" href="patner.html">Bali</a></li>
+                        <li><a class="medium-text-font" href="gamification.html">Jawa Timur</a></li>
+                        <li><a class="medium-text-font" href="patner.html">Sumatera</a></li>
+                        <li><a class="medium-text-font" href="patner.html">Kalimantan</a></li>
+                        <li><a class="medium-text-font" href="patner.html">NTT</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a class="medium-text-font bold" href="festival.html">Festival</a></li>
+                        <li><a class="medium-text-font" href="festival.html">Yogyakarta</a></li>
+                        <li><a class="medium-text-font" href="patner.html">Bali</a></li>
+                        <li><a class="medium-text-font" href="gamification.html">Jawa Timur</a></li>
+                        <li><a class="medium-text-font" href="patner.html">Sumatera</a></li>
+                        <li><a class="medium-text-font" href="patner.html">Kalimantan</a></li>
+                        <li><a class="medium-text-font" href="patner.html">NTT</a></li>
+                    </ul>
+                </div>                       
+                <div class="footer-links">
+                    <ul>
+                        <li><a class="medium-text-font bold" href="atraction.html">Lainnya</a></li>
+                        <li><a class="medium-text-font" href="festival.html">Wawasan Nusantara</a></li>
+                        <li><a class="medium-text-font" href="patner.html">Mitra & Kolaborasi</a></li>
+                        <li><a class="medium-text-font" href="patner.html">Kontak</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom ">
+            <p class="medium-text-font">© 2025 Tapaknusa. Made in Tangerang, Indonesia</p>
+        </div>
+    </footer>
+
+
+    <div class="search-modal"></div>
+
+    <script src="js/jquery-1.7.1.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/searchBox.js"></script>
+    <script src="js/carousell.js"></script>
+    
+    <script>
+     $(document).ready(function () {
+
+        headerScroll2();
+        hideContainer2();
+
+        loginRegister();
+
+        menuPopUp();
+
+        dateCek($(".header-date-picker"),$(".header-this-day-date"));
+        searchBoxHeader();
+
+        
+
+        addCard($("#fyp-atraction .cards-atraksi"),"atraksi",0,0,0,7);
+        carousellButton($("#fyp-atraction .cards-atraksi"),$("#fyp-atraction .prev-btn"),$("#fyp-atraction .next-btn") );
+        clickCardContent("#fyp-atraction .cards-atraksi .card", "detailAtraction");
+   
+
+        function responsiveHero(){
+
+            function applyResponsiveHero(){             
+                if ($(window).width() > $(window).height()){//laptop
+                    $(".hero-detail ").css({"min-height":"70vh"});
+                }else{
+                    if ($(window).width() * 1.5 >  ($(window).height())){ //ipad
+                        $(".hero-detail ").css({"min-height":"45vh"});
+                    }else if ($(window).width() * 1.5  < ($(window).height())){ //phone
+                        $(".hero-detail ").css({"min-height":"40vh"});
+                    }
+                }
+
+            }
+
+            applyResponsiveHero();
+            $(window).on("resize",applyResponsiveHero);
+        }
+
+        responsiveHero();
+
+
+        function responsiveLihatLanjutBtn(){
+
+        function applyResponsiveLihatLanjutBtn(){             
+            if ($(window).width() > $(window).height()){//laptop
+                $(".lihat-lanjut").css({"width":"28%"});
+            }else{
+                if ($(window).width() * 1.5 >  ($(window).height())){ //ipad
+                    $(".lihat-lanjut").css({"width":"45%"});
+                }else if ($(window).width() * 1.5  < ($(window).height())){ //phone
+                    $(".lihat-lanjut").css({"width":"50%"});
+                }
+            }
+
+        }
+
+        applyResponsiveLihatLanjutBtn();
+        $(window).on("resize",applyResponsiveLihatLanjutBtn);
+        }
+
+
+        responsiveLihatLanjutBtn();
+
+
+        
+
+        let data = getDetailAtractionData();
+        let dataDetail = data[0];
+
+        console.log("length :"+dataDetail.length);
+
+
+
+        $(".back-btn-section .title").text(dataDetail.title);
+        $(".container .schedule p").text(dataDetail.schedule);
+        $(".container .address p").text(dataDetail.address);
+        $(".container .ticket-button p").text(dataDetail.startPrice);
+
+        $(".container .image").append(`<img src="${dataDetail.image}"" alt="gambar-atraksi">`)
+        $(".container .description").append(`<p class="medium-text-font black">${dataDetail.description}</p>`)
+       
+        if (dataDetail.reviews.length > 0) {
+            dataDetail.reviews.forEach((review) => {
+                $(".container .ulasan-container").append(`
+                <div class="ulasan-content">
+                    <p class="bold">${review.user}</p>
+                    <p>⭐⭐⭐⭐⭐ ${review.rating} - ${review.comment}</p>
+                </div>
+                `);
+            });
+        }
+
+
+        $(".container .search-ticket").append(`
+            <div class="search-box black medium-text-font ">
+                <div class="date-picker-container">
+                    <input type="date" class="date-picker medium-text-font black" >
+                </div>
+                <!--Submit button-->
+                <button  class="btn-search medium-text-font">Cari</button>
+            </div>
+
+        `);
+
+
+        $(document).on("click",$(".search-ticket .btn-search"),function () {
+            let tempDate = $(".search-ticket .date-picker").val();
+            console.log("temp : " + tempDate);
+            if(tempDate !== ""){
+                $(".container .ticket-types").css({"display":"flex"});
+            }
+            
+        });
+
+
+        let ticketAtraction = dataDetail.ticketTypes
+
+        if (ticketAtraction.length > 0) {
+            ticketAtraction.forEach( (ticket) => {
+
+                $(".container .ticket-types").append(`
+                    <div class="ticket"> 
+                        <h3 class="big-text-font black bold title">${ticket.title}</h3>
+                        <div class="price big-text-font bold red ">
+                            <p><span>Rp </span>${ticket.price}<span>,00 </span></p>
+                        </div>
+                        <div class="btn-item big-text-font" data-attribute="${ticket.title}">
+                            <div class="btn-add" >+</div>
+                            <div class="item-quantity black">0</div>
+                            <div class="btn-subtract">-</div>
+                        </div>
+                        <div class="detail">
+                            <p>Kategori: ${ticket.category}</p>
+                            <p>Fasilitas: ${ticket.facilities.join(", ")}</p>
+                        </div>
+                    </div>
+                `);
+
+            });
+            
+        }
+
+
+        function ticketPrice(){
+
+            let priceTotal = 0;
+       
+            function calculateTotalPrice(element,quantity){
+                    let item = ticketAtraction.find((ticket) => ticket.title === element.data("attribute") );
+                    console.log("coba"+element.data("attribute"));
+                 
+
+                    return item.price * quantity;
+            }
+
+
+            $(".ticket .btn-item .btn-add").on("click",function(){
+                let quantityElement = $(this).closest(".ticket").find(".item-quantity");  
+                let quantity = parseInt(quantityElement.text()) + 1;  
+                quantityElement.text(quantity);
+
+                let itemPrice = calculateTotalPrice($(this).closest(".btn-item"),quantity);
+
+                priceTotal += itemPrice;
+                console.log("price:"+priceTotal);
+                $(".total-price").text(priceTotal);
+            });
+        
+
+            $(".ticket .btn-item .btn-subtract").on("click",function(){
+                let quantityElement = $(this).closest(".ticket").find(".item-quantity");  
+                let quantity = parseInt(quantityElement.text()) - 1;  
+                if (quantity < 0){
+                    quantity = 0;
+                }
+                quantityElement.text(quantity);
+
+                let itemPrice = calculateTotalPrice($(this).closest(".btn-item"),quantity);
+
+                priceTotal -= itemPrice;
+                $(".total-price").text(priceTotal);
+            });
+
+
+        }
+
+        ticketPrice();
+
+
+
+
+    });  
+
+    </script>
+
+
+</body>
+</html>
