@@ -1,0 +1,15 @@
+interface icon asset : 
+
+island : 
+<i class="fi fi-rr-island-tropical"></i>
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+
+heart :
+<i class="fi fi-rs-heart"></i>
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css'>
+
+cart :
+
+coin :
+arrow :
+add :
