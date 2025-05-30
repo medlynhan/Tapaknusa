@@ -1,0 +1,209 @@
+/*Font Size*/
+
+
+
+.heading-font {
+    font-family: "Poppins","Recoleta","Cormorant Garamond", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size : 3rem;
+    color: var(--white);
+    text-decoration: none;
+}
+
+.sub-heading-font{
+    font-family: "Poppins","Recoleta","Cormorant Garamond", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size : 2.5rem;
+    color: var(--white);
+    text-decoration: none;
+
+}
+
+.small-heading-font{
+    font-family: "Poppins","Recoleta","Cormorant Garamond", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size : 1.8rem;
+    color: var(--white);
+    text-decoration: none;
+
+}
+
+.supersmall-heading-font{
+    font-family: "Poppins","Recoleta","Cormorant Garamond", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size : 1.5rem;
+    color: var(--white);
+    text-decoration: none;
+
+}
+
+
+.superbig-text-font{
+    font-family:  "Poppins", serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size : 1.6rem;
+    color: var(--white);
+    text-decoration: none;
+}
+
+.big-text-font{
+    font-family:  "Poppins", serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size : 1.2rem;
+    color: var(--white);
+    text-decoration: none;
+}
+
+.medium-text-font{
+    font-family: "Poppins", serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size : 1rem;
+    color: var(--white);
+    text-decoration: none;
+}
+
+.small-text-font{
+    font-family: "Poppins", serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size : 0.8rem;
+    color: var(--white);
+    text-decoration: none;
+}
+
+.supersmall-text-font{
+    font-family: "Poppins", serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size : 0.7rem;
+    color: var(--white);
+    text-decoration: none;
+}
+
+/*Bold*/
+.bold{
+    font-weight:500;
+}
+
+.thin{
+    font-weight:400;
+}
+
+/*Font Color*/
+.red{
+    color : var(--red);
+}
+.black{
+    color : var(--black);
+}
+
+.grey{
+    color : var(--grey);
+}
+
+.white{
+    color: var(--white);
+}
+
+/*Poppins*/
+.poppins{
+    font-family:  "Poppins", serif;
+}
+.garamond{
+    font-family:  "Cormorant Garamond","Poppins", serif;
+}
+
+
+
+@media only screen and (max-width: 1440px) and (min-width: 800px) {
+
+}
+
+
+@media only screen and (max-width: 799px) {
+    .heading-font {
+        font-size : 2.3rem;
+    }
+    
+    .sub-heading-font{
+        font-size : 1.9rem;
+    
+    }
+    
+    .small-heading-font{
+        font-size : 1.4rem;
+    }
+    
+    .supersmall-heading-font{
+        font-size : 1.1rem;
+    }
+    
+    
+    .superbig-text-font{
+        font-size : 1.3rem;
+    }
+    
+    .big-text-font{
+        font-size : 0.9rem;
+    }
+
+    .medium-text-font{
+        font-size: 0.7rem;
+    }
+
+    .small-text-font{
+        font-size : 0.65rem;
+    }
+
+    .supersmall-text-font{
+        font-size : 0.55rem;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+
+    .heading-font {
+        font-size : 1.5rem;
+    }
+    
+    .sub-heading-font{
+        font-size : 1.3rem;
+    
+    }
+    
+    .small-heading-font{
+        font-size : 1.3rem;
+    }
+    
+    .supersmall-heading-font{
+        font-size : 1rem;
+    }
+    
+    
+    .superbig-text-font{
+        font-size : 1rem;
+    }
+    
+    .big-text-font{
+        font-size : 0.6rem;
+    }
+
+    .medium-text-font{
+        font-size: 0.55rem;
+    }
+
+    .small-text-font{
+        font-size : 0.50rem;
+    }
+
+    .supersmall-text-font{
+        font-size : 0.45rem;
+    }
+}
