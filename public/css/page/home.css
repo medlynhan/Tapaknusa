@@ -148,7 +148,7 @@
     border: 0.1em solid var(--red) ;
     cursor: pointer;
     border-radius: 0.2em;
-    width: 20%;
+    width: 50%;
 }
 
 .need-to-login-button p{

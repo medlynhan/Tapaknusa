@@ -19,7 +19,7 @@ function clickCardContent(cardSelector, location) {
         let data = $(this).data("attribute");
 
         if (data) {
-            window.location.href = `/${location}?find=${encodeURIComponent(data)}`;
+            window.location.href = `/TappaknusadetailAtraction?find=${encodeURIComponent(data)}`;
         } else {
             console.warn("Data attribute tidak ditemukan pada elemen yang diklik.");
         }

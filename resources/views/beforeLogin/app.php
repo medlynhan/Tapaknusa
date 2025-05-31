@@ -59,7 +59,7 @@
     <header class="fadeInDown">
         <!--Container 1-->
         <div class="container1 page-padding-left-right">
-            <a class="heading-font logo" href="{{ route('home') }}"><h1 class="big-text-font"><span class="big-text-font"><i class="fi fi-rr-island-tropical"></i></span>apaknusa</h1></a>
+            <a class="heading-font logo" href="{{ route('Tapaknusahome') }}"><h1 class="big-text-font"><span class="big-text-font"><i class="fi fi-rr-island-tropical"></i></span>apaknusa</h1></a>
             
             <div class="header-search-box black medium-text-font">
                 <div class="header-search-container">
@@ -80,8 +80,8 @@
 
             <nav class="big-text-font icon">
                 <ul class="hover-color">
-                    <li><a href="{{ route('patner') }}"><i class="fa-regular fa-handshake"></i></a></li>
-                    <li><a href="{{ route('cart') }}"><i class="fa fa-cart-shopping"></i></a></li>            
+                    <li><a href="{{ route('Tapaknusapatner') }}"><i class="fa-regular fa-handshake"></i></a></li>
+                    <li><a class="ct-login" ><i class="fa fa-cart-shopping"></i></a></li>            
                 </ul>
             </nav>
             <!--Login SignIn Button-->
@@ -98,9 +98,9 @@
         <div class="container2 page-padding-left-right">
             <nav>
                 <ul>
-                    <li><a class="medium-text-font" href="{{ route('atraction') }}">Atraksi</a></li>
-                    <li><a class="medium-text-font" href="{{ route('festival') }}">Festival</a></li>
-                    <li><a class="medium-text-font" href="{{ route('home') }}">Wawasan Nusantara</a></li>
+                    <li><a class="medium-text-font" href="{{ route('Tapaknusaatraction') }}">Atraksi</a></li>
+                    <li><a class="medium-text-font" href="{{ route('Tapaknusafestival') }}">Festival</a></li>
+                    <li><a class="medium-text-font need-to-login-first wn-login">Wawasan Nusantara</a></li>
                 </ul>
             </nav>         
         </div>    
@@ -116,11 +116,11 @@
             </div>
 
             <div class="burger-menu-open-list">
-            <p><a class="medium-text-font" href="{{ route('cart') }}">Keranjang Belanja</a></p>
-            <p><a class="medium-text-font" href="{{ route('atraction') }}">Atraksi</a></p>
-            <p><a class="medium-text-font" href="{{ route('festival') }}">Festival</a></p>
-            <p><a class="medium-text-font" href="{{ route('home') }}">Wawasan Nusantara</a></p>
-            <p><a class="medium-text-font" href="{{ route('patner') }}">Mitra & Kolaborasi</a></p>
+            <p><a class="medium-text-font ct-menu-login" href="#">Keranjang Belanja</a></p>
+            <p><a class="medium-text-font" href="{{ route('Tapaknusaatraction') }}">Atraksi</a></p>
+            <p><a class="medium-text-font" href="{{ route('Tapaknusafestival') }}">Festival</a></p>
+            <p><a class="medium-text-font wn-menu-login" >Wawasan Nusantara</a></p>
+            <p><a class="medium-text-font" href="{{ route('Tapaknusapatner') }}">Mitra & Kolaborasi</a></p>
 
 
                 <div  class="login-signup-menu">
@@ -222,9 +222,9 @@
                 <div class="footer-links">
                     <ul>
                         <li><a class="medium-text-font bold">Lainnya</a></li>
-                        <li><a class="medium-text-font" href="{{ route('culture') }}">Wawasan Nusantara</a></li>
-                        <li><a class="medium-text-font" href="{{ route('patner') }}">Mitra & Kolaborasi</a></li>
-                        <li><a class="medium-text-font" href="{{ route('patner') }}">Kontak</a></li>
+                        <li><a class="medium-text-font " >Wawasan Nusantara</a></li>
+                        <li><a class="medium-text-font" href="{{ route('Tapaknusapatner') }}">Mitra & Kolaborasi</a></li>
+                        <li><a class="medium-text-font" href="{{ route('Tapaknusapatner') }}">Kontak</a></li>
                     </ul>
                 </div>
             </div>
@@ -233,6 +233,12 @@
         <div class="footer-bottom ">
             <p class="medium-text-font">© 2025 Tapaknusa. Made in Tangerang, Indonesia</p>
         </div>
+
+        <div class="information-need-to-login" id="informationNeedToLoginModal">
+            <div class="information-content">
+                <p class="medium-text-font black">Untuk melanjutkan, silakan login terlebih dahulu.</p>
+        </div>
+    </div>
     </footer>
     @endif
     <script src="{{ asset('js/jquery-1.7.1.min.js') }}"></script>
@@ -295,9 +301,27 @@
         hideContainer2();
 
 
+       
+     
 
+        function needToLoginFirst(theContent) {
+            $(theContent).click(function () {
+                // Tampilkan elemen terkait dengan tombol yang diklik
+                $('.information-need-to-login').css({ display: "flex" });
 
-        
+                // Menyembunyikan elemen setelah 800ms
+                setTimeout(function () {
+                    $('.information-need-to-login').css({ display: "none" });
+                }, 800);  // Bind this agar tetap mengarah ke elemen yang diklik
+            });
+
+        }
+
+        needToLoginFirst(".wn-login");
+        needToLoginFirst(".wn-menu-login");
+        needToLoginFirst(".ct-login");
+        needToLoginFirst(".ct-menu-login");
+
         
     });  
 

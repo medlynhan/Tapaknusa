@@ -1,4 +1,5 @@
 @import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css');
+@import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css');
 
 header {
     background: transparent;
@@ -90,7 +91,7 @@ nav ul li a {
 
 
 /*Login Header*/
-.toggle-btn {
+.toggle-btn{
     display: flex;
     align-items: center;
     border: 0.15em solid var(--red);
@@ -102,6 +103,20 @@ nav ul li a {
     position: relative;
 }
 
+.toggle-profile-btn{
+    
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    border: 0.15em solid var(--red);
+    border-radius: 2rem;
+    overflow: hidden;
+    width: 14em;
+    height: 2em;
+    position: relative;
+   
+}
+
 .toggle-btn::before {
     content: "";
     width: 7em;
@@ -111,13 +126,17 @@ nav ul li a {
     position : absolute;
     transition: transform 0.3s ease-in-out;
     transform: translateX(0);
+    
 }
+
+
 
 .toggle-btn.active::before {
     transform: translateX(7em);
+   
 }
 
-.btn-login, .btn-signin{
+.btn-login, .btn-signin, .btn-profile, .btn-name{
     color: white;
     border: none;
     cursor: pointer;
@@ -126,6 +145,9 @@ nav ul li a {
     padding: 0.2em 2em;
 }
 
+ .btn-profile, .btn-name{
+    padding: 0.2em 0.7em;
+ }
 
 
 
@@ -457,6 +479,18 @@ footer{
         padding: 1em;
         text-decoration: underline var(--white);
         
+    }
+
+    .logout-menu{
+        margin-top: 4em;
+        width: 100%;
+        border-top: 0.1em var(--white) solid; 
+        display: grid;
+        justify-content: end;
+        justify-items: end;
+        align-items: center;
+        padding: 1em;
+        text-decoration: underline var(--white);
     }
 
 

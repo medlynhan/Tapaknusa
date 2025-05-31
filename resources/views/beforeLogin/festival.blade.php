@@ -1,16 +1,16 @@
-@extends('app')    
+@extends('beforeLogin.app')    
 @section('title', 'Tapaknusa')
 @section('content')
 
     <!-- Hero Section -->
-    <section class="hero-atraction" >
+    <section class="hero-festival" >
         <div class="hero-content fadeInDown page-padding-left-right  ">
-            <h2 class="sub-heading-font">Temukan Atraksi Budaya</h2>
+            <h2 class="sub-heading-font">Temukan Festival Budaya</h2>
         
             <div class="search-box black medium-text-font fadeInDown delay-4s ">
                 <div class="search-container">
                     <!--Search-->
-                    <input type="text" id="search-input" class=" black medium-text-font" placeholder="Cari atraksi...">
+                    <input type="text" id="search-input" class=" black medium-text-font" placeholder="Cari festival...">
                     <!--Dropdown list-->  
                     <div class="date-picker-container">
                         <input type="date" class="date-picker" onClick="change">
@@ -20,9 +20,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="location-ddl fadeInDown delay-4s">
+                <div class="location-ddl fadeInDown">
+               
                     <div class="location-choices">
-                            <i class="fi fi-br-marker big-text-font white"></i>
+                        <i class="fi fi-br-marker big-text-font white"></i>
                     </div>
                     <div class="location-modal fadeInDown2">
                         <div class="locationSelect medium-text-font white">
@@ -63,11 +64,19 @@
                 <!--Submit button-->
                 <button class="btn-search medium-text-font">Cari</button>
             </div>
+        </div>
     </section>
 
-    <!-- Explore Atraction Section -->
+    <!--Advertisment--> 
+    <section class="advertisment-section page-padding-left-right">
+        <p class="superbig-text-font black">
+            <i class="fi fi-rr-time-quarter-to supersmall-heading-font black"></i> Segera Berlangsung
+        </p>    
+        <a href="{{route('Tapaknusahome')}}"><img src="asset/festival-promo.png" alt="Festival terdekat"></a>
+    </section>
 
-    <section class="page-padding-left-right" id="fyp-atraction" >
+    <!-- Explore Festival Section -->
+    <section class="page-padding-left-right" id="fyp-festival" >
         <div class="explore-content">
             <p class="superbig-text-font black">
                 <i class="fi fi-br-face-smile-hearts supersmall-heading-font black"></i> Khusus Buat Kamu
@@ -85,12 +94,12 @@
         </div>
     </section>
 
-    <section class="page-padding-left-right" id="trending-atraction" >
+    <section class="page-padding-left-right" id="trending-festival" >
         <div class="explore-content">
             <p class="superbig-text-font black">
-                <i class="fi fi-br-arrow-trend-up supersmall-heading-font black"></i> Atraksi Trending
+                <i class="fi fi-br-arrow-trend-up supersmall-heading-font black"></i> Festival Trending
             </p>            
-            <p class="medium-text-font black">Jangan lewatkan atraksi-atraksi yang sedang trending</p>
+            <p class="medium-text-font black">Jangan lewatkan festival-festival yang sedang trending</p>
             <!--Carousell-->
 
             <div class="carousel">
@@ -103,12 +112,12 @@
         </div>
     </section>
 
-    <section class="page-padding-left-right" id="top-5-atraction" >
+    <section class="page-padding-left-right" id="top-5-festival" >
         <div class="explore-content">
             <p class="superbig-text-font black">
-                <i class="fi fi-br-review supersmall-heading-font black"></i> 5 Top Atraksi
+                <i class="fi fi-br-review supersmall-heading-font black"></i> 5 Top Festival
             </p>            
-            <p class="medium-text-font black">Top Atraksi Unik yang harus kamu rasain</p>
+            <p class="medium-text-font black">Top Festival Unik yang harus kamu rasain</p>
             <!--Carousell-->
 
             <div class="carousel">
@@ -161,28 +170,27 @@
         </div>
 
     </section>
-
     <div class="search-modal"></div>
 
 @endsection
-
 @section('scripts')
+    
     <script>
      $(document).ready(function () {
 
         headerChangeColor();
 
-        addCard($("#fyp-atraction .cards-atraksi"),"atraksi",0,0,0,7);
-        carousellButton($("#fyp-atraction .cards-atraksi"),$("#fyp-atraction .prev-btn"),$("#fyp-atraction .next-btn") );
-        clickCardContent("#fyp-atraction .cards-atraksi .card", "detailAtraction");
+        addCard($("#fyp-festival .cards-atraksi"),"festival",0,0,0,7);
+        carousellButton($("#fyp-festival .cards-atraksi"),$("#fyp-festival .prev-btn"),$("#fyp-festival .next-btn") );
+        clickCardContent("#fyp-festival .cards-atraksi .card", "detailAtraction");
 
-        addCard($("#trending-atraction .cards-atraksi"),"atraksi",0,0,5,wisataBudaya.length);
-        carousellButton($("#trending-atraction .cards-atraksi"),$("#trending-atraction .prev-btn"),$("#trending-atraction .next-btn") );
-        clickCardContent("#trending-atraction .cards-atraksi .card", "detailAtraction");
+        addCard($("#trending-festival .cards-atraksi"),"festival",0,0,5,wisataBudaya.length);
+        carousellButton($("#trending-festival .cards-atraksi"),$("#trending-festival .prev-btn"),$("#trending-festival .next-btn") );
+        clickCardContent("#trending-festival .cards-atraksi .card", "detailAtraction");
 
-        addCard($("#top-5-atraction .cards-atraksi"),"atraksi",0,0,7,12);
-        carousellButton($("#top-5-atraction .cards-atraksi"),$("#top-5-atraction .prev-btn"),$("#top-5-atraction .next-btn") );
-        clickCardContent("#top-5-atraction .cards-atraksi .card", "detailAtraction");
+        addCard($("#top-5-festival .cards-atraksi"),"festival",0,0,7,12);
+        carousellButton($("#top-5-festival .cards-atraksi"),$("#top-5-festival .prev-btn"),$("#top-5-festival .next-btn") );
+        clickCardContent("#top-5-festival .cards-atraksi .card", "detailAtraction");
    
         clickCardContent(".culture-card", "culture");
 
@@ -190,12 +198,12 @@
 
             function applyResponsiveHero(){             
                 if ($(window).width() > $(window).height()){//laptop
-                    $(".hero-atraction ").css({"min-height":"70vh"});
+                    $(".hero-festival ").css({"min-height":"70vh"});
                 }else{
                     if ($(window).width() * 1.5 >  ($(window).height())){ //ipad
-                        $(".hero-atraction ").css({"min-height":"45vh"});
+                        $(".hero-festival ").css({"min-height":"45vh"});
                     }else if ($(window).width() * 1.5  < ($(window).height())){ //phone
-                        $(".hero-atraction ").css({"min-height":"40vh"});
+                        $(".hero-festival ").css({"min-height":"40vh"});
                     }
                 }
 
@@ -203,7 +211,7 @@
 
             applyResponsiveHero();
             $(window).on("resize",applyResponsiveHero);
-            }
+        }
 
         responsiveHero();
 
@@ -227,16 +235,14 @@
 
         selectLocation();
 
-
-        
-
-        $(".hero-atraction .btn-search").click(function () {
-            let searchQuery = $(".hero-atraction #search-input").val();
-            let tempDate = $(" .hero-atraction .date-picker").val();
-                $(".hero-atraction .date-picker").val("");
-                $(".hero-atraction .search-container input").val("");
-
-                window.location.href = "/searchResult?find=" + encodeURIComponent(searchQuery) + "&status=atraksi&tanggal=" + tempDate;
+        $(".hero-festival .btn-search").click(function () {
+            let searchQuery = $(".hero-festival #search-input").val();
+            let tempDate = $(".hero-festival .date-picker").val();
+                $(".hero-festival .date-picker").val("");
+                $(".hero-festival .search-container input").val("");
+                window.location.href = "/searchResult?find=" + encodeURIComponent(searchQuery) + "&status=festival&tanggal=" + tempDate;
+                
+                 
             
         });
 
