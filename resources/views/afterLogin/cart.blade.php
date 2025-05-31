@@ -1,5 +1,5 @@
 
-@extends('app')
+@extends('afterLogin.app')
 @section('title', 'Tapaknusa')
 @section('content')
 

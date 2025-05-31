@@ -19,7 +19,8 @@ class AuthController
                         ->where('password', $request->input('password'))
                         ->first();
             if ($user){
-                return redirect()->intended('home'); 
+                Auth::login($user);
+                return redirect()->route('home'); 
             }else{
                 return back()->withErrors([
                     'message' => 'Nama atau password salah.',
@@ -45,7 +46,7 @@ class AuthController
             // Login otomatis setelah registrasi
             Auth::login($user);
 
-            return redirect()->route('home');
+            return redirect()->route('Tapaknusahome');
         }
 
 
@@ -54,9 +55,7 @@ class AuthController
         public function logout(Request $request)
         {
             Auth::logout();
-            $request->session()->invalidate();
-            $request->session()->regenerateToken();
-    
-            return redirect('/');
+            return redirect()->route('Tapaknusahome');
+           
         }
-        }
+}

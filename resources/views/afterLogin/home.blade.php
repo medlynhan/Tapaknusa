@@ -1,5 +1,5 @@
 
-    @extends('app')    
+    @extends('afterLogin.app')    
     @section('title', 'Tapaknusa')
     @section('content')
         <!-- Hero Section -->
@@ -241,20 +241,6 @@
         </section>
 
         <div class="search-modal"></div>
-
-
-
-    <div class="information-need-to-login" id="informationNeedToLoginModal">
-        <div class="information-content">
-            <p class="medium-text-font black">Untuk melanjutkan, silakan login terlebih dahulu.</p>
-            <div class="explore-addition">
-                <div class="need-to-login-button">
-                    <p class="medium-text-font red">Login →</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
     @endsection
     
 
@@ -276,11 +262,6 @@
                 clickCardContent(".footer-links-text", "culture");
 
 
-                $(document).on("click", ".need-to-login-button", function () {
-                    $("#loginModal").css({ display: "flex" });
-                });
-
-                    
                 // Toggle FAQ ditekan
                 $(".faq-question").click(function () {
                     let parent = $(this).parent();
@@ -374,6 +355,7 @@
                     window.location.href = "/searchResult?find=" + encodeURIComponent(searchQuery) + "&status=all&tanggal=" + tempDate;
                     
                 });
+
 
                 
 

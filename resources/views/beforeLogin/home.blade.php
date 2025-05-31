@@ -1,5 +1,5 @@
 
-    @extends('app')    
+    @extends('beforeLogin.app')    
     @section('title', 'Tapaknusa')
     @section('content')
         <!-- Hero Section -->
@@ -55,7 +55,7 @@
 
                 <div class="explore-addition">
                     <div class="lihat-lanjut">
-                        <a href="{{ route('atraction') }}" class="medium-text-font red"><p>Lihat Lebih Lanjut →</p></a>
+                        <a href="{{ route('Tapaknusaatraction') }}" class="medium-text-font red"><p>Lihat Lebih Lanjut →</p></a>
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@
                 </div>
                 <div class="explore-addition">
                     <div class="lihat-lanjut">
-                        <a href="{{ route('festival') }}" class="medium-text-font red"><p>Lihat Lebih Lanjut →</p></a>
+                        <a href="{{ route('Tapaknusafestival') }}" class="medium-text-font red"><p>Lihat Lebih Lanjut →</p></a>
                     </div>
                 </div>
             </div>
@@ -129,7 +129,7 @@
 
 
         <section class="points-section page-padding-left-right">
-        <a href="{{ route('home') }}"><img src="{{ asset('asset/kuishome.png') }}" alt="Wawasan Nusantara"></a>
+        <a class="need-to-login-first" href="{{ route('Tapaknusahome') }}"><img src="{{ asset('asset/kuishome.png') }}" alt="Wawasan Nusantara"></a>
         </section>
         
         <section class="faq-section page-padding-left-right">
@@ -241,6 +241,15 @@
         </section>
 
         <div class="search-modal"></div>
+
+
+
+    <div class="information-need-to-login" id="informationNeedToLoginModal">
+        <div class="information-content">
+            <p class="medium-text-font black">Untuk melanjutkan, silakan login terlebih dahulu.</p>
+        </div>
+    </div>
+
     @endsection
     
 
@@ -262,6 +271,11 @@
                 clickCardContent(".footer-links-text", "culture");
 
 
+                $(document).on("click", ".need-to-login-button", function () {
+                    $("#loginModal").css({ display: "flex" });
+                });
+
+                    
                 // Toggle FAQ ditekan
                 $(".faq-question").click(function () {
                     let parent = $(this).parent();

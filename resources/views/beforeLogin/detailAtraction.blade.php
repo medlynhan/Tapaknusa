@@ -1,4 +1,4 @@
-@extends('app')    
+@extends('beforeLogin.app')    
 @section('title', 'Tapaknusa')
 @section('content')
     
@@ -65,8 +65,8 @@
                     
                 </div>
                 <div class="ticket-price-button">
-                    <button  class="btn-keranjang medium-text-font">Masukkan Keranjang</button>
-                    <button  class="btn-pesan medium-text-font">Pesan Sekarang</button>
+                    <button  class="btn-keranjang medium-text-font k-login">Masukkan Keranjang</button>
+                    <button  class="btn-pesan medium-text-font ps-login">Pesan Sekarang</button>
                 </div>
             </div>
         </div>
@@ -104,6 +104,12 @@
             <p class="medium-text-font black">Tolong masukkan tanggal pemesanan terlebih dahulu.</p>
         </div>
     </div>
+
+    <div class="information-need-to-login" id="informationNeedToLoginModal">
+        <div class="information-content">
+            <p class="medium-text-font black">Untuk melanjutkan, silakan login terlebih dahulu.</p>
+    </div>
+    
 @endsection
 @section('scripts')
     <script>
@@ -323,26 +329,21 @@
 
             ticketPrice();
 
+        function needToLoginFirst(theContent) {
+            $(theContent).click(function () {
+                // Tampilkan elemen terkait dengan tombol yang diklik
+                $('.information-need-to-login').css({ display: "flex" });
 
-        $(".btn-keranjang").click(function () {
-            window.location.href = "/cart?find=" + encodeURIComponent(searchQuery);
-            
-        });
+                // Menyembunyikan elemen setelah 800ms
+                setTimeout(function () {
+                    $('.information-need-to-login').css({ display: "none" });
+                }, 800);  // Bind this agar tetap mengarah ke elemen yang diklik
+            });
 
+        }
 
-        $(".btn-pesan").click(function () {
-            let searchQuery = $(".hero #search-input").val();
-            let tempDate = $(".hero .date-picker").val();
-
-            console.log("tanggal" + tempDate);
-
-            $(".hero .date-picker").val("");
-            $(".hero .search-container input").val("");
-
-
-            window.location.href = "/searchResult?find=" + encodeURIComponent(searchQuery) + "&status=all&tanggal=" + tempDate;
-            
-        });
+        needToLoginFirst(".k-login");
+        needToLoginFirst(".ps-login");
 
     });  
 

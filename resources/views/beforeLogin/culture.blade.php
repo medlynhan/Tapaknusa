@@ -1,4 +1,4 @@
-@extends('app')    
+@extends('beforeLogin.app')    
 @section('title', 'Tapaknusa')
 @section('content')
 
@@ -105,6 +105,11 @@
     </section>
 
     <div class="search-modal"></div>
+
+    <div class="information-need-to-login" id="informationNeedToLoginModal">
+        <div class="information-content">
+            <p class="medium-text-font black">Untuk melanjutkan, silakan login terlebih dahulu.</p>
+    </div>
 
     @endsection
     @section('scripts')    
