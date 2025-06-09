@@ -103,8 +103,9 @@ nav ul li a {
     position: relative;
 }
 
+
 .toggle-profile-btn{
-    
+    background-color: var(--red);
     display: flex;
     align-items: center;
     justify-items: center;
@@ -130,7 +131,6 @@ nav ul li a {
 }
 
 
-
 .toggle-btn.active::before {
     transform: translateX(7em);
    
@@ -147,6 +147,10 @@ nav ul li a {
 
  .btn-profile, .btn-name{
     padding: 0.2em 0.7em;
+ }
+
+ .btn-profile-text{
+    z-index: 500;
  }
 
 

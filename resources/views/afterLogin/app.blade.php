@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Tapaknusa')</title>
     <!--css-->
@@ -85,9 +86,9 @@
                 </ul>
             </nav>
             <!--Login SignIn Button-->
-            <div class="toggle-profile-btn">
+            <div class="toggle-btn toggle-profile-btn">
                 <button class="btn-profile active medium-text-font"><i class="fi fi-sr-user white"></i></button>
-                <button class="btn-name medium-text-font" ><p>Hello, {{Auth::user()->name}} !</p></button>
+                 <p class="btn-profile-text">Hello, {{ Auth::check() && Auth::user()->name ? Auth::user()->name : 'User' }}!</p>
             </div>
             <!--Burger Menu Header Icon-->
             <div class="burger-menu big-text-font">
@@ -184,6 +185,7 @@
         </div>
     </div>
     @endif
+
     <div >
         @yield('content') 
     </div>
@@ -237,7 +239,6 @@
     </footer>
     @endif
     <script src="{{ asset('js/jquery-1.7.1.min.js') }}"></script>
-    <script src="{{ asset('js/data.js') }}"></script>
     <script src="{{ asset('js/header.js') }}"></script>
     <script src="{{ asset('js/searchBox.js') }}"></script>
     <script src="{{ asset('js/carousell.js') }}"></script>

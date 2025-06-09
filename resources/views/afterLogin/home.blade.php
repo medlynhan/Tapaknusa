@@ -2,6 +2,7 @@
     @extends('afterLogin.app')    
     @section('title', 'Tapaknusa')
     @section('content')
+
         <!-- Hero Section -->
         <section class="hero" >
             <div class="fadeInDown page-padding-left-right  ">
@@ -29,7 +30,7 @@
 
 
         <!--Advertisment--> 
-        <section class="advertisment-section page-padding-left-right">
+        <section class="advertisment-section page-padding-left-right as-click">
             <p class="superbig-text-font black">
                 <i class="fi fi-rr-time-quarter-to supersmall-heading-font black"></i> Segera Berlangsung
             </p>    
@@ -129,7 +130,7 @@
 
 
         <section class="points-section page-padding-left-right">
-        <a href="{{ route('home') }}"><img src="{{ asset('asset/kuishome.png') }}" alt="Wawasan Nusantara"></a>
+           <img class="ws-click" src="{{ asset('asset/kuishome.png') }}" alt="Wawasan Nusantara">
         </section>
         
         <section class="faq-section page-padding-left-right">
@@ -241,6 +242,15 @@
         </section>
 
         <div class="search-modal"></div>
+
+
+
+        <div class="information-need-to-login" id="informationNeedToLoginModal">
+            <div class="information-content">
+                <p class="medium-text-font black">Untuk melanjutkan, silakan login terlebih dahulu.</p>
+        </div>
+
+    
     @endsection
     
 
@@ -249,19 +259,33 @@
             $(document).ready(function () {
 
                 headerChangeColor();
+               
+                let allAttractions = @json($allAttractions);
+                let allFestivals = @json($allFestivals);
                 
-                addCard($(".cards-festival"),"festival",0,0,0,wisataBudaya.length);
-                addCard($(".cards-atraksi"),"atraksi",0,0,0,wisataBudaya.length);
+                console.log(allAttractions); // Debug data
+                console.log(allFestivals);  // Debug data
+
+
+
+                addCard(allFestivals, $(".cards-festival"));
+                addCard(allAttractions, $(".cards-atraksi"));
 
 
                 carousellButton($(".cards-atraksi"),$("#atraction .prev-btn"),$("#atraction .next-btn") );
                 carousellButton($(".cards-festival"),$("#festival .prev-btn"),$("#festival .next-btn"));
 
-                clickCardContent(".card", "detailAtraction");
-                clickCardContent(".culture-card", "culture");
-                clickCardContent(".footer-links-text", "culture");
+                clickCardContent(".card", "/detailAtraction");
+                clickCardContent(".culture-card", "/culture");
+                clickCardContent(".footer-links-text", "/culture");
+                
 
 
+                $(document).on("click", ".need-to-login-button", function () {
+                    $("#loginModal").css({ display: "flex" });
+                });
+
+                    
                 // Toggle FAQ ditekan
                 $(".faq-question").click(function () {
                     let parent = $(this).parent();
@@ -356,11 +380,10 @@
                     
                 });
 
-
-                
-
             });  
+
+            needToLoginFirst(".as-click");
+            needToLoginFirst(".ws-click");
 
         </script>
     @endsection
-

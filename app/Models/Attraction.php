@@ -3,11 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory; 
 
 class Attraction extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'description', 'image', 'price', 'location', 'category_id', 'city_id', 'country_id', 'created_at', 'updated_at'];
+    protected $fillable = ['title','destination', 'description', 'startPrice', 'address', 'schedule', 'operationa_hours'];
     protected $table = 'msattractions';
     public $timestamps = false;
 

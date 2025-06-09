@@ -75,13 +75,17 @@
 @section('scripts')
     <script>
     $(document).ready(function () {
-        addCard($("#top-5-atraction .cards-atraksi"),"atraksi",0,0,7,12);
+
+        let attractionRecomendation = @json($attractionRecomendation);
+
+        addCard(attractionRecomendation,$("#top-5-atraction .cards-atraksi"));
         carousellButton($("#top-5-atraction .cards-atraksi"),$("#top-5-atraction .prev-btn"),$("#top-5-atraction .next-btn") );
         clickCardContent("#top-5-atraction .cards-atraksi .card", "detailAtraction");
 
-        
-        isCartEmpty = false;
-        if(isCartEmpty){
+        let cartItems = @json($allUserItem); 
+        console.log(cartItems);
+
+        if(cartItems.length < 0){
             $(".go-to-pay-box").hide();
             $(".cart-container").hide();
             $(".ticket-in-cart").hide();

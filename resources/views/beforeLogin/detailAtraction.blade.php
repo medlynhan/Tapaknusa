@@ -115,10 +115,14 @@
     <script>
      $(document).ready(function () {
 
+        
+        let attractionRecomendation = @json($attractionRecomendation);
+        console.log("attraction recomendation :"+attractionRecomendation);
 
-        addCard($("#fyp-atraction .cards-atraksi"),"atraksi",0,0,0,7);
+
+        addCard(attractionRecomendation, $("#fyp-atraction .cards-atraksi"));
         carousellButton($("#fyp-atraction .cards-atraksi"),$("#fyp-atraction .prev-btn"),$("#fyp-atraction .next-btn") );
-        clickCardContent("#fyp-atraction .cards-atraksi .card", "detailAtraction");
+        clickCardContent("#fyp-atraction .cards-atraksi .card", "/TappaknusadetailAtraction");
    
 
         function responsiveHero(){
@@ -166,30 +170,38 @@
         responsiveLihatLanjutBtn();
 
 
+        let detailAttraction = @json($detailAttraction); 
+        let dataDetail = detailAttraction[0];
+        console.log("dataDetail :"+dataDetail);
+        console.log("dataDetail :"+dataDetail.title);
+
         
-
-        let data = getDetailAtractionData();
-        let dataDetail = data[0];
-
-        console.log("length :"+dataDetail.length);
-
-
-
         $(".back-btn-section .title").text(dataDetail.title);
-        $(".container .schedule p").text(dataDetail.schedule);
+
+        if(dataDetail.schedule != null){
+            console.log("schedule null");
+            $(".container .schedule p").text(dataDetail.schedule);
+        }else{
+            console.log("schedule ga null");
+            $(".container .schedule p").text(dataDetail.operational_hours);
+        }
+
         $(".container .address p").text(dataDetail.address);
         $(".container .ticket-button p").text(dataDetail.startPrice);
 
-        $(".container .image-destination").append(`<img class="image1" src="${dataDetail.image}" alt="gambar-atraksi">`);
-        $(".container .image-destination").append(`<img class="image2" src="${dataDetail.image}" alt="gambar-atraksi">`);
-        $(".container .image-destination").append(`<img class="image3" src="${dataDetail.image}" alt="gambar-atraksi">`);
+        $(".container .image-destination").append(`<img class="image1" src="${dataDetail.image1}" alt="gambar-atraksi">`);
+        $(".container .image-destination").append(`<img class="image2" src="${dataDetail.image2}" alt="gambar-atraksi">`);
+        $(".container .image-destination").append(`<img class="image3" src="${dataDetail.image3}" alt="gambar-atraksi">`);
         $(".container .description").append(`<p class="medium-text-font black">${dataDetail.description}</p>`);
        
-        if (dataDetail.reviews.length > 0) {
-            dataDetail.reviews.forEach((review) => {
+        let reviews = @json($reviews); 
+        console.log("reviews :"+reviews);
+
+        if (reviews.length > 0) {
+            reviews.forEach((review) => {
                 $(".container .ulasan-container").append(`
                 <div class="ulasan-content">
-                    <p class="bold">${review.user}</p>
+                    <p class="bold">${review.name}</p>
                     <p>⭐⭐⭐⭐⭐ ${review.rating} - ${review.comment}</p>
                 </div>
                 `);
@@ -254,12 +266,12 @@
 
 
         
+        let ticketTypes = @json($ticketTypes); 
+        console.log("ticketTypes :"+ticketTypes);
 
 
-        let ticketAtraction = dataDetail.ticketTypes
-
-        if (ticketAtraction.length > 0) {
-            ticketAtraction.forEach( (ticket) => {
+        if (ticketTypes.length > 0) {
+            ticketTypes.forEach( (ticket) => {
 
                 $(".container .ticket-types").append(`
                     <div class="ticket"> 
@@ -274,7 +286,7 @@
                         </div>
                         <div class="detail">
                             <p>Kategori: ${ticket.category}</p>
-                            <p>Fasilitas: ${ticket.facilities.join(", ")}</p>
+                            <p>Fasilitas: ${ticket.description}</p>
                         </div>
                     </div>
                 `);
@@ -289,7 +301,7 @@
             let priceTotal = 0;
 
             function calculateTotalPrice(element,quantity){
-                    let item = ticketAtraction.find((ticket) => ticket.title === element.data("attribute") );
+                    let item = ticketTypes.find((ticket) => ticket.title === element.data("attribute") );
                     console.log("coba"+element.data("attribute"));
                 
 

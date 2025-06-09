@@ -106,6 +106,11 @@
 
     <div class="search-modal"></div>
 
+    <div class="information-need-to-login" id="informationNeedToLoginModal">
+        <div class="information-content">
+            <p class="medium-text-font black">Untuk melanjutkan, silakan login terlebih dahulu.</p>
+    </div>
+
     @endsection
     @section('scripts')    
     <script>
@@ -113,17 +118,17 @@
 
         headerChangeColor();
         
-        getDetailCultureTopAtractionData($("#top-atraction .cards-atraksi"));
+        let atraksiBudaya = @json($atraksiBudaya);
+        addCard(atraksiBudaya,$("#top-atraction .cards-atraksi"));
         carousellButton($("#top-atraction .cards-atraksi"),$("#top-atraction .prev-btn"),$("#top-atraction .next-btn") );
-        clickCardContent("#top-atraction .cards-atraksi .card", "detailAtraction");
+        clickCardContent("#top-atraction .cards-atraksi .card", "/detailAtraction");
 
-
-        getDetailCultureTopFestivalData($("#top-festival .cards-atraksi"));
+        let festivalBudaya = @json($festivalBudaya);
+        addCard(festivalBudaya,$("#top-festival .cards-atraksi"));
         carousellButton($("#top-festival .cards-atraksi"),$("#top-festival .prev-btn"),$("#top-festival .next-btn") );
-        clickCardContent("#top-festival .cards-atraksi .card", "detailAtraction");
+        clickCardContent("#top-festival .cards-atraksi .card", "/detailAtraction");
         
-    
-        clickCardContent(".culture-card", "culture");
+        clickCardContent(".culture-card", "/culture");
 
         function responsiveHero(){
 
@@ -168,8 +173,8 @@
 
 
         
-        let urlParams = new URLSearchParams(window.location.search); 
-        let searchQueryItem = urlParams.get("find") || "";
+
+        let searchQueryItem = @json($location) || "";
         $(".location-title").text(searchQueryItem);
 
         let heroCultureImage = searchQueryItem.toLowerCase().replace(/\s+/g, '-');

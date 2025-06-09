@@ -72,7 +72,7 @@
         <p class="superbig-text-font black">
             <i class="fi fi-rr-time-quarter-to supersmall-heading-font black"></i> Segera Berlangsung
         </p>    
-        <a href="{{route('home')}}"><img src="asset/festival-promo.png" alt="Festival terdekat"></a>
+        <a href="{{route('Tapaknusahome')}}"><img src="asset/festival-promo.png" alt="Festival terdekat"></a>
     </section>
 
     <!-- Explore Festival Section -->
@@ -180,19 +180,23 @@
 
         headerChangeColor();
 
-        addCard($("#fyp-festival .cards-atraksi"),"festival",0,0,0,7);
+        festivalTrending = @json($festivalTrending);
+        festivalTop5 =   @json($festivalTop5);
+        festivalRecommendation =@json($festivalRecommendation);
+
+        addCard(festivalRecommendation,$("#fyp-festival .cards-atraksi"));
         carousellButton($("#fyp-festival .cards-atraksi"),$("#fyp-festival .prev-btn"),$("#fyp-festival .next-btn") );
-        clickCardContent("#fyp-festival .cards-atraksi .card", "detailAtraction");
+        clickCardContent("#fyp-festival .cards-atraksi .card", "/detailAtraction");
 
-        addCard($("#trending-festival .cards-atraksi"),"festival",0,0,5,wisataBudaya.length);
+        addCard(festivalTrending,$("#trending-festival .cards-atraksi"));
         carousellButton($("#trending-festival .cards-atraksi"),$("#trending-festival .prev-btn"),$("#trending-festival .next-btn") );
-        clickCardContent("#trending-festival .cards-atraksi .card", "detailAtraction");
+        clickCardContent("#trending-festival .cards-atraksi .card", "/detailAtraction");
 
-        addCard($("#top-5-festival .cards-atraksi"),"festival",0,0,7,12);
+        addCard(festivalTop5,$("#top-5-festival .cards-atraksi"));
         carousellButton($("#top-5-festival .cards-atraksi"),$("#top-5-festival .prev-btn"),$("#top-5-festival .next-btn") );
-        clickCardContent("#top-5-festival .cards-atraksi .card", "detailAtraction");
+        clickCardContent("#top-5-festival .cards-atraksi .card", "/detailAtraction");
    
-        clickCardContent(".culture-card", "culture");
+        clickCardContent(".culture-card", "/culture");
 
         function responsiveHero(){
 
