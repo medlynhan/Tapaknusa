@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 use App\Models\History;
 use App\Models\Mstickettypes;
 use App\Models\Msattractions;
+use Illuminate\Support\Facades\Auth;
 
-class HistoryController extends Controller
+
+class HistoryController 
 {
     public function getAllUserHistories()
     {

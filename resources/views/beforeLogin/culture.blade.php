@@ -118,17 +118,17 @@
 
         headerChangeColor();
         
-        getDetailCultureTopAtractionData($("#top-atraction .cards-atraksi"));
+        let atraksiBudaya = @json($atraksiBudaya);
+        addCard(atraksiBudaya,$("#top-atraction .cards-atraksi"));
         carousellButton($("#top-atraction .cards-atraksi"),$("#top-atraction .prev-btn"),$("#top-atraction .next-btn") );
-        clickCardContent("#top-atraction .cards-atraksi .card", "detailAtraction");
+        clickCardContent("#top-atraction .cards-atraksi .card", "/TappaknusadetailAtraction");
 
-
-        getDetailCultureTopFestivalData($("#top-festival .cards-atraksi"));
+        let festivalBudaya = @json($festivalBudaya);
+        addCard(festivalBudaya,$("#top-festival .cards-atraksi"));
         carousellButton($("#top-festival .cards-atraksi"),$("#top-festival .prev-btn"),$("#top-festival .next-btn") );
-        clickCardContent("#top-festival .cards-atraksi .card", "detailAtraction");
+        clickCardContent("#top-festival .cards-atraksi .card", "/TappaknusadetailAtraction");
         
-    
-        clickCardContent(".culture-card", "culture");
+        clickCardContent(".culture-card", "/Tapaknusaculture");
 
         function responsiveHero(){
 
@@ -173,8 +173,8 @@
 
 
         
-        let urlParams = new URLSearchParams(window.location.search); 
-        let searchQueryItem = urlParams.get("find") || "";
+
+        let searchQueryItem = @json($location) || "";
         $(".location-title").text(searchQueryItem);
 
         let heroCultureImage = searchQueryItem.toLowerCase().replace(/\s+/g, '-');
@@ -189,7 +189,7 @@
                 $(".hero-culture .date-picker").val("");
                 $(".hero-culture .search-container input").val("");
 
-                window.location.href = "/searchResult?find=" + encodeURIComponent(searchQuery) + "&status=all&tanggal=" + tempDate;
+                window.location.href = "/TapaknusasearchResult?find=" + encodeURIComponent(searchQuery) + "&status=all&tanggal=" + tempDate;
 
             
         });

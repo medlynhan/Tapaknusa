@@ -158,7 +158,7 @@ function searchBoxHeader(){
 
 
             $(".search-modal").animate({"top":"0vh"},500,function(){
-                window.location.href = "searchResult.html?find=" + encodeURIComponent(searchQuery) + "&status=all&tanggal=" + tempDate;
+                window.location.href = "/TapaknusasearchResult?find=" + encodeURIComponent(searchQuery) + "&status=all&tanggal=" + tempDate;
             });
 
         }
@@ -236,29 +236,7 @@ function menuPopUp(){
 
 }
 
-function searchBoxHeader(){
-    $(".header-btn-search").click(function () {
-        let searchQuery = $("#header-search-input").val();
-        if(searchQuery === "" || /^[^a-zA-Z]+$/.test(searchQuery)){
-            $("#header-search-input").val("");
-            $("#header-search-input").attr("placeholder","Kotak Pencarian tidak boleh kosong");
 
-        }else{
-            let tempDate = $(".header-date-picker").val();
-
-            console.log("tanggal" + tempDate);
-
-            $(".header-date-picker").val("");
-            $(".header-search-container input").val("");
-
-
-
-            window.location.href = "searchResult.html?find=" + encodeURIComponent(searchQuery) + "&status=all&tanggal=" + tempDate;
-
-        }
-        
-    });
-}
 
 
 

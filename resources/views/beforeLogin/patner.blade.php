@@ -26,8 +26,8 @@
         </p>
         <div class="achievement">
             <img src="{{ asset('asset/penghargaan1.jpg') }}" alt="">
-            <img src="{{ asset('asset/penghargaan2.jpg') }}" alt="">
-            <img src="{{ asset('asset/penghargaan3.jpg') }}" alt="">
+            <img src="{{ asset('asset/penghargaan2.png') }}" alt="">
+            <img src="{{ asset('asset/penghargaan3.png') }}" alt="">
 
         </div>
     </section>

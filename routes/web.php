@@ -10,83 +10,44 @@ use App\Http\Controllers\ReviewController; // Mengimpor ReviewController
 use App\Http\Controllers\TicketTypesController; // Mengimpor TicketTypesController
 use App\Http\Controllers\UserController; // Mengimpor UserController
 
-//before Login
-Route::get('/', function () {
-    return view('beforeLogin.home');
-});
-
-Route::get('/Tapaknusahome', function () {
-    return view('beforeLogin.home');
-})->name('Tapaknusahome');
-
-
-Route::get('/Tapaknusaculture', function () {
-    return view('beforeLogin.culture');
-})->name('Tapaknusaculture');
-
-Route::get('/Tapaknusaatraction', function () {
-    return view('beforeLogin.atraction');
-})->name('Tapaknusaatraction');
-
-Route::get('/Tapaknusafestival', function () {
-    return view('beforeLogin.festival');
-})->name('Tapaknusafestival');
-
-Route::get('/Tapaknusapatner', function () {
-    return view('beforeLogin.patner');
-})->name('Tapaknusapatner');
-
-Route::get('/TapaknusasearchResult', function () {
-    return view('beforeLogin.searchResult');
-})->name('TapaknusasearchResult');
-
-Route::get('/TappaknusadetailAtraction', function () {
-    return view('beforeLogin.detailAtraction');
-})->name('TapaknusadetailAtraction');
-
-
-//after Login
-Route::get('/home', function () {
-    return view('afterLogin.home');
-})->name('home');
-
-Route::get('/cart', function () {
-    return view('afterLogin.cart');
-})->name('cart');
-
-Route::get('/culture', function () {
-    return view('afterLogin.culture');
-})->name('culture');
-
-Route::get('/atraction', function () {
-    return view('afterLogin.atraction');
-})->name('atraction');
-
-Route::get('/festival', function () {
-    return view('afterLogin.festival');
-})->name('festival');
-
-Route::get('/patner', function () {
-    return view('afterLogin.patner');
-})->name('patner');
-
-Route::get('/searchResult', function () {
-    return view('afterLogin.searchResult');
-})->name('searchResult');
-
-Route::get('/detailAtraction', function () {
-    return view('afterLogin.detailAtraction');
-})->name('detailAtraction');
-
-Route::get('/pay', function () {
-    return view('afterLogin.pay');
-})->name('pay');
-
-
 //Authentication
-// Halaman Register (Sign-up)
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 
 // Logout
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+//before Login
+
+Route::get('/', [AttractionController::class, 'getAllItems']);
+Route::get('/Tapaknusa', [AttractionController::class, 'getAllItems'])->name('Tapaknusahome');
+Route::get('/TapaknusasearchResult', [AttractionController::class, 'getResult'])->name('TapaknusasearchResult');
+Route::get('/TappaknusadetailAtraction', [AttractionController::class, 'getItemsByTitle'])->name('Tapaknusadetailatraction');
+Route::get('/Tapaknusaculture', [AttractionController::class, 'getWisataBudaya'])->name('Tapaknusaculture');
+Route::get('/Tapaknusafestival', [AttractionController::class, 'getFestivalBudaya'])->name('Tapaknusafestival');  
+Route::get('/Tapaknusaatraction', [AttractionController::class, 'getAtraksiBudaya'])->name('Tapaknusaatraction');
+
+Route::get('/Tapaknusapatner', function () {
+    return view('beforeLogin.patner');
+})->name('Tapaknusapatner');
+
+
+//after Login
+Route::get('/home', [AttractionController::class, 'getAllItems2'])->name('home');
+Route::get('/searchResult', [AttractionController::class, 'getResult2'])->name('searchResult');
+Route::get('/detailAtraction', [AttractionController::class, 'getItemsByTitle2'])->name('detailatraction');
+Route::get('/culture', [AttractionController::class, 'getWisataBudaya2'])->name('culture');
+Route::get('/festival', [AttractionController::class, 'getFestivalBudaya2'])->name('festival');  
+Route::get('/atraction', [AttractionController::class, 'getAtraksiBudaya2'])->name('atraction');
+
+Route::get('/patner', function () {
+    return view('afterLogin.patner');
+})->name('patner');
+
+Route::post('/addCart', [CartController::class, 'addToCart'])->name('addCart');
+Route::get('/cart', [CartController::class, 'showCart'])->name('cart');
+
+Route::get('/pay', function () {
+    return view('afterLogin.pay');
+})->name('pay');

@@ -1,30 +1,38 @@
-function addCard(containerInput,statusInput,ratingInput,cartInput,start,end){
-    wisataBudaya.filter(wisata => wisata.status === statusInput && wisata.rating > ratingInput && wisata.cart === cartInput).slice(start,end).forEach((wisata) => {
-        let card = `
-            <div class="card" data-attribute="${wisata.title}" onclick="redirectToDetail('${wisata.title}', '${wisata.status}')">
-                <img src="${wisata.image}" alt="${wisata.title}">
-                <h3 class="medium-text-font bold">${wisata.title}</h3>
-                <p class="medium-text-font">⭐⭐⭐⭐⭐ ${wisata.rating}</p>
-                <p class="price medium-text-font bold">${wisata.startPrice}</p>
-            </div>
-        `;
-        containerInput.append(card);
-    });
-}
+    function addCard(attractions, containerInput) {
+        console.log('addCard function is called');
+        console.log(attractions);
+        
+        attractions.forEach((wisata) => {
+            let card = `
+                <div class="card" data-attribute="${wisata.title}" onclick="redirectToDetail('${wisata.title}', '${wisata.status}')">
+                    <img src="${wisata.image1}" alt="${wisata.title}">
+                    <h3 class="medium-text-font bold">${wisata.title}</h3>
+                    <p class="medium-text-font">⭐⭐⭐⭐⭐ ${wisata.rating}</p>
+                    <p class="price medium-text-font bold">${wisata.startPrice}</p>
+                </div>
+            `;
+            console.log("Card: " + card);
+            console.log(containerInput);
+            // Append ke container jQuery yang sudah valid
+            containerInput.append(card);
+        });
+    }
 
 
-//Card Click
-function clickCardContent(cardSelector, location) {
-    $(document).on("click", cardSelector, function () {
-        let data = $(this).data("attribute");
+    //Card Click
+    function clickCardContent(cardSelector, locationPage) {
+        $(document).on("click", cardSelector, function () {
+            let data = $(this).data("attribute");
 
-        if (data) {
-            window.location.href = `/TappaknusadetailAtraction?find=${encodeURIComponent(data)}`;
-        } else {
-            console.warn("Data attribute tidak ditemukan pada elemen yang diklik.");
-        }
-    });
-}
+            if (data) {
+                window.location.href = `${locationPage}?find=${encodeURIComponent(data)}`;
+            } else {
+                console.warn("Data attribute tidak ditemukan pada elemen yang diklik.");
+            }
+        });
+    }
+
+
 
 
 function carousellButton(cardsContainer, prevButton, nextButton) {
