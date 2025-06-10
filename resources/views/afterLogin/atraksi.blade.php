@@ -188,7 +188,7 @@
         carousellButton($("#top-5-atraction .cards-atraksi"),$("#top-5-atraction .prev-btn"),$("#top-5-atraction .next-btn") );
         clickCardContent("#top-5-atraction .cards-atraksi .card", "detailAtraction");
    
-        clickCardContent(".culture-card", "/Tapaknusaculture");
+        clickCardContent(".culture-card", "/culture");
 
 
         function responsiveHero(){
@@ -241,7 +241,7 @@
                 $(".hero-atraction .date-picker").val("");
                 $(".hero-atraction .search-container input").val("");
 
-                window.location.href = "/TapaknusasearchResult?find=" + encodeURIComponent(searchQuery) + "&status=atraksi&tanggal=" + tempDate;
+                window.location.href = "/searchResult?find=" + encodeURIComponent(searchQuery) + "&status=atraksi&tanggal=" + tempDate;
             
         });
 
