@@ -66,17 +66,22 @@ class CartController
     public function deleteCart(Request $request)
     {
         $id = $request->input('id');
-        dd($id);  // Cek apakah ID sudah diterima dengan benar
+        \Log::info('Cart ID: ' . $id);  // Menambahkan log untuk melihat ID yang diterima
 
         $userCart = Cart::where('id', $id)->first();
 
         if (!$userCart) {
-            return response()->json(['error' => 'Cart item not found'], 404);  // Jika cart tidak ditemukan, return error 404
+            \Log::error('Cart item not found for ID: ' . $id);  // Jika cart tidak ditemukan, log error
+            return response()->json(['error' => 'Cart item not found'], 404);
         }
 
+        // Jika item cart ditemukan, lanjutkan penghapusan
         $userCart->delete();
-        return $this->showCart();  // Mengembalikan cart yang sudah diperbarui setelah penghapusan
+        \Log::info('Cart item deleted: ' . $id);  // Log penghapusan berhasil
+
+        return response()->json(['message' => 'Cart item deleted successfully'], 200);
     }
+
 
 
     public function showCart(){
