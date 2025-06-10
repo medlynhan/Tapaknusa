@@ -39,7 +39,40 @@
     display: flex;
     flex-direction: column;
     gap:1em;
+    max-height: 85vh;
+    justify-content: space-between;
+    overflow-y: auto; 
 
+}
+.image-pay{
+    grid-area: image;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 5em;
+    height: 5em ;
+    overflow: hidden;
+    
+}
+
+.image-pay img{
+    max-width: 100%;  
+    max-height: 100%; 
+    object-fit: contain; 
+}
+
+
+
+.btn-back-payment{
+     display: flex;
+     flex-direction: row;
+     gap: 2em;
+     justify-content: flex-start;
+     align-items: center;
+}
+
+.form-button-pay{
+    min-width: 100%;
 }
 
 form #payment-form{
@@ -60,10 +93,12 @@ form #payment-form{
 
 .item {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin-bottom: 15px;
-    flex-direction: column;
+    gap: 2em;
+    flex-direction: row;
     padding: 0em 3em;
+
 
 }
 .item-ticket{
@@ -87,7 +122,7 @@ form #payment-form{
     gap: 1em;
 }
 .payment-options img{
-    width: 10%;
+    width: 7%;
 }
 
 #pay-btn {
@@ -101,10 +136,11 @@ form #payment-form{
     border-radius: 2rem;
     transition: all 0.3s ease-in-out;
     z-index: 10;
+    width: 100%;
 }
     
 #pay-btn:hover{
-    transform: scale(1.05);
+    background: var(--grey);
 }
 
 
@@ -151,14 +187,15 @@ form #payment-form{
 
 @media only screen and (max-width: 1199px) {
 
+     .checkout-container {
+        grid-template-columns: unset;
+        grid-template-rows: 1fr 1fr;
+    }
 }
 
 @media only screen and (max-width: 767px) {
 
-    .checkout-container {
-        grid-template-columns: unset;
-        grid-template-rows: 1fr 1fr;
-    }
+
 }
 
 @media only screen and (max-width: 540px) {

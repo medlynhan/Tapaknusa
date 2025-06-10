@@ -69,6 +69,7 @@
                     <button  class="btn-pesan medium-text-font  ">Pesan Sekarang</button>
                 </div>
             </div>
+            
         </div>
 
     </section>
@@ -105,9 +106,9 @@
         </div>
     </div>
 
-    <div class="information-need-to-login" id="informationNeedToLoginModal">
+    <div class="information-already-added" id="informationAlreadyAdded">
         <div class="information-content">
-            <p class="medium-text-font black">Untuk melanjutkan, silakan login terlebih dahulu.</p>
+            <p class="alreadyAdded medium-text-font black"></p>
     </div>
     
 @endsection
@@ -264,7 +265,6 @@
 
         informationCard();
 
-
         
         let ticketTypes = @json($ticketTypes); 
         console.log("ticketTypes :"+ticketTypes);
@@ -344,6 +344,19 @@
 
         ticketPrice();
 
+        function alreadyAdded() {
+           
+            $('.information-already-added').css({ display: "flex" });
+            
+            setTimeout(function () {
+                $('.information-already-added').css({ display: "none" });
+            }, 800); 
+
+        }
+
+        
+
+
         function addToCart(ticketCount) {
             $('.btn-keranjang').click(function () {
                 console.log("click");
@@ -375,11 +388,13 @@
                             
                         },
                         success: function (response) {
-                            console.log('Tickets added to cart');
+                            $('.alreadyAdded').text('Tiket berhasil ditambahkan');
+                            alreadyAdded();
                             // Lakukan sesuatu setelah data berhasil disimpan
                         },
                         error: function (xhr, status, error) {
-                            console.log('Error adding tickets to cart');
+                            $('.alreadyAdded').text('Tiket gagal ditambahkan');
+                            alreadyAdded();
                         }
                     });
                 }   

@@ -37,27 +37,6 @@
 
     <section class="ticket-in-cart fadeInDown page-padding-left-right page-padding-bottom"> 
         <div class="ticket-types-cart">
-            <div class="ticket-cart"> 
-                <h3 class="head-title-cart superbig-text-font black">Ticket Title</h3>
-                <div class="image-cart"></div>
-                <div class="close-select-cart">
-                    <span class="close-ticket">&times;</span>
-                </div>
-                <h3 class="big-text-font black bold title-cart">${ticket.title}</h3>
-                <div class="price-cart big-text-font bold red ">
-                    <p><span>Rp </span>${ticket.price}<span>,00 </span></p>
-                </div>
-                <div class="btn-item-cart big-text-font" data-attribute="${ticket.title}">
-                    <div class="btn-add" >+</div>
-                    <div class="item-quantity black">0</div>
-                    <div class="btn-subtract">-</div>
-                </div>
-                <div class="detail-cart big-text-font black">
-                    <p>Kategori: ${ticket.category}</p>
-                    <p>Fasilitas: ${ticket.facilities.join(", ")}</p>
-                </div>
-            </div>
-            
         </div>
     </section>
 
@@ -65,7 +44,7 @@
     <section class="go-to-pay-box page-padding-left-right page-padding-bottom">
         <div>
             <p class="big-text-font">Total Harga:</p>
-            <h3 id="total-price-to-pay" class="superbig-text-font ">Rp 0,00</h3>
+            <h3 class="superbig-text-font ">Rp <span id="total-price-to-pay"></span>,00</h3>
         </div>
         <button class="btn-pay medium-text-font">Lanjutkan Pembayaran</button>
     </section>
@@ -85,7 +64,7 @@
         let cartItems = @json($allUserItem); 
         console.log(cartItems);
 
-        if(cartItems.length < 0){
+        if(cartItems.length <= 0){
             $(".go-to-pay-box").hide();
             $(".cart-container").hide();
             $(".ticket-in-cart").hide();
@@ -101,57 +80,154 @@
             $(".ticket-in-cart").show();
         }
         
-
-
-        function ticketPrice(){
-
-            let priceTotal = 0;
-
-            function calculateTotalPrice(element,quantity){
-                    let item = ticketAtraction.find((ticket) => ticket.title === element.data("attribute") );
-                    console.log("coba"+element.data("attribute"));
+        
+        let countTicket = 0;
+        cartItems.forEach((ticket) => {
+            $(".ticket-types-cart").append(`<div class="ticket-cart" > 
+                <h3 class="head-title-cart superbig-text-font black">${ticket.attraction_title}</h3>
+                <div class="image-cart">
+                     <img src="${ticket.image1}" alt="Image">
+                </div>
                 
+                <div class="close-select-cart">
+                    <span class="sub-heading-font close-ticket black">&times;</span>
+                    <p class="cartId">${ticket.cart_id}</p>
+                </div>
+                <h3 class="big-text-font black bold title-cart">${ticket.ticket_title}</h3>
+                <div class="price-cart big-text-font bold red ">
+                    <p><span>Rp </span><span class="theTicketPrice">${ticket.price}</span><span>,00 </span></p>
+                </div>
+                <div class="btn-item-cart big-text-font" data-attribute="${ticket.ticket_title}">
+                    <div class="btn-add" >+</div>
+                    <div class="item-quantity black">${ticket.quantity}</div>
+                    <div class="btn-subtract">-</div>
+                </div>
+                <div class="detail-cart big-text-font black">
+                    <p>Kategori: ${ticket.category}</p>
+                    <p>Fasilitas: ${ticket.description}</p>
+                </div>
+            </div>`)
+            countTicket++;
 
-                    return item.price * quantity;
-            }
+        });
 
+        let totalPrice  = @json($totalPrice);
+        $("#total-price-to-pay").text(totalPrice);
+
+        
 
             $(".ticket-cart .btn-item-cart .btn-add").on("click",function(){
                 let quantityElement = $(this).closest(".ticket-cart").find(".item-quantity");  
-                let quantity = parseInt(quantityElement.text()) + 1;  
+                let ticketId = $(this).closest(".ticket-cart").find(".cartId"); 
+                let cartId = parseInt(ticketId.text(),10);
+                let quantity = parseInt(quantityElement.text(), 10) + 1;
                 quantityElement.text(quantity);
 
-                let itemPrice = calculateTotalPrice($(this).closest(".btn-item-cart"),quantity);
+                let addPrice =  parseInt(($(this).closest(".ticket-cart").find(".theTicketPrice")).text().replace(/[^\d]/g, ''), 10);
+                totalPrice += addPrice;
+                console.log("add " + addPrice) ;
+                $("#total-price-to-pay").text(totalPrice);
 
-                priceTotal += itemPrice;
-                console.log("price:"+priceTotal);
-                $("total-price-to-pay").text(priceTotal);
+                let ticket = {
+                    id: cartId,
+                    quantity: quantity
+                };
+                console.log("cart id : "+ticket.id);
+                console.log("quantity : "+ticket.quantity);
+
+
+                $.ajax({
+                    url: '/editCart',  // Ganti dengan route yang sesuai
+                    type: 'POST',
+                    data: {
+                        _token: $('meta[name="csrf-token"]').attr('content'),  // Pastikan CSRF token ditambahkan
+                        editItem: ticket
+                        
+                    },
+                    success: function (response) {
+                        console.log('Tiket cart berhasil ditambahkan');
+                    },
+                    error: function (xhr, status, error) {
+                        console.log('Tiket cart gagal ditambahkan');
+                       
+                    }
+                });
+
+        
             });
 
-
+            
             $(".ticket-cart .btn-item-cart .btn-subtract").on("click",function(){
                 let quantityElement = $(this).closest(".ticket-cart").find(".item-quantity");  
-                let quantity = parseInt(quantityElement.text()) - 1;  
+                let ticketId = $(this).closest(".ticket-cart").find(".cartId"); 
+                let cartId = parseInt(ticketId.text(),10);
+                let quantity = parseInt(quantityElement.text(), 10) -1;
+                
+                let subtractPrice = parseInt(($(this).closest(".ticket-cart").find(".theTicketPrice")).text().replace(/[^\d]/g, ''), 10);
+                totalPrice -= subtractPrice;
+                console.log("substract " + subtractPrice) ;
+                $("#total-price-to-pay").text(totalPrice);
+
                 if (quantity < 0){
                     quantity = 0;
                 }
+
                 quantityElement.text(quantity);
 
-                let itemPrice = calculateTotalPrice($(this).closest(".btn-item-cart"),quantity);
+                let ticket = {
+                    id: cartId,
+                    quantity: quantity
+                };
 
-                priceTotal -= itemPrice;
-                $("total-price-to-pay").text(priceTotal);
+                console.log("ticket id : "+ticket.id);
+                console.log("quantity : "+ticket.quantity);
+
+                $.ajax({
+                    url: '/editCart',  // Ganti dengan route yang sesuai
+                    type: 'POST',
+                    data: {
+                        _token: $('meta[name="csrf-token"]').attr('content'),  // Pastikan CSRF token ditambahkan
+                        editItem: ticket
+                        
+                    },
+                    success: function (response) {
+                        console.log('Tiket cart berhasil ditambahkan');
+                    },
+                    error: function (xhr, status, error) {
+                        console.log('Tiket cart gagal ditambahkan ');
+                       
+                    }
+                });
             });
 
 
-            }
+             $(".ticket-cart .close-ticket ").on("click",function(){
+                let ticketId = $(this).closest(".ticket-cart").find(".cartId"); 
+                let cartId = parseInt(ticketId.text(),10);
+                console.log(cartId);
 
-            ticketPrice();
+                $.ajax({
+                    url: '/deleteCart',  
+                    type: 'POST',
+                    data: {
+                        _token: $('meta[name="csrf-token"]').attr('content'),  // Pastikan CSRF token ditambahkan
+                        id: cartId
+                        
+                    },
+                    success: function (response) {
+                        console.log('Tiket cart berhasil dihapus');
+                    },
+                    error: function (xhr, status, error) {
+                        console.log('Tiket cart gagal dihapus');
+                       
+                    }
+                });
 
+        
+            });
 
             $(".btn-pay").click(function () {
-                window.location.href = "{{route('pay')}}";
-            
+                window.location.href = "/pay";
             });
     }); 
 

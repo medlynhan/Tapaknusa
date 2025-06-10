@@ -317,7 +317,7 @@ footer{
 
 
 /*Login Register*/
-.login-modal, .signUp-modal , .information-modal, .information-need-to-login{
+.login-modal, .signUp-modal , .information-modal, .information-need-to-login, .information-already-added{
     display: none;
     position: fixed;
     z-index: 1000;
