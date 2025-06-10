@@ -4,35 +4,46 @@
 @section('content')
 
     <!-- Header -->
-    <section class="back-btn-section page-padding-left-right fadeInDown2 page-padding-top">
-        <button class="back-btn" onclick="window.history.back()"><i class="fi fi-br-angle-left big-text-font black"></i></button>
-    </section>
+    @php
+        $totalDue = 0;
+    @endphp
 
     <div class="checkout-container page-padding-left-right page-padding-top">
         <!-- Summary Section -->
+        
         <div class="summary animated fadeInDown">
-            <h2 class="big-text-font black">Checkout</h2>
-            <h1 id="total-amount black" class="sub-heading-font red">Rp 0,00</h1>
+            
+            <section class="back-btn-section btn-back-payment  fadeInDown2 ">
+                <button class="back-btn" onclick="window.history.back()"><i class="fi fi-br-angle-left big-text-font black"></i></button>
+                <h2 class="big-text-font black">Checkout</h2>
+                
+            </section>
             <div id="cart-items">
-                <div class="item">
-                    <h3 class="head-title superbig-text-font black">Ticket Title</h3>
+        @foreach($allItems as $ticket)
+            <div class="item">
+                <div>
+                    <div class="image-pay"><img src="{{$ticket->image1}}" alt=""></div>
+                </div>
+                <div>
+                    <h3 class="head-title big-text-font black"><span>{{$ticket->quantity}} </span>{{ $ticket->ticket_title }}</h3>
                     <div class="image"></div>
-                    <h3 class="big-text-font black bold title">${ticket.title}</h3>
-                    <div class="price big-text-font bold red ">
-                        <p><span>Rp </span>${ticket.price}<span>,00 </span></p>
+                    <h3 class="medium-text-font black bold title">{{ $ticket->attraction_title }}</h3>
+                    <div class="price medium-text-font bold red">
+                        <p><span>Rp </span>{{ number_format($ticket->price * $ticket->quantity, 0, ',', '.') }}<span>,00 </span></p>
                     </div>
-                    <div class="btn-quantity big-text-font" data-attribute="${ticket.title}">
-                        <p><span>Rp </span>${ticket.price}<span>,00 </span></p>
-                    </div>
-                    <div class="detail big-text-font black">
-                        <p >Kategori: ${ticket.category}</p>
-                        <p>Fasilitas: ${ticket.facilities.join(", ")}</p>
+                    <div class="btn-quantity big-text-font" data-attribute="{{ $ticket->ticket_title }}">
+                        <p><span>Rp </span>{{ number_format($ticket->price * $ticket->quantity, 0, ',', '.') }}<span>,00 </span></p>
                     </div>
                 </div>
             </div>
+             @php
+                $totalDue += $ticket->price * $ticket->quantity; // Menambahkan harga tiket per item ke total due
+            @endphp
+        @endforeach
+            </div>
             <div class="total-due">
                 <p class="big-text-font black">Total due</p>
-                <p id="total-due-amount" class="big-text-font black">Rp 0,00</p>
+                <p id="total-due-amount" class="small-heading-font red bold">Rp <span>{{ number_format($totalDue, 0, ',', '.') }}</span>,00</p>
             </div>
         </div>
 
@@ -57,11 +68,6 @@
                         <img src="{{asset('asset/ovo.webp')}}" alt="OVO Icon" />
                         OVO
                     </label>
-                    <label>
-                        <input type="radio" name="payment" value="dana">
-                        <img src="{{asset('asset/dana.jpg')}}" alt="Dana Icon" />
-                        DANA
-                    </label>
                 </div>
             </div>
     
@@ -83,8 +89,9 @@
             </div>
     
             <!-- Submit Button -->
-            <button type="button" id="pay-btn" class="medium-text-font black">Bayar</button>
-                
+            <form action="{{ route('home') }}" method="GET" class="form-button-pay">
+                <button type="submit" id="pay-btn" class="medium-text-font black">Bayar</button>
+            </form>  
         </div>
     </div>
 

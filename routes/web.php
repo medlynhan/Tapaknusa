@@ -46,8 +46,8 @@ Route::get('/patner', function () {
 })->name('patner');
 
 Route::post('/addCart', [CartController::class, 'addToCart'])->name('addCart');
+Route::post('/editCart', [CartController::class, 'editCart'])->name('editCart');
+Route::post('/deleteCart', [CartController::class, 'deleteCart'])->name('deleteCart');
 Route::get('/cart', [CartController::class, 'showCart'])->name('cart');
 
-Route::get('/pay', function () {
-    return view('afterLogin.pay');
-})->name('pay');
+Route::get('/pay', [HistoryController::class, 'makePayment'])->name('pay');

@@ -16,42 +16,66 @@ class CartController
 
     public function addToCart(Request $request)
     {
-          // Debugging untuk memastikan masuk ke method
-
-        Log::info('Received tickets:', $request->input('tickets'));
-
-        // Ambil data tiket yang dikirimkan melalui AJAX
         $tickets = $request->input('tickets');
 
-        // Jika tiket kosong
-        if (empty($tickets)) {
-            Log::error('No tickets provided');
-            return response()->json(['status' => 'error', 'message' => 'No tickets provided'], 400);
-        }
 
         foreach ($tickets as $item) {
             // Pastikan data id dan quantity ada
-            if (!isset($item['id']) || !isset($item['quantity'])) {
-                Log::error('Invalid ticket data', ['ticket' => $item]);
-                return response()->json(['status' => 'error', 'message' => 'Invalid ticket data'], 400);
-            }
+            $userCart = Cart::where('user_id', Auth::id())
+                            ->where('ticket_type_id', $item['id']) // Cek apakah sudah ada ticket_type_id yang sama
+                            ->first(); // Mengambil satu data pertama jika ada
 
-            // Validasi quantity
-            if (!is_numeric($item['quantity']) || $item['quantity'] <= 0) {
-                Log::error('Invalid quantity', ['quantity' => $item['quantity']]);
-                return response()->json(['status' => 'error', 'message' => 'Invalid quantity'], 400);
+            if ($userCart) {
+                $userCart->quantity += $item['quantity']; 
+                $userCart->save(); 
+            } else {
+               
+                Cart::create([
+                    'ticket_type_id' => $item['id'], 
+                    'user_id' => Auth::id(),
+                    'quantity' => $item['quantity']
+                ]);
             }
-
-            // Simpan tiket ke database
-            Cart::create([
-                'ticket_type_id' => $item['id'],
-                'user_id' => Auth::id(),
-                'quantity' => $item['quantity']
-            ]);
         }
 
-        Log::info('Tickets added to cart successfully');
-        return response()->json(['status' => 'success', 'message' => 'Tickets added to cart']);
+    }
+
+    public function editCart(Request $request)
+    {
+        // Periksa apakah data editItem ada
+        $editItem = $request->input('editItem');
+
+        if (!$editItem || !isset($editItem['id']) || !isset($editItem['quantity'])) {
+            return response()->json(['message' => 'Invalid data'], 400);
+        }
+
+        // Dapatkan item dari database
+        $userCart = Cart::where('id', $editItem['id'])->first();
+
+        if ($userCart) {
+            $userCart->quantity = $editItem['quantity'];
+            $userCart->save();
+            return response()->json(['message' => 'Cart updated successfully']);
+        } else {
+            return response()->json(['message' => 'Item not found'], 404);
+        }
+    }
+
+
+
+    public function deleteCart(Request $request)
+    {
+        $id = $request->input('id');
+        dd($id);  // Cek apakah ID sudah diterima dengan benar
+
+        $userCart = Cart::where('id', $id)->first();
+
+        if (!$userCart) {
+            return response()->json(['error' => 'Cart item not found'], 404);  // Jika cart tidak ditemukan, return error 404
+        }
+
+        $userCart->delete();
+        return $this->showCart();  // Mengembalikan cart yang sudah diperbarui setelah penghapusan
     }
 
 
@@ -61,6 +85,15 @@ class CartController
         $allUserItem = Cart::join('msttickettypes', 'msusercart.ticket_type_id', '=', 'msttickettypes.id')
             ->join('msattractions', 'msttickettypes.attraction_id', '=', 'msattractions.id')
             ->where('msusercart.user_id', Auth::id())
+            ->select('msusercart.*', 
+                    'msttickettypes.title as ticket_title', 
+                    'msattractions.title as attraction_title', 
+                    'msttickettypes.price', 
+                    'msusercart.quantity', 
+                    'msttickettypes.category', 
+                    'msttickettypes.description',
+                    'msattractions.image1',
+                    'msusercart.id as cart_id')
             ->get();
  
         $totalPrice = 0;
@@ -78,18 +111,6 @@ class CartController
         
          return view('afterLogin.cart', compact('attractionRecomendation', 'allUserItem','totalPrice'));
          
-    }
-
-    public function deleteItems($id)
-    {
-        $cartItem = Cart::find($id);
-
-        if ($cartItem) {
-            $cartItem->delete();  
-            return redirect()->route('cart.index')->with('success', 'Item deleted successfully!');
-        } else {
-            return redirect()->route('cart.index')->with('error', 'Item not found!');
-        }
     }
 
 }
