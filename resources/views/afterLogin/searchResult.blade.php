@@ -64,7 +64,7 @@
 
         addCard(allAttractions, $("#fyp-atraction .cards-atraksi"));
         carousellButton($("#fyp-atraction .cards-atraksi"), $("#fyp-atraction .prev-btn"), $("#fyp-atraction .next-btn"));
-        clickCardContent(".card", "/TappaknusadetailAtraction");
+        clickCardContent(".card", "/detailAtraction");
 
         function responsiveLihatLanjutBtn() {
             function applyResponsiveLihatLanjutBtn() {
