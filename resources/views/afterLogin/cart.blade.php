@@ -219,9 +219,14 @@
                     },
                     error: function (xhr, status, error) {
                         console.log('Tiket cart gagal dihapus');
-                       
+                        console.log('Status: ' + status);
+                        console.log('Error: ' + error);
+                        console.log('Response: ' + xhr.responseText);  // Menampilkan response text
                     }
+
                 });
+
+                window.location.href = "/cart";
 
         
             });
