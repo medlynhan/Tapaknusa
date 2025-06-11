@@ -63,9 +63,6 @@
         "laravel": {
             "dont-discover": []
         }
-	"heroku": {
-            "document-root": "public"
-        }
     },
     "config": {
         "optimize-autoloader": true,
