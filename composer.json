@@ -75,9 +75,5 @@
     },
     "minimum-stability": "stable",
     "prefer-stable": true
-"extra": {
-  "heroku": {
-    "document-root": "public"
-  }
-}
+	
 }
