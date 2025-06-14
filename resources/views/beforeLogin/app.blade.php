@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Tapaknusa')</title>
     <!--css-->
-     @vite('resources/css/app.css')
+    @vite('resources/css/app.css')
     @vite('resources/js/app.js')
 
 
@@ -32,7 +32,551 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <style>
+            @import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css');
+@import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css');
 
+header {
+    background: transparent;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    z-index: 900;
+    left: 0;
+    top: 0;
+    transition: background-color 0.4s ease-in-out; 
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.5);
+
+} 
+
+.container1 {
+    display: grid;
+    grid-template-columns: 4fr 0.4fr 0.5fr;
+    align-items: center;
+    min-width: 100vw ;
+    width: 100%;
+    gap: 1em;
+    padding: 1em 3em;
+    border-bottom: 0.1em solid rgb(255, 255, 255); 
+    
+}
+ 
+.container2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    min-width: 100vw ;
+    width: 100%;
+    padding: 0.5em 3em;
+    border-bottom: 0.1em solid  rgb(255, 255, 255);
+}
+
+
+header.scrolled{
+    background: rgb(51, 51, 51,1);
+}
+
+
+
+
+
+/*Nav*/
+nav {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+    background-color: transparent; 
+    
+}
+
+
+.container2 nav{
+    min-width: 100% ;
+}
+
+nav ul {
+    list-style: none; 
+    display: flex; 
+    gap: 2.3rem; 
+    padding: 0;
+}
+
+nav ul li a {
+    text-decoration: none; 
+    color: white;
+    font-weight: 400;
+    transition: background-color 0.4s ease-in-out; 
+    transition: color 0.4s ease-in-out; 
+}
+
+
+.container1 nav ul li a:hover {
+    color: rgba(169, 67, 76); 
+   
+}
+
+.container2 nav ul li a:hover {
+    background-color: rgba(169, 67, 76, 0.7); 
+   
+}
+
+
+
+/*Login Header*/
+.toggle-btn{
+    display: flex;
+    align-items: center;
+    border: 0.15em solid var(--red);
+    border-radius: 2rem;
+    overflow: hidden;
+    background: transparent;
+    width: 14em;
+    height: 2em;
+    position: relative;
+}
+
+
+.toggle-profile-btn{
+    background-color: var(--red);
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    border: 0.15em solid var(--red);
+    border-radius: 2rem;
+    overflow: hidden;
+    width: 14em;
+    height: 2em;
+    position: relative;
+   
+}
+
+.toggle-btn::before {
+    content: "";
+    width: 7em;
+    height: 2em;
+    background: var(--red);
+    border-radius: 2rem;
+    position : absolute;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(0);
+    
+}
+
+
+.toggle-btn.active::before {
+    transform: translateX(7em);
+   
+}
+
+.btn-login, .btn-signin, .btn-profile, .btn-name{
+    color: white;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    position: relative;
+    padding: 0.2em 2em;
+}
+
+ .btn-profile, .btn-name{
+    padding: 0.2em 0.7em;
+ }
+
+ .btn-profile-text{
+    z-index: 500;
+ }
+
+
+
+
+/*Burger Menu*/
+.burger-menu, .burger-menu-open{
+    display: none;
+}
+
+
+
+.header-search-box{
+    padding-top:0em;
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 0.2fr;
+    gap: 1em;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    align-items: center ;
+}
+
+.header-search-container{
+    width: 100%;
+    height: 2.3em;
+    display: grid;
+    grid-template-columns: 1.5fr 0.3fr;
+    background-color: var(--white);
+    border: 0.1em solid transparent;
+    border-radius: 2em;
+
+}
+
+
+.header-search-box input{
+    padding: 0em;
+    padding-left: 1em;
+    width: 90%;
+    border: none;
+    border-radius: 2em;
+    outline: none;
+    z-index: 1000;
+}
+
+.header-date-picker-container{
+    width: 100%;
+    height: 100%;
+    border-radius: 2em;
+    padding-left: 2em;
+    padding-right: 1em;
+    background: none;
+    position: relative;
+    display: flex;
+    justify-items: flex-end;
+    align-items: center;
+    gap: 2em;
+    
+    
+}
+
+.header-date-picker{
+    border: 1em  solid var(--black);
+    opacity:0;
+    z-index: 500;
+    position: absolute;
+    top: 50;
+    left: 0;
+    
+}
+
+.header-calendar-icon{
+    z-index: 300;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+
+
+.header-btn-search{
+    padding: 0.4em 0.9em;
+    background: var(--red);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 2em;
+    transition: all 0.3s ease-in-out;
+}
+
+.header-btn-search:hover{
+    transform: scale(1.05);
+}
+
+
+/*Footer*/
+
+footer{
+    position: relative;
+    bottom: 0px;
+}
+
+.footer-section {
+    background: var(--black);
+    color: var(--white);
+    text-align: left;
+    padding-top: 3em;
+    width: 100vw;
+    
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: 2rem;
+    justify-content: start;
+    justify-items: start;
+    align-content: center;
+    width: 100vw;
+
+
+}
+
+.footer-social-media {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2em;
+    margin: auto;
+    padding: 0.5rem;
+
+}
+
+
+.footer-links ul {
+    list-style: none;
+    gap: 2.3rem; 
+}
+
+.footer-links ul li a {
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-links ul li a:hover {
+    background-color: rgba(169, 67, 76, 0.7); 
+}
+
+.footer-categories{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5em;
+    justify-content: space-between;
+
+}
+
+.footer-bottom {
+    border-top: 0.1em solid rgb(255, 255, 255,0.7); 
+    text-align: center;
+    padding: 1em 0rem;
+}
+
+
+
+/*Login Register*/
+.login-modal, .signUp-modal , .information-modal, .information-need-to-login, .information-already-added{
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(51, 51, 51, 0.5); 
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+}
+
+
+.search-modal {
+    display: flex;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 100vh;
+    width: 100%;
+    height: 100%;
+    background: var(--cream); 
+    align-items: center;
+    justify-content: center;
+}
+
+.login-content, .signUp-content, .information-content{
+    background: var(--white);
+    padding: 2rem;
+    width: 22rem;
+    border-radius: 0.5em;
+    text-align: center;
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+    color: var(--black);
+}
+
+.login-content p, .signUp-content p{
+    margin-top: 1em;
+    color: var(--grey);
+}
+
+/* Tombol close (X) */
+.close {
+    position: absolute;
+    top: 0em;
+    right: 0.5em;
+    font-size: 2em;
+    cursor: pointer;
+    color: var(--grey);
+}
+
+.close-burger {
+    font-size: 2em;
+    cursor: pointer;
+    color: var(--white);
+}
+
+.login-content input, .signUp-content input{
+    width: 100%;
+    padding: 1em;
+    margin: 1em 0;
+    border: 0.1em solid #ccc;
+    border-radius: 0.5em;
+}
+
+.birthday-inputs {
+    display: flex;
+    gap: 0.5em;
+}
+
+.birthday-inputs input {
+    width: 30%;
+}
+
+.btn-login-content, .btn-signUp-content {
+    width: 100%;
+    padding: 0.5em;
+    background: var(--red);
+    color: var(--white);
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+
+.btn-login-content:hover, .btn-signUp-content:hover  {
+    background: var(--grey);
+}
+
+
+.needToRegister, .needToLogin{
+    text-decoration: underline;
+    cursor: pointer;
+} 
+
+@media only screen and (min-width: 1600px) {
+}
+
+@media only screen and (max-width: 1599px) and (min-width: 1400px) {
+}
+
+@media only screen and (max-width: 1399px) and (min-width: 1200px) {
+}
+
+@media only screen and (max-width: 1199px){
+    .toggle-btn{
+        display : none;
+    }
+    .icon{
+        display : none;
+    }
+
+    .burger-menu{
+        display : flex;
+        width: 100%;
+        font-size: 1.5rem;
+    }
+
+    .footer-container {
+        display: grid;
+        grid-template-columns: unset;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .burger-modal{
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(51, 51, 51, 0.5); 
+        backdrop-filter: blur(5px);
+        align-items: center;
+        justify-content: center;   
+    }
+
+    .burger-menu-open{
+        display : flex;
+        flex-direction: column;
+        position: absolute;
+        background-color: var(--red);
+        top: 0%;
+        right: -200%;
+        width: 30em;
+        height: 100vh;
+        color: var(--black);
+        z-index: 1000;
+        padding: 5em;
+    }
+
+    .login-signup-menu{
+        margin-top: 4em;
+        width: 100%;
+        border-top: 0.1em var(--white) solid; 
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        justify-content: end;
+        justify-items: end;
+        align-items: center;
+        padding: 1em;
+        text-decoration: underline var(--white);
+        
+    }
+
+    .logout-menu{
+        margin-top: 4em;
+        width: 100%;
+        border-top: 0.1em var(--white) solid; 
+        display: grid;
+        justify-content: end;
+        justify-items: end;
+        align-items: center;
+        padding: 1em;
+        text-decoration: underline var(--white);
+    }
+
+
+    .burger-menu-open-title{
+        display : grid;
+        grid-template-columns: 90% 10%;
+        border-bottom: 0.1em var(--white) solid;   
+    }
+
+    .burger-menu-open-list{
+        padding-top: 3em ;
+        display : flex;
+        flex-direction: column;
+        gap:2em;
+        text-align: start;
+        cursor: pointer;
+
+    }  
+
+
+
+    
+
+
+
+    
+
+}
+
+@media only screen and (max-width: 767px) {
+}
+
+@media only screen and (max-width: 499px) {
+    .container2{
+        width: 100vw;
+    }
+
+    .footer-categories{
+        gap: 1.5em;
+    }
+
+    footer{
+        position: relative;
+        top: 100px;
+    }
+}
+    </style>
 </head>
 <body class="medium-text-font">
     <!--Header-->
