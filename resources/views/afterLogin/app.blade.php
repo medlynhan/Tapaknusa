@@ -6,28 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Tapaknusa')</title>
     <!--css-->
-    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
-    <link rel="stylesheet" href="{{asset('css/animation.css')}}">
-    <link rel="stylesheet" href="{{asset('css/carousel.css')}}">
-    <link rel="stylesheet" href="{{asset('css/font.css')}}">
-    <link rel="stylesheet" href="{{asset('css/headerFooter.css')}}">
-    <link rel="stylesheet" href="{{asset('css/layout.css')}}">
-
-
-
-    <!--css atraction-->
-    <link rel="stylesheet" href="{{asset('css/page/atractionFestival.css')}}">
-    <link rel="stylesheet" href="{{asset('css/page/cart.css')}}">
-    <link rel="stylesheet" href="{{asset('css/page/detailAtraction.css')}}">
-    <link rel="stylesheet" href="{{asset('css/page/home.css')}}">
-    <link rel="stylesheet" href="{{asset('css/page/patner.css')}}">
-    <link rel="stylesheet" href="{{asset('css/page/pay.css')}}">
-    <link rel="stylesheet" href="{{asset('css/page/searchResult.css')}}">
-
-    <!--css font, jquery-->
-    <link rel="stylesheet" href="plugin/animate.css">
-    <link rel="stylesheet" href="plugin/fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/css/all.css">
-
+    @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
 
     <!--google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
