@@ -1,0 +1,72 @@
+:root {
+    --red: rgb(169, 67, 76);
+    --yellow: rgb(245 221 63);
+    --cream: rgb(255, 250, 244);
+    --white:rgb(255, 255, 255);  
+    --black: rgb(51, 51, 51);
+    --grey: rgb(136, 136, 136); 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    background-color: var(--cream);
+    color: var(--white);
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.flex{
+    display: flex;
+}
+ 
+
+.page-margin-left-right{
+    margin: 0em 3em;
+}
+
+.page-padding-left-right{
+    padding-left: 7em;
+    padding-right: 7em;
+}
+
+
+
+.btn{
+    margin-top: 2em;
+    padding: 0.8em 1.8em;
+    background: var(--red);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 2em;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    
+}
+
+.page-padding-top{
+    padding-top : 5em;
+}
+
+.page-padding-bottom{
+    padding-bottom : 5em;
+}
+
+.page-padding-top-3{
+    padding-top : 3em;
+}
+
+
+
+
+

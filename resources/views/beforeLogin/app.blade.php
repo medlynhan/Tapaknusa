@@ -5,31 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Tapaknusa')</title>
     <!--css-->
-    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
-    <link rel="stylesheet" href="{{asset('css/animation.css')}}">
-    <link rel="stylesheet" href="{{asset('css/carousel.css')}}">
-    <link rel="stylesheet" href="{{asset('css/font.css')}}">
-    <link rel="stylesheet" href="{{asset('css/headerFooter.css')}}">
-    <link rel="stylesheet" href="{{asset('css/layout.css')}}">
-
-
-
-    <!--css atraction-->
-    <link rel="stylesheet" href="{{asset('css/page/atractionFestival.css')}}">
-    <link rel="stylesheet" href="{{asset('css/page/cart.css')}}">
-    <link rel="stylesheet" href="{{asset('css/page/detailAtraction.css')}}">
-    <link rel="stylesheet" href="{{asset('css/page/home.css')}}">
-    <link rel="stylesheet" href="{{asset('css/page/patner.css')}}">
-    <link rel="stylesheet" href="{{asset('css/page/pay.css')}}">
-    <link rel="stylesheet" href="{{asset('css/page/searchResult.css')}}">
-
-
-    <!--google font-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-
+    @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
 
     <!--flaticon-->
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>   
