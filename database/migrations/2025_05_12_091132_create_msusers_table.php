@@ -12,8 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('msusers', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id();  // Kolom auto-increment primary key
+            $table->string('name')->nullable();  // Kolom untuk nama pengguna
+            $table->string('email')->nullable();  // Kolom untuk email pengguna
+            $table->string('password')->nullable();  // Kolom untuk password
+            $table->timestamps();  // Kolom created_at dan updated_at
         });
     }
 
