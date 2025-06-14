@@ -11,23 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-    Schema::create('msreviews', function (Blueprint $table) {
-        $table->id();
-        $table->unsignedBigInteger('attraction_id');
-        $table->unsignedBigInteger('user_id');
-        $table->tinyInteger('rating');          // misal 1–5
-        $table->text('comment')->nullable();
-        $table->timestamps();
+         Schema::create('msreviews', function (Blueprint $table) {
+            $table->increments('id'); // id int(11) NOT NULL
+            $table->unsignedInteger('attraction_id')->nullable(); // attraction_id int(11) DEFAULT NULL
+            $table->unsignedInteger('user_id')->nullable(); // user_id int(11) DEFAULT NULL
+            $table->integer('rating')->nullable(); // rating int(11) DEFAULT NULL
+            $table->text('comment')->nullable(); // comment text DEFAULT NULL
+            $table->timestamps(); // created_at and updated_at
 
-        // foreign key
-        $table->foreign('attraction_id')
-              ->references('id')->on('msattraction')
-              ->onDelete('cascade');
-
-        $table->foreign('user_id')
-              ->references('id')->on('msusers')
-              ->onDelete('cascade');
-    });
+            // Foreign keys
+            $table->foreign('attraction_id')->references('id')->on('msattractions')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('msusers')->onDelete('cascade');
+        });
     }
 
     /**

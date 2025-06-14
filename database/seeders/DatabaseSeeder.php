@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
 
          $now = Carbon::now();
 
-         
+
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
@@ -36,103 +36,142 @@ class DatabaseSeeder extends Seeder
             'remember_token'     => Str::random(10),
         ]);
 
-                DB::table('msattraction')->insert([
+         DB::table('msattractions')->insert([
             [
-                'name'        => 'Air Terjun Surodipo',
-                'description' => 'Air terjun setinggi 25 m di kaki Gunung Lawu, cocok untuk hiking dan piknik keluarga.',
-                'location'    => 'Girisubo, Gunungkidul, Yogyakarta',
-                'created_at'  => $now,
-                'updated_at'  => $now,
+                'title'             => 'Air Terjun Surodipo',
+                'destination'       => 'Girisubo, Gunungkidul',
+                'status'            => 'Open',
+                'rating'            => 4.5,
+                'startPrice'        => '50.000',
+                'address'           => 'Dusun Surodipo, Desa Girisubo',
+                'schedule'          => '2025-06-01',
+                'description'       => 'Air terjun setinggi 25 m dengan pemandangan asri.',
+                'operational_hours' => '08:00–17:00',
+                'image1'            => 'surodipo1.jpg',
+                'image2'            => 'surodipo2.jpg',
+                'image3'            => 'surodipo3.jpg',
+                'created_at'        => $now,
+                'updated_at'        => $now,
             ],
             [
-                'name'        => 'Candi Sukuh',
-                'description' => 'Candi berarsitektur unik di lereng Gunung Lawu, penuh relief misterius.',
-                'location'    => 'Tosan, Kecamatan Ngargoyoso, Karanganyar',
-                'created_at'  => $now,
-                'updated_at'  => $now,
+                'title'             => 'Candi Sukuh',
+                'destination'       => 'Ngargoyoso, Karanganyar',
+                'status'            => 'Open',
+                'rating'            => 4.0,
+                'startPrice'        => '40.000',
+                'address'           => 'Dusun Sukuh, Kecamatan Ngargoyoso',
+                'schedule'          => '2025-06-05',
+                'description'       => 'Candi berarsitektur unik di lereng Gunung Lawu.',
+                'operational_hours' => '07:00–16:00',
+                'image1'            => 'sukuh1.jpg',
+                'image2'            => 'sukuh2.jpg',
+                'image3'            => 'sukuh3.jpg',
+                'created_at'        => $now,
+                'updated_at'        => $now,
             ],
-            // ... tambahkan attraction lainnya
+            [
+                'title'             => 'Pantai Sundak',
+                'destination'       => 'Tepus, Gunungkidul',
+                'status'            => 'Open',
+                'rating'            => 4.7,
+                'startPrice'        => '30.000',
+                'address'           => 'Dusun Sundak, Desa Purwodadi',
+                'schedule'          => '2025-06-10',
+                'description'       => 'Pantai pasir putih dengan ombak tenang.',
+                'operational_hours' => '06:00–18:00',
+                'image1'            => 'sundak1.jpg',
+                'image2'            => 'sundak2.jpg',
+                'image3'            => 'sundak3.jpg',
+                'created_at'        => $now,
+                'updated_at'        => $now,
+            ],
         ]);
 
-        // 2. Seed msttickettypes (asumsikan attraction id 1 & 2 ada)
+        // 2. Seed msttickettypes
         DB::table('msttickettypes')->insert([
             [
                 'attraction_id' => 1,
-                'type_name'     => 'Dewasa',
+                'title'         => 'Dewasa',
                 'price'         => 50000,
-                'stock'         => 100,
+                'category'      => 'Regular',
+                'description'   => 'Tiket untuk pengunjung dewasa (12–60 tahun).',
                 'created_at'    => $now,
                 'updated_at'    => $now,
             ],
             [
                 'attraction_id' => 1,
-                'type_name'     => 'Anak-anak',
+                'title'         => 'Anak-anak',
                 'price'         => 30000,
-                'stock'         => 50,
+                'category'      => 'Child',
+                'description'   => 'Tiket untuk anak-anak (<12 tahun).',
                 'created_at'    => $now,
                 'updated_at'    => $now,
             ],
             [
                 'attraction_id' => 2,
-                'type_name'     => 'General',
+                'title'         => 'General',
                 'price'         => 40000,
-                'stock'         => 80,
+                'category'      => 'Regular',
+                'description'   => 'Tiket umum Candi Sukuh.',
                 'created_at'    => $now,
                 'updated_at'    => $now,
             ],
         ]);
 
-        // 3. Seed msusers (jika belum ada)
-        DB::table('msusers')->insert([
-            [
-                'name'              => 'Madeline',
-                'email'             => 'madeline@example.com',
-                'email_verified_at' => $now,
-                'password'          => bcrypt('Midi3005'),
-                'remember_token'    => Str::random(10),
-                'created_at'        => $now,
-                'updated_at'        => $now,
-            ],
-            // ... user lain jika perlu
-        ]);
-
-        // 4. Seed msreviews (foreign ke attraction dan user)
+        // 3. Seed msreviews
         DB::table('msreviews')->insert([
             [
                 'attraction_id' => 1,
                 'user_id'       => 1,
                 'rating'        => 5,
-                'comment'       => 'Sangat indah dan airnya segar!',
+                'comment'       => 'Airnya jernih sekali, rekomended!',
                 'created_at'    => $now,
                 'updated_at'    => $now,
             ],
-            // ... review lain
+            [
+                'attraction_id' => 2,
+                'user_id'       => 1,
+                'rating'        => 4,
+                'comment'       => 'Bangunannya unik, tapi ramai pengunjung.',
+                'created_at'    => $now,
+                'updated_at'    => $now,
+            ],
         ]);
 
-        // 5. Seed usercart (foreign ke user dan ticket types)
-        DB::table('usercart')->insert([
+        // 4. Seed msusercart
+        DB::table('msusercart')->insert([
             [
-                'user_id'        => 1,
                 'ticket_type_id' => 1,
+                'user_id'        => 1,
                 'quantity'       => 2,
                 'created_at'     => $now,
                 'updated_at'     => $now,
             ],
-            // ... cart item lain
+            [
+                'ticket_type_id' => 3,
+                'user_id'        => 1,
+                'quantity'       => 1,
+                'created_at'     => $now,
+                'updated_at'     => $now,
+            ],
         ]);
 
-        // 6. Seed mshistory (foreign ke user dan ticket types)
+        // 5. Seed mshistory
         DB::table('mshistory')->insert([
             [
-                'user_id'        => 1,
                 'ticket_type_id' => 1,
                 'quantity'       => 2,
-                'total_price'    => 2 * 50000,
-                'purchased_at'   => $now,
+                'user_id'        => 1,
                 'created_at'     => $now,
                 'updated_at'     => $now,
             ],
-            // ... history lain
+            [
+                'ticket_type_id' => 2,
+                'quantity'       => 3,
+                'user_id'        => 1,
+                'created_at'     => $now,
+                'updated_at'     => $now,
+            ],
         ]);
 
     }

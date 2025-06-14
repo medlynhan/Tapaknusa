@@ -11,19 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-    Schema::create('msttickettypes', function (Blueprint $table) {
-        $table->id();
-        $table->unsignedBigInteger('attraction_id');
-        $table->string('type_name');
-        $table->decimal('price', 10, 2);
-        $table->integer('stock')->default(0);
-        $table->timestamps();
+        Schema::create('msttickettypes', function (Blueprint $table) {
+            $table->increments('id');                        // id int(11) NOT NULL
+            $table->unsignedInteger('attraction_id')->nullable(); // attraction_id int(11) DEFAULT NULL
+            $table->string('title', 255)->nullable();        // title varchar(255) DEFAULT NULL
+            $table->integer('price')->nullable();            // price int(11) DEFAULT NULL
+            $table->string('category', 100)->nullable();     // category varchar(100) DEFAULT NULL
+            $table->text('description')->nullable();         // description text DEFAULT NULL
 
-        // foreign key ke msattraction
-        $table->foreign('attraction_id')
-              ->references('id')->on('msattraction')
-              ->onDelete('cascade');
-    });
+            // Jika ingin menyertakan timestamps:
+            $table->timestamps();
+
+            // Foreign key ke msattraction.id (jika msattraction sudah ada)
+            $table->foreign('attraction_id')
+                  ->references('id')->on('msattractions')
+                  ->onDelete('cascade');
+        });
     }
 
     /**
