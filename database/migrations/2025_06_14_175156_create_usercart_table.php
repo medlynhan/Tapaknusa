@@ -11,22 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-    Schema::create('usercart', function (Blueprint $table) {
-        $table->id();
-        $table->unsignedBigInteger('user_id');
-        $table->unsignedBigInteger('ticket_type_id');
-        $table->integer('quantity')->default(1);
-        $table->timestamps();
+         Schema::create('msusercart', function (Blueprint $table) {
+            $table->increments('id'); // id int(11) NOT NULL
+            $table->unsignedInteger('ticket_type_id')->nullable(); // ticket_type_id int(11) DEFAULT NULL
+            $table->unsignedInteger('user_id')->nullable(); // user_id int(11) DEFAULT NULL
+            $table->integer('quantity')->nullable(); // quantity int(11) DEFAULT NULL
+            $table->timestamps(); // created_at and updated_at
 
-        // foreign key
-        $table->foreign('user_id')
-              ->references('id')->on('msusers')
-              ->onDelete('cascade');
-
-        $table->foreign('ticket_type_id')
-              ->references('id')->on('msttickettypes')
-              ->onDelete('cascade');
-    });
+            // Foreign keys
+            $table->foreign('ticket_type_id')->references('id')->on('msttickettypes')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('msusers')->onDelete('cascade');
+        });
     }
 
     /**
