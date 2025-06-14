@@ -7,6 +7,7 @@ use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB; 
+use Illuminate\Support\Str;    
 
 class DatabaseSeeder extends Seeder
 {
@@ -23,7 +24,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('msusers')->insert([
-            'username'           => 'Madeline',
+            'name'           => 'Madeline',
             'email'              => 'madeline@example.com',
             'email_verified_at'  => now(),
             'password'           => bcrypt('Midi3005'),
