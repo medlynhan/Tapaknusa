@@ -223,10 +223,6 @@
         </div>
     </footer>
     @endif
-    <script src="{{ asset('js/jquery-1.7.1.min.js') }}"></script>
-    <script src="{{ asset('js/header.js') }}"></script>
-    <script src="{{ asset('js/searchBox.js') }}"></script>
-    <script src="{{ asset('js/carousell.js') }}"></script>
 
     <script>
         $(document).ready(function () {
