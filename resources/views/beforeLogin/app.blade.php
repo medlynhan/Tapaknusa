@@ -6,11 +6,11 @@
     <title>@yield('title', 'Tapaknusa')</title>
 
     <link rel="icon"       href="{{secure_asset('favicon.ico') }}" type="image/x-icon">
-    <link rel="stylesheet" href="{{secure_asset('public/asset/css/animation.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('public/asset/css/carousel.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('public/asset/css/font.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('public/asset/css/headerFooter.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('public/asset/css/layout.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/animation.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/carousel.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/font.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/headerFooter.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/layout.css')}}">
 
 
     <!--css atraction-->
