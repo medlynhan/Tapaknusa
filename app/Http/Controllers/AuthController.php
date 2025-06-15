@@ -16,13 +16,14 @@ class AuthController
         // Proses login
         public function login(Request $request)
         {
-            $user = User::where('name', $request->input('username'))
-                        ->where('password', Hash::check($request->input('password')))
-                        ->first();
-            if ($user){
+            $user = User::where('name', $request->input('username'))->first();
+
+            if ($user && Hash::check($request->input('password'), $user->password)) {
+                // Jika password cocok, lanjutkan login
                 Auth::login($user);
                 return redirect()->route('home'); 
-            }else{
+            } else {
+                // Jika password tidak cocok
                 return back()->withErrors([
                     'message' => 'Nama atau password salah.',
                 ]);
