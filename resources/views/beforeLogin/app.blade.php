@@ -5,22 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Tapaknusa')</title>
 
-    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
-    <link rel="stylesheet" href="{{asset('public/asset/css/animation.css')}}">
-    <link rel="stylesheet" href="{{asset('public/asset/css/carousel.css')}}">
-    <link rel="stylesheet" href="{{asset('public/asset/css/font.css')}}">
-    <link rel="stylesheet" href="{{asset('public/asset/css/headerFooter.css')}}">
-    <link rel="stylesheet" href="{{asset('public/asset/css/layout.css')}}">
+    <link rel="icon"       href="{{secure_asset('favicon.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{secure_asset('public/asset/css/animation.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('public/asset/css/carousel.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('public/asset/css/font.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('public/asset/css/headerFooter.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('public/asset/css/layout.css')}}">
 
 
     <!--css atraction-->
-    <link rel="stylesheet" href="{{asset('public/asset/css/page/atractionFestival.css')}}">
-    <link rel="stylesheet" href="{{asset('public/asset/css/page/cart.css')}}">
-    <link rel="stylesheet" href="{{asset('public/asset/css/page/detailAtraction.css')}}">
-    <link rel="stylesheet" href="{{asset('public/asset/css/page/home.css')}}">
-    <link rel="stylesheet" href="{{asset('public/asset/css/page/patner.css')}}">
-    <link rel="stylesheet" href="{{asset('public/asset/css/page/pay.css')}}">
-    <link rel="stylesheet" href="{{asset('public/asset/css/page/searchResult.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('public/asset/css/page/atractionFestival.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('public/asset/css/page/cart.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('public/asset/css/page/detailAtraction.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('public/asset/css/page/home.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('public/asset/css/page/patner.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('public/asset/css/page/pay.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('public/asset/css/page/searchResult.css')}}">
 
     <!--google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
