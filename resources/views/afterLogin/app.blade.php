@@ -9,16 +9,28 @@
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon"       href="{{secure_asset('favicon.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{secure_asset('css/animation.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/carousel.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/font.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/headerFooter.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/layout.css')}}">
+
+
+    <!--css atraction-->
+    <link rel="stylesheet" href="{{secure_asset('css/page/atractionFestival.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/page/cart.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/page/detailAtraction.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/page/home.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/page/patner.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/page/pay.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/page/searchResult.css')}}">
 
     <!--google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
 
 
     <!--flaticon-->
@@ -223,6 +235,12 @@
         </div>
     </footer>
     @endif
+
+    <script src="{{ secure_asset('js/jquery-1.7.1.min.js') }}"></script>
+    <script src="{{ secure_asset('js/header.js') }}"></script>
+    <script src="{{ secure_asset('js/searchBox.js') }}"></script>
+    <script src="{{ secure_asset('js/carousell.js') }}"></script>
+
 
     <script>
         $(document).ready(function () {

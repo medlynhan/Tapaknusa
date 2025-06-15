@@ -32,27 +32,27 @@
                             </div>
                             <div class="location-grid thin">
                             <div class="culture-card card1" data-attribute="Yogyakarta">
-                                <img src="{{ asset('asset/yogyakarta.jpg') }}" alt="Yogyakarta" loading="lazy">
+                                <img src="{{ secure_asset('asset/yogyakarta.jpg') }}" alt="Yogyakarta" loading="lazy">
                                 <div class="label">Yogyakarta</div>
                                 <div class="info">21 Aktivitas</div>
                             </div>
                             <div class="culture-card card2" data-attribute="Sumatera">
-                                <img src="{{ asset('asset/sumatera.jpg') }}" alt="Sumatera" loading="lazy">
+                                <img src="{{ secure_asset('asset/sumatera.jpg') }}" alt="Sumatera" loading="lazy">
                                 <div class="label">Sumatera</div>
                                 <div class="info ">13 Aktivitas</div>
                             </div>
                             <div class="culture-card card3" data-attribute="Pulau Bali">
-                                <img src="{{ asset('asset/pulau-bali.jpg') }}" alt="Bali" loading="lazy">
+                                <img src="{{ secure_asset('asset/pulau-bali.jpg') }}" alt="Bali" loading="lazy">
                                 <div class="label">Bali</div>
                                 <div class="info">26 Aktivitas</div>
                             </div>
                             <div class="culture-card card4" data-attribute="Kalimantan">
-                                <img src="{{ asset('asset/kalimantan.jpg') }}" alt="Kalimantan" loading="lazy">
+                                <img src="{{ secure_asset('asset/kalimantan.jpg') }}" alt="Kalimantan" loading="lazy">
                                 <div class="label">Kalimantan</div>
                                 <div class="info">15 Aktivitas</div>
                             </div>
                             <div class="culture-card card5" data-attribute="Jawa Timur">
-                                <img src="{{ asset('asset/jawa-timur.jpg') }}" alt="Jawa Timur" loading="lazy">
+                                <img src="{{ secure_asset('asset/jawa-timur.jpg') }}" alt="Jawa Timur" loading="lazy">
                                 <div class="label">Jawa Timur</div>
                                 <div class="info">9 Aktivitas</div>
                             </div>
@@ -134,27 +134,27 @@
     
         <div class="culture-grid">
             <div class="culture-card card1" data-attribute="Yogyakarta">
-                <img src="asset/yogyakarta.jpg" alt="Yogyakarta" loading="lazy">
+                <img src="{{secure_asset('asset/yogyakarta.jpg')}}" alt="Yogyakarta" loading="lazy">
                 <div class="label">Yogyakarta</div>
                 <div class="info">21 Aktivitas</div>
             </div>
             <div class="culture-card card2" data-attribute="Sumatera">
-                <img src="asset/sumatera.jpg" alt="Sumatera" loading="lazy">
+                <img src="{{secure_asset('asset/sumatera.jpg')}}" alt="Sumatera" loading="lazy">
                 <div class="label">Sumatera</div>
                 <div class="info ">13 Aktivitas</div>
             </div>
             <div class="culture-card card3" data-attribute="Pulau Bali">
-                <img src="asset/pulau-bali.jpg" alt="Bali" loading="lazy">
+                <img src="{{secure_asset('asset/pulau-bali.jpg')}}" alt="Bali" loading="lazy">
                 <div class="label">Bali</div>
                 <div class="info">26 Aktivitas</div>
             </div>
             <div class="culture-card card4" data-attribute="Kalimantan">
-                <img src="asset/kalimantan.jpg" alt="Kalimantan" loading="lazy">
+                <img src="{{secure_asset('asset/kalimantan.jpg')}}" alt="Kalimantan" loading="lazy">
                 <div class="label">Kalimantan</div>
                 <div class="info">15 Aktivitas</div>
             </div>
             <div class="culture-card card5" data-attribute="Jawa Timur">
-                <img src="asset/jawa-timur.jpg" alt="Jawa Timur" loading="lazy">
+                <img src="{{secure_asset('asset/jawa-timur.jpg')}}" alt="Jawa Timur" loading="lazy">
                 <div class="label">Jawa Timur</div>
                 <div class="info">9 Aktivitas</div>
             </div>
