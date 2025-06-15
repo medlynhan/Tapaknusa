@@ -137,7 +137,7 @@
             <h2 class="small-heading-font black">Selamat datang kembali!</h2>
             <p class="small-text-font">Temukan 1001 keindahan, budaya, dan sejarah di berbagai sudut Indonesia </p>
             
-            <form id="loginForm" action="{{ secure_url(route('login')) }}" method="POST" class="small-text-font">
+            <form id="loginForm" action="/login" method="POST" class="small-text-font">
                 @csrf
                 <input id="login-username" name="username" class="small-text-font black" type="text" placeholder="Username" required>
                 <input id="login-password" name="password" class="small-text-font black" type="password" placeholder="Password" required>
@@ -158,7 +158,7 @@
             <h2 class="small-heading-font black">Hi, Sahabat Nusa!</h2>
             <p class="small-text-font">Temukan 1001 keindahan, budaya, dan sejarah di berbagai sudut Indonesia </p>
             
-            <form id="registerForm"  action="{{ secure_url(route('register')) }}" method="POST">
+            <form id="registerForm"  action="/register" method="POST">
                 @csrf
                 <input id="register-username" name="username" class="small-text-font black" type="text" placeholder="Username" required>
                 <span id="register-username-error" class="supersmall-text-font red"></span>
