@@ -382,6 +382,19 @@
 
             });  
 
+            function needToLoginFirst(theContent) {
+                $(theContent).click(function () {
+                    // Tampilkan elemen terkait dengan tombol yang diklik
+                    $('.information-need-to-login').css({ display: "flex" });
+
+                    // Menyembunyikan elemen setelah 800ms
+                    setTimeout(function () {
+                        $('.information-need-to-login').css({ display: "none" });
+                    }, 800);  // Bind this agar tetap mengarah ke elemen yang diklik
+                });
+
+            }
+            
             needToLoginFirst(".as-click");
             needToLoginFirst(".ws-click");
 

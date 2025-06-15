@@ -179,9 +179,12 @@
 
         let heroCultureImage = searchQueryItem.toLowerCase().replace(/\s+/g, '-');
 
-        var heroCultureImageUrl = "{{ secure_asset('asset/' + heroCultureImage + '-hero-image.jpg') }}";
+        // Gunakan Blade untuk menginsert URL base aman, kemudian gabungkan dengan variabel JS
+        var heroCultureImageUrl = "{{ secure_asset('asset/') }}" + "/" + heroCultureImage + "-hero-image.jpg";
+
+        // Mengubah background CSS menggunakan URL yang aman
         $(".hero-culture").css("background", `url("${heroCultureImageUrl}") no-repeat center center/cover`);
-        
+
 
         $(".hero-culture .btn-search").click(function () {
             let searchQuery = $(".hero-culture #search-input").val();
