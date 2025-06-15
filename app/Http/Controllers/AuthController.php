@@ -17,7 +17,7 @@ class AuthController
         public function login(Request $request)
         {
             $user = User::where('name', $request->input('username'))
-                        ->where('password', $request->input('password'))
+                        ->where('password', Hash::check($request->input('password')))
                         ->first();
             if ($user){
                 Auth::login($user);
