@@ -16,7 +16,7 @@ class AttractionController
         $allAttractions = Attraction::where('status', 'atraksi')->get();
         $allFestivals = Attraction::where('status', 'festival')->get();
 
-        dd($allAttractions);
+        
         return view('beforeLogin.home', compact('allAttractions', 'allFestivals'));
     }
 
