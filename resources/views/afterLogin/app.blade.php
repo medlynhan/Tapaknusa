@@ -124,7 +124,7 @@
 
 
                 <form action="/logout" method="GET" class="logout-menu">
-                    <button type="submit" class="medium-text-font ">Logout</button>
+                    <button type="submit" class="medium-text-font logout-btn ">Logout</button>
                 </form>  
 
             </div>  
