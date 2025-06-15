@@ -263,9 +263,8 @@
                 let allAttractions = @json($allAttractions);
                 let allFestivals = @json($allFestivals);
                 
-                console.log(allAttractions); // Debug data
-                console.log(allFestivals);  // Debug data
-
+                console.log("attractions" + allAttractions); // Debug data
+                console.log("festival" + allFestivals);  // Debug data
 
 
                 addCard(allFestivals, $(".cards-festival"));
@@ -394,7 +393,7 @@
                 });
 
             }
-            
+
             needToLoginFirst(".as-click");
             needToLoginFirst(".ws-click");
 
