@@ -414,6 +414,13 @@ footer{
     cursor: pointer;
 } 
 
+
+.logout-btn{
+    background: none;
+    border: none; 
+    cursor: pointer;
+}
+
 @media only screen and (min-width: 1600px) {
 }
 
