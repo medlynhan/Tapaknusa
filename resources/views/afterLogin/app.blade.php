@@ -123,9 +123,9 @@
                 <p><a class="medium-text-font" href="{{ route('patner') }}">Mitra & Kolaborasi</a></p>
 
 
-                <div  class="logout-menu">
-                    <p  class="medium-text-font ">Logout</p>
-                </div>
+                <form action="/logout" method="GET" class="logout-menu">
+                    <button type="submit" class="medium-text-font ">Logout</button>
+                </form>  
 
             </div>  
 

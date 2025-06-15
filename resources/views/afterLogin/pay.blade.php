@@ -89,7 +89,7 @@
             </div>
     
             <!-- Submit Button -->
-            <form action="{{ route('home') }}" method="GET" class="form-button-pay">
+            <form action="/home" method="GET" class="form-button-pay">
                 <button type="submit" id="pay-btn" class="medium-text-font black">Bayar</button>
             </form>  
         </div>
