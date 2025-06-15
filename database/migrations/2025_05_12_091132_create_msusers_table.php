@@ -14,8 +14,11 @@ return new class extends Migration
         Schema::create('msusers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('email');
+            $table->string('email')->unique(); // Menambahkan unique key untuk email
             $table->string('password');
+            $table->timestamp('email_verified_at')->nullable(); // Kolom untuk verifikasi email
+            $table->rememberToken(); // Kolom untuk remember_token
+            $table->timestamps(); // Menambahkan kolom created_at dan updated_at
         });
     }
 
