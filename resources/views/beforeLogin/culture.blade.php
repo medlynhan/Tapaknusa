@@ -179,8 +179,8 @@
 
         let heroCultureImage = searchQueryItem.toLowerCase().replace(/\s+/g, '-');
 
-        $(".hero-culture").css("background", `url("asset/${heroCultureImage}-hero-image.jpg") no-repeat center center/cover`);
-
+        var heroCultureImageUrl = "{{ secure_asset('asset/' + heroCultureImage + '-hero-image.jpg') }}";
+        $(".hero-culture").css("background", `url("${heroCultureImageUrl}") no-repeat center center/cover`);
         
 
         $(".hero-culture .btn-search").click(function () {

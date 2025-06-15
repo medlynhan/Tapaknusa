@@ -72,7 +72,7 @@
         <p class="superbig-text-font black">
             <i class="fi fi-rr-time-quarter-to supersmall-heading-font black"></i> Segera Berlangsung
         </p>    
-        <a href="{{route('Tapaknusahome')}}"><img src="asset/festival-promo.png" alt="Festival terdekat"></a>
+        <a href="{{route('Tapaknusahome')}}"><img src="{{secure_asset('asset/festival-promo.png')}}" alt="Festival terdekat"></a>
     </section>
 
     <!-- Explore Festival Section -->
