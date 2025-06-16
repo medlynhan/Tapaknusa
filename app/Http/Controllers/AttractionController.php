@@ -16,7 +16,6 @@ class AttractionController
         $allAttractions = Attraction::where('status', 'atraksi')->get();
         $allFestivals = Attraction::where('status', 'festival')->get();
 
-        
         return view('beforeLogin.home', compact('allAttractions', 'allFestivals'));
     }
 
@@ -179,14 +178,11 @@ class AttractionController
 
     public function getFestivalBudaya(Request $request){
 
-        $festivalTrending = History::join('msttickettypes', 'mshistory.ticket_type_id', '=', 'msttickettypes.id')
-            ->join('msattractions', 'msttickettypes.attraction_id', '=', 'msattractions.id')
-            ->where('msattractions.status', 'festival')
-            ->distinct('msattractions.id')  
-            ->select('msattractions.*')
+        $festivalTrending = Attraction::where('rating','>', 4.8) 
+            ->where('status', 'festival')
             ->get();
 
-        $festivalTop5 = Attraction::where('rating','>', 4.8) 
+        $festivalTop5 = Attraction::where('rating','>', 4.7) 
             ->where('status', 'festival')
             ->limit(5)
             ->get();
@@ -200,18 +196,15 @@ class AttractionController
 
     public function getFestivalBudaya2(Request $request){
 
-        $festivalTrending = History::join('msttickettypes', 'mshistory.ticket_type_id', '=', 'msttickettypes.id')
-            ->join('msattractions', 'msttickettypes.attraction_id', '=', 'msattractions.id')
-            ->where('msattractions.status', 'festival')
-            ->distinct('msattractions.id')  
-            ->select('msattractions.*')
+        $festivalTrending = Attraction::where('rating','>', 4.8) 
+            ->where('status', 'festival')
             ->get();
 
-        $festivalTop5 = Attraction::where('rating','>', 4.8) 
+        $festivalTop5 = Attraction::where('rating','>', 4.7) 
             ->where('status', 'festival')
             ->limit(5)
             ->get();
-        
+
         $festivalRecommendation = Attraction::where('status','festival')  
             ->get();
 
@@ -222,15 +215,13 @@ class AttractionController
 
     public function getAtraksiBudaya(Request $request){
 
-        $atraksiTrending = History::join('msttickettypes', 'mshistory.ticket_type_id', '=', 'msttickettypes.id')
-            ->join('msattractions', 'msttickettypes.attraction_id', '=', 'msattractions.id')
-            ->where('msattractions.status', 'atraksi')
-            ->distinct('msattractions.id')  
-            ->select('msattractions.*')
+        $atraksiTrending = Attraction::where('rating','>', 4.8) 
+            ->where('status', 'atraksi')
             ->get();
 
-        $atraksiTop5 = Attraction::where('rating','>', 4.8) 
+        $atraksiTop5 = Attraction::where('rating','>', 4.7) 
             ->where('status', 'atraksi')
+            ->limit(5)
             ->get();
         
         $atraksiRecommendation = Attraction::where('status','atraksi')  
@@ -243,15 +234,14 @@ class AttractionController
 
     public function getAtraksiBudaya2(Request $request){
 
-        $atraksiTrending = History::join('msttickettypes', 'mshistory.ticket_type_id', '=', 'msttickettypes.id')
-            ->join('msattractions', 'msttickettypes.attraction_id', '=', 'msattractions.id')
-            ->where('msattractions.status', 'atraksi')
-            ->distinct('msattractions.id')  
-            ->select('msattractions.*')
+        $atraksiTrending = Attraction::where('rating','>', 4.8) 
+            ->where('status', 'atraksi')
             ->get();
 
-        $atraksiTop5 = Attraction::where('rating','>', 4.8) 
+            
+        $atraksiTop5 = Attraction::where('rating','>', 4.7) 
             ->where('status', 'atraksi')
+            ->limit(5)
             ->get();
         
         $atraksiRecommendation = Attraction::where('status','atraksi')  
