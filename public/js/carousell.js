@@ -2,8 +2,7 @@
         console.log('addCard function is called');
         console.log(attractions);
         
-        attractions.forEach((wisata) => {
-            var url = wisata.image1;
+        attractions.forEach((url) => {
             var filename = url.split('/').pop();
             var baseUrl = "https://tapaknusa-images.imgix.net/";
             var fullUrl = baseUrl + filename + "?auto=compress&fm=webp";
