@@ -86,7 +86,7 @@
             $(".ticket-types-cart").append(`<div class="ticket-cart" > 
                 <h3 class="head-title-cart superbig-text-font black">${ticket.attraction_title}</h3>
                 <div class="image-cart">
-                     <img src="${ticket.image1}" alt="Image">
+                     <img src="${changeImageNameFormat(ticket.image1)}" alt="Image">
                 </div>
                 
                 <div class="close-select-cart">
