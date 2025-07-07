@@ -80,6 +80,11 @@
             $(".ticket-in-cart").show();
         }
         
+        function changeImageNameFormat(url){
+            var filename = url.split('/').pop();
+            var baseUrl = "https://tapaknusa-images.imgix.net/";
+            return  baseUrl + filename + "?auto=compress&fm=webp";
+        }
         
         let countTicket = 0;
         cartItems.forEach((ticket) => {
