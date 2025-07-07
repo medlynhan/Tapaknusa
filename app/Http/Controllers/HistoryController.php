@@ -12,6 +12,7 @@ use App\Models\Cart;
 use App\Models\User;
 use Illuminate\Support\Facades\Log;
 use App\Models\Attraction;
+use Illuminate\Support\Facades\DB;
 
 
 class HistoryController 
@@ -24,7 +25,7 @@ class HistoryController
             ->select('msusercart.*', 
                     'msttickettypes.title as ticket_title', 
                     'msattractions.title as attraction_title',
-                    'msattractions.image1', 
+                     \DB::raw('CONCAT("https://tapaknusa-images.imgix.net/", msattractions.image1, "?auto=compress&fm=webp") as image1'), \DB::raw('CONCAT("https://tapaknusa-images.imgix.net/", msattractions.image1, "?auto=compress&fm=webp") as image1'), 
                     'msttickettypes.price', 
                     'msusercart.quantity', 
                     'msttickettypes.category', 

@@ -32,8 +32,13 @@
         });
     }
 
+    function changeImageNameFormat(url){
+        var filename = url.split('/').pop();
+        var baseUrl = "https://tapaknusa-images.imgix.net/";
+        return  baseUrl + filename + "?auto=compress&fm=webp";
+    }
 
-
+    return  "https://tapaknusa-images.imgix.net/" + filename + "?auto=compress&fm=webp";
 
 function carousellButton(cardsContainer, prevButton, nextButton) {
 
