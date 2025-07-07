@@ -180,7 +180,7 @@
     let heroCultureImage = searchQueryItem.toLowerCase().replace(/\s+/g, '-');
 
     // Gunakan Blade untuk menginsert URL base aman, kemudian gabungkan dengan variabel JS
-    var heroCultureImageUrl = "{{ asset('asset/') }}" + "/" + heroCultureImage + "-hero-image.jpg";
+    var heroCultureImageUrl = "https://tapaknusa-images.imgix.net/" + heroCultureImage + "-hero-image.jpg";
 
     // Mengubah background CSS menggunakan URL yang aman
     $(".hero-culture").css("background", `url("${heroCultureImageUrl}") no-repeat center center/cover`);
