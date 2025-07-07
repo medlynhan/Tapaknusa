@@ -189,9 +189,17 @@
         $(".container .address p").text(dataDetail.address);
         $(".container .ticket-button p").text(dataDetail.startPrice);
 
-        $(".container .image-destination").append(`<img class="image1" src="${dataDetail.image1}" alt="gambar-atraksi">`);
-        $(".container .image-destination").append(`<img class="image2" src="${dataDetail.image2}" alt="gambar-atraksi">`);
-        $(".container .image-destination").append(`<img class="image3" src="${dataDetail.image3}" alt="gambar-atraksi">`);
+
+        function changeImageNameFormat(url){
+            var filename = url.split('/').pop();
+            var baseUrl = "https://tapaknusa-images.imgix.net/";
+            return  baseUrl + filename + "?auto=compress&fm=webp";
+        }
+
+
+        $(".container .image-destination").append(`<img class="image1" src="${changeImageNameFormat(dataDetail.image1)}" alt="gambar-atraksi">`);
+        $(".container .image-destination").append(`<img class="image2" src="${changeImageNameFormat(dataDetail.image2)}" alt="gambar-atraksi">`);
+        $(".container .image-destination").append(`<img class="image3" src="${changeImageNameFormat(dataDetail.image3)}" alt="gambar-atraksi">`);
         $(".container .description").append(`<p class="medium-text-font black">${dataDetail.description}</p>`);
        
         let reviews = @json($reviews); 
