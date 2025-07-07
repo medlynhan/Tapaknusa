@@ -25,9 +25,9 @@
             Melalui kolaborasi yang solid, kami ingin bersama-sama mengangkat keunikan daerah dan memperkenalkan pesona nusantara kepada audiens global.
         </p>
         <div class="achievement">
-            <img src="{{ secure_asset('asset/penghargaan1.jpg') }}" alt="">
-            <img src="{{ secure_asset('asset/penghargaan2.png') }}" alt="">
-            <img src="{{ secure_asset('asset/penghargaan3.png') }}" alt="">
+            <img src="{{ asset('asset/penghargaan1.jpg') }}" alt="">
+            <img src="{{ asset('asset/penghargaan2.png') }}" alt="">
+            <img src="{{ asset('asset/penghargaan3.png') }}" alt="">
 
         </div>
     </section>

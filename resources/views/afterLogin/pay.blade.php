@@ -55,17 +55,17 @@
                 <div class="payment-options medium-text-font black">
                     <label>
                         <input type="radio" name="payment" value="gopay">
-                        <img src="{{secure_asset('asset/gopay.png')}}" alt="GoPay Icon" />
+                        <img src="{{asset('asset/gopay.png')}}" alt="GoPay Icon" />
                         Gopay
                     </label>
                     <label>
                         <input type="radio" name="payment" value="shopeepay">
-                        <img src="{{secure_asset('asset/shopee.jpg')}}" alt="ShopeePay Icon" />
+                        <img src="{{asset('asset/shopee.jpg')}}" alt="ShopeePay Icon" />
                         Shopeepay
                     </label>
                     <label>
                         <input type="radio" name="payment" value="ovo">
-                        <img src="{{secure_asset('asset/ovo.webp')}}" alt="OVO Icon" />
+                        <img src="{{asset('asset/ovo.webp')}}" alt="OVO Icon" />
                         OVO
                     </label>
                 </div>
@@ -77,12 +77,12 @@
                 <div class="payment-options medium-text-font black">
                     <label>
                         <input type="radio" name="payment" value="bca">
-                        <img src="{{secure_asset('asset/BCA.jpg')}}" alt="BCA Icon" />
+                        <img src="{{asset('asset/BCA.jpg')}}" alt="BCA Icon" />
                         BCA Virtual Account
                     </label>
                     <label>
                         <input type="radio" name="payment" value="mandiri">
-                        <img src="{{secure_asset('asset/mandiri.webp')}}" alt="Mandiri Icon" />
+                        <img src="{{asset('asset/mandiri.webp')}}" alt="Mandiri Icon" />
                         Mandiri Virtual Account
                     </label>
                 </div>
