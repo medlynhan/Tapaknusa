@@ -32,27 +32,27 @@
                             </div>
                             <div class="location-grid thin">
                             <div class="culture-card card1" data-attribute="Yogyakarta">
-                                <img src="{{ asset('asset/yogyakarta.jpg') }}" alt="Yogyakarta" loading="lazy">
+                                <img src="https://tapaknusa-images.imgix.net/yogyakarta.jpg" alt="Yogyakarta" loading="lazy">
                                 <div class="label">Yogyakarta</div>
                                 <div class="info">21 Aktivitas</div>
                             </div>
                             <div class="culture-card card2" data-attribute="Sumatera">
-                                <img src="{{ asset('asset/sumatera.jpg') }}" alt="Sumatera" loading="lazy">
+                                <img src="https://tapaknusa-images.imgix.net/sumatera.jpg" alt="Sumatera" loading="lazy">
                                 <div class="label">Sumatera</div>
                                 <div class="info ">13 Aktivitas</div>
                             </div>
                             <div class="culture-card card3" data-attribute="Pulau Bali">
-                                <img src="{{ asset('asset/pulau-bali.jpg') }}" alt="Bali" loading="lazy">
+                                <img src="https://tapaknusa-images.imgix.net/pulau-bali.jpg" alt="Bali" loading="lazy">
                                 <div class="label">Bali</div>
                                 <div class="info">26 Aktivitas</div>
                             </div>
                             <div class="culture-card card4" data-attribute="Kalimantan">
-                                <img src="{{ asset('asset/kalimantan.jpg') }}" alt="Kalimantan" loading="lazy">
+                                <img src="https://tapaknusa-images.imgix.net/kalimantan.jpg" alt="Kalimantan" loading="lazy">
                                 <div class="label">Kalimantan</div>
                                 <div class="info">15 Aktivitas</div>
                             </div>
                             <div class="culture-card card5" data-attribute="Jawa Timur">
-                                <img src="{{ asset('asset/jawa-timur.jpg') }}" alt="Jawa Timur" loading="lazy">
+                                <img src="https://tapaknusa-images.imgix.net/jawa-timur.jpg" alt="Jawa Timur" loading="lazy">
                                 <div class="label">Jawa Timur</div>
                                 <div class="info">9 Aktivitas</div>
                             </div>
@@ -180,7 +180,7 @@
         let heroCultureImage = searchQueryItem.toLowerCase().replace(/\s+/g, '-');
 
         // Gunakan Blade untuk menginsert URL base aman, kemudian gabungkan dengan variabel JS
-        var heroCultureImageUrl = "{{ asset('asset/') }}" + "/" + heroCultureImage + "-hero-image.jpg";
+        var heroCultureImageUrl = "https://tapaknusa-images.imgix.net/" + heroCultureImage + "-hero-image.jpg";
 
         // Mengubah background CSS menggunakan URL yang aman
         $(".hero-culture").css("background", `url("${heroCultureImageUrl}") no-repeat center center/cover`);

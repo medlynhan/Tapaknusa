@@ -14,13 +14,13 @@
 
 
     <!--css atraction-->
-    <link rel="stylesheet" href="{{secure_asset('css/page/atractionFestival.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('css/page/cart.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('css/page/detailAtraction.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('css/page/home.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('css/page/patner.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('css/page/pay.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('css/page/searchResult.css')}}">
+    <link rel="stylesheet" href="{{asset('css/page/atractionFestival.css')}}">
+    <link rel="stylesheet" href="{{asset('css/page/cart.css')}}">
+    <link rel="stylesheet" href="{{asset('css/page/detailAtraction.css')}}">
+    <link rel="stylesheet" href="{{asset('css/page/home.css')}}">
+    <link rel="stylesheet" href="{{asset('css/page/patner.css')}}">
+    <link rel="stylesheet" href="{{asset('css/page/pay.css')}}">
+    <link rel="stylesheet" href="{{asset('css/page/searchResult.css')}}">
 
     <!--google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -236,10 +236,10 @@
     </div>
     </footer>
     @endif
-    <script src="{{ secure_asset('js/jquery-1.7.1.min.js') }}"></script>
-    <script src="{{ secure_asset('js/header.js') }}"></script>
-    <script src="{{ secure_asset('js/searchBox.js') }}"></script>
-    <script src="{{ secure_asset('js/carousell.js') }}"></script>
+    <script src="{{ asset('js/jquery-1.7.1.min.js') }}"></script>
+    <script src="{{ asset('js/header.js') }}"></script>
+    <script src="{{ asset('js/searchBox.js') }}"></script>
+    <script src="{{ asset('js/carousell.js') }}"></script>
 
     <script>
         $(document).ready(function () {
