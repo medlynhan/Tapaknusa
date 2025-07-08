@@ -34,7 +34,7 @@
             <p class="superbig-text-font black">
                 <i class="fi fi-rr-time-quarter-to supersmall-heading-font black"></i> Segera Berlangsung
             </p>    
-            <img  class="festival-trend-advertisment" data-attribute="Festival Lompat Batu" src="https://tapaknusa-images.imgix.net/festival-promo.png" alt="Festival terdekat">
+            <img  class="festival-trend-advertisment" data-attribute="Festival Lompat Batu" src="https://tapaknusa-images.imgix.net/festival-advertisment.png" alt="Festival terdekat">
         </section>
 
         <!-- Explore Atraction Section -->
@@ -130,7 +130,7 @@
 
 
         <section class="points-section page-padding-left-right">
-           <img class="ws-click" src="https://tapaknusa-images.imgix.net/kuishome.png" alt="Wawasan Nusantara">
+           <img class="ws-click" src="https://tapaknusa-images.imgix.net/wawasan-nusantara-advertisment.png" alt="Wawasan Nusantara">
         </section>
         
         <section class="faq-section page-padding-left-right">
