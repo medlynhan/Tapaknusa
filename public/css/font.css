@@ -1,9 +1,10 @@
 /*Font Size*/
-
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
 
 .heading-font {
-    font-family: "Poppins","Recoleta","Cormorant Garamond", serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size : 3rem;
@@ -11,8 +12,12 @@
     text-decoration: none;
 }
 
+.dancing-script-font{
+    font-family: "Cedarville Cursive", cursive !important;
+}
+
 .sub-heading-font{
-    font-family: "Poppins","Recoleta","Cormorant Garamond", serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size : 2.5rem;
@@ -22,7 +27,7 @@
 }
 
 .small-heading-font{
-    font-family: "Poppins","Recoleta","Cormorant Garamond", serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size : 1.8rem;
@@ -32,7 +37,7 @@
 }
 
 .supersmall-heading-font{
-    font-family: "Poppins","Recoleta","Cormorant Garamond", serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size : 1.5rem;
@@ -43,7 +48,7 @@
 
 
 .superbig-text-font{
-    font-family:  "Poppins", serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 500;
     font-style: normal;
     font-size : 1.6rem;
@@ -52,7 +57,7 @@
 }
 
 .big-text-font{
-    font-family:  "Poppins", serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 500;
     font-style: normal;
     font-size : 1.2rem;
@@ -61,7 +66,7 @@
 }
 
 .medium-text-font{
-    font-family: "Poppins", serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 500;
     font-style: normal;
     font-size : 1rem;
@@ -70,7 +75,7 @@
 }
 
 .small-text-font{
-    font-family: "Poppins", serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 500;
     font-style: normal;
     font-size : 0.8rem;
@@ -79,7 +84,7 @@
 }
 
 .supersmall-text-font{
-    font-family: "Poppins", serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 500;
     font-style: normal;
     font-size : 0.7rem;
@@ -89,11 +94,11 @@
 
 /*Bold*/
 .bold{
-    font-weight:500;
+    font-weight: 500 !important;
 }
 
 .thin{
-    font-weight:400;
+    font-weight: 400 !important;
 }
 
 /*Font Color*/
@@ -114,10 +119,10 @@
 
 /*Poppins*/
 .poppins{
-    font-family:  "Poppins", serif;
+    font-family: "Montserrat", sans-serif;
 }
 .garamond{
-    font-family:  "Cormorant Garamond","Poppins", serif;
+    font-family: "Montserrat", sans-serif;
 }
 
 

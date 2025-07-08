@@ -25,7 +25,7 @@ class HistoryController
             ->select('msusercart.*', 
                     'msttickettypes.title as ticket_title', 
                     'msattractions.title as attraction_title',
-                     \DB::raw('CONCAT("https://tapaknusa-images.imgix.net/", msattractions.image1, "?auto=compress&fm=webp") as image1'), \DB::raw('CONCAT("https://tapaknusa-images.imgix.net/", msattractions.image1, "?auto=compress&fm=webp") as image1'), 
+                     \DB::raw('CONCAT("https://tapaknusa-images.imgix.net/", SUBSTRING_INDEX(msattractions.image1, "/", -1), "?auto=compress&fm=webp") as image1'),
                     'msttickettypes.price', 
                     'msusercart.quantity', 
                     'msttickettypes.category', 

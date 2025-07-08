@@ -57,7 +57,7 @@
     <header class="fadeInDown">
         <!--Container 1-->
         <div class="container1 page-padding-left-right">
-            <a class="heading-font logo" href="{{ route('home') }}"><h1 class="big-text-font"><span class="big-text-font"><i class="fi fi-rr-island-tropical"></i></span>apaknusa</h1></a>
+            <a class="heading-font logo" href="{{ route('home') }}"><h1 class="superbig-text-font dancing-script-font"></span>Tapaknusa</h1></a>
             
             <div class="header-search-box black medium-text-font">
                 <div class="header-search-container">
@@ -192,7 +192,7 @@
     <footer class="footer-section ">
         <div class="footer-container page-padding-left-right">
             <div class="footer-content">
-                <h2 class="superbig-text-font thin">Let's, Get in touch!</h2>
+                <h2 class="superbig-text-font thin ">Let's, Get in touch!</h2>
                 <div  class="footer-social-media">
                     <i class="fi fi-brands-instagram big-text-font"></i><i class="fi fi-brands-facebook big-text-font"></i><i class="fi fi-brands-tik-tok big-text-font"></i>
                 </div>
