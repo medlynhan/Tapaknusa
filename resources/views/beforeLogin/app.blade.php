@@ -54,7 +54,7 @@
     <header class="fadeInDown">
         <!--Container 1-->
         <div class="container1 page-padding-left-right">
-            <a class="heading-font logo" href="{{ route('Tapaknusahome') }}"><h1 class="big-text-font"><span class="big-text-font"><i class="fi fi-rr-island-tropical"></i></span>apaknusa</h1></a>
+            <a class="heading-font logo" href="{{ route('Tapaknusahome') }}"><h1 class="superbig-text-font dancing-script-font"></span>Tapaknusa</h1></a>
             
             <div class="header-search-box black medium-text-font">
                 <div class="header-search-container">

@@ -50,8 +50,8 @@
 .ticket-cart{
     background-color: var(--white);
     padding: 1em 2em;
-    border-radius: 0.5em;
-    border: 0.1em solid var(--black);
+    border-radius: 0em;
+    border: 0.1em solid var(--grey);
     display: grid;
     grid-template-areas: 
     "image head-title head-title  close-select"

@@ -101,6 +101,7 @@ nav ul li a {
     width: 14em;
     height: 2em;
     position: relative;
+    cursor: pointer;
 }
 
 
@@ -116,6 +117,13 @@ nav ul li a {
     height: 2em;
     position: relative;
    
+}
+
+.logout-btn{
+    background-color: none!important;
+    background: transparent;
+    border: none !important;
+    cursor: pointer;
 }
 
 .toggle-btn::before {
