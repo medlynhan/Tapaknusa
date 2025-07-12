@@ -86,8 +86,27 @@
             return  baseUrl + filename + "?auto=compress&fm=webp";
         }
         
-        let countTicket = 0;
+
+
+
+
+        
         cartItems.forEach((ticket) => {
+            let countTicket = 0;
+
+            const ticketDate = ticket.ticketDate;
+
+            // Membuat objek Date dari string ticketDate
+            const date = new Date(ticketDate);
+
+            // Mendapatkan tanggal, bulan (0-indexed, jadi perlu ditambah 1), dan tahun
+            const day = date.getDate();
+            const month = date.getMonth() + 1;  
+            const year = date.getFullYear();
+
+            // Menyusun string tanggal dalam format "DD/MM/YYYY"
+            const formattedDate = `${day}-${month}-${year}`;
+
             $(".ticket-types-cart").append(`<div class="ticket-cart" > 
                 <h3 class="head-title-cart superbig-text-font black">${ticket.attraction_title}</h3>
                 <div class="image-cart">
@@ -107,6 +126,7 @@
                     <div class="item-quantity black">${ticket.quantity}</div>
                     <div class="btn-subtract">-</div>
                 </div>
+                <p class="ticketDate">Masa berlaku ticket : ${formattedDate}</p>
                 <div class="detail-cart big-text-font black">
                     <p>Kategori: ${ticket.category}</p>
                     <p>Fasilitas: ${ticket.description}</p>

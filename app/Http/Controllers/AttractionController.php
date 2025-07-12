@@ -103,6 +103,7 @@ class AttractionController
         $detailAttraction = Attraction::where('msattractions.title', $searchQuery)  // Gunakan msattractions.title
             ->get();
 
+
         $attractionRecomendation = Attraction::where('rating', '>', 4.8)->get();
 
         $reviews = Attraction::where('msattractions.title', $searchQuery)  // Gunakan msattractions.title
@@ -115,7 +116,7 @@ class AttractionController
         ->get();
 
 
-        return view('beforeLogin.detailAtraction', compact('detailAttraction','attractionRecomendation','reviews','ticketTypes'));
+        return view('beforeLogin.detailAtraction', compact('searchQuery','detailAttraction','attractionRecomendation','reviews','ticketTypes'));
     }
 
 
@@ -125,6 +126,7 @@ class AttractionController
         $detailAttraction = Attraction::where('msattractions.title', $searchQuery)  // Gunakan msattractions.title
             ->get();
 
+        // dd($detailAttraction[0]);
         $attractionRecomendation = Attraction::where('rating', '>', 4.8)->get();
 
         $reviews = Attraction::where('msattractions.title', $searchQuery)  // Gunakan msattractions.title
@@ -137,7 +139,7 @@ class AttractionController
         ->get();
 
 
-        return view('afterLogin.detailAtraction', compact('detailAttraction','attractionRecomendation','reviews','ticketTypes'));
+        return view('afterLogin.detailAtraction', compact('searchQuery','detailAttraction','attractionRecomendation','reviews','ticketTypes'));
     }
 
 

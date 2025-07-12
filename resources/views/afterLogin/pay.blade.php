@@ -89,7 +89,9 @@
             </div>
     
             <!-- Submit Button -->
-            <form action="/home" method="GET" class="form-button-pay">
+            <form action="{{ route('addToHistory') }}" method="POST" class="form-button-pay">
+                @csrf
+                <input type="hidden" name="allItems" value="{{ json_encode($allItems) }}">  
                 <button type="submit" id="pay-btn" class="medium-text-font black">Bayar</button>
             </form>  
         </div>

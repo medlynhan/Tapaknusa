@@ -68,11 +68,13 @@
     </section>
 
     <!--Advertisment--> 
-    <section class="advertisment-section page-padding-left-right">
+    <section class="advertisment-section page-padding-left-right as-click">
         <p class="superbig-text-font black">
             <i class="fi fi-rr-time-quarter-to supersmall-heading-font black"></i> Segera Berlangsung
         </p>    
-        <a href="{{route('Tapaknusahome')}}"><img src="https://tapaknusa-images.imgix.net/festival-promo.png" alt="Festival terdekat"></a>
+        <div class="advertisment-section-img">
+                <img  class="festival-trend-advertisment advertisment" data-attribute="Festival Lompat Batu" src="https://tapaknusa-images.imgix.net/festival-advertisment.png" alt="Festival terdekat">
+        </div>
     </section>
 
     <!-- Explore Festival Section -->
