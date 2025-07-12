@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\History;
-use App\Models\Mstickettypes;
-use App\Models\Msattractions;
+use App\Models\TickeType;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Cart;
 use App\Models\User;
@@ -30,7 +29,8 @@ class HistoryController
                     'msusercart.quantity', 
                     'msttickettypes.category', 
                     'msttickettypes.description',
-                    'msusercart.id as cart_id')
+                    'msusercart.id as cart_id',
+                    'msusercart.ticketDate')
             ->get();
 
         // Calculate the total price by summing the total_price of each item
@@ -40,6 +40,24 @@ class HistoryController
         
         // Pass the totalPrice to the view
         return view('afterLogin.pay', compact('allItems', 'totalPrice'));
+    }
+
+    public function addToHistory(Request $request){
+        $allItems = json_decode($request->input('allItems'), true);
+        //dd($allItems);  
+        foreach ($allItems as $ticket) {
+            // Menyimpan data tiket ke dalam tabel History
+            $history=History::create([
+                'ticket_type_id' => $ticket['ticket_type_id'], // Menggunakan data tiket_id dari array
+                'quantity' => $ticket['quantity'],  // Menggunakan quantity dari array
+                'user_id' => Auth::id(),   
+                'ticketDate' => $ticket['ticketDate'],    // Menggunakan user_id yang sedang login
+            ]);
+
+            //dd($history);
+        }
+
+        return redirect()->route('home');
     }
 
 }

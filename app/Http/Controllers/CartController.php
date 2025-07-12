@@ -11,34 +11,70 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Attraction;
 
 
-class CartController
-{   
+class CartController{
+public function addToCart(Request $request)
+{
+    // Log request yang diterima
+    \Log::info('Request data:', $request->all());
 
-    public function addToCart(Request $request)
-    {
-        $tickets = $request->input('tickets');
+    // Validasi input
+    $request->validate([
+        'tickets.*.id' => 'required|integer',
+        'tickets.*.quantity' => 'required|integer',
+        'tickets.*.ticketDate' => 'required|string',
+    ]);
 
+    $tickets = $request->input('tickets');
+    \Log::info('Data yang diterima:', $tickets);
 
-        foreach ($tickets as $item) {
-            // Pastikan data id dan quantity ada
-            $userCart = Cart::where('user_id', Auth::id())
-                            ->where('ticket_type_id', $item['id']) // Cek apakah sudah ada ticket_type_id yang sama
-                            ->first(); // Mengambil satu data pertama jika ada
+    foreach ($tickets as $item) {
+        \Log::info('Proses item tiket:', $item);
 
-            if ($userCart) {
-                $userCart->quantity += $item['quantity']; 
-                $userCart->save(); 
-            } else {
-               
-                Cart::create([
-                    'ticket_type_id' => $item['id'], 
+        // Pastikan data id dan quantity ada
+        \Log::info('Mencari tiket yang sudah ada untuk user_id: ' . Auth::id() . ' dengan ticketDate: ' . $item['ticketDate'] . ' dan ticket_type_id: ' . $item['id']);
+        $userCart = Cart::where('user_id', Auth::id())
+                        ->where('ticketDate', $item['ticketDate'])
+                        ->where('ticket_type_id', $item['id'])
+                        ->first(); // Mengambil satu data pertama jika ada
+
+        if ($userCart) {
+            // Jika tiket sudah ada, update quantity
+            \Log::info('Tiket sudah ada di keranjang, memperbarui quantity: ' . $userCart->quantity);
+            $userCart->quantity += $item['quantity'];
+            $userCart->save();
+            \Log::info('Tiket berhasil diperbarui: ', $userCart->toArray());
+
+            // Mengirimkan response sukses
+            return response()->json(['success' => true, 'data' => $userCart]);
+        } else {
+            // Jika tiket belum ada, buat entri baru
+            \Log::info('Tiket baru akan ditambahkan ke keranjang:', $item);
+            try {
+                $new = Cart::create([
+                    'ticket_type_id' => $item['id'],
                     'user_id' => Auth::id(),
-                    'quantity' => $item['quantity']
+                    'quantity' => $item['quantity'],
+                    'ticketDate' => $item['ticketDate'],
                 ]);
+
+                \Log::info('Tiket baru berhasil ditambahkan:', $new->toArray());
+
+                // Mengirimkan response sukses
+                return response()->json(['success' => true, 'data' => $new]);
+            } catch (\Exception $e) {
+                \Log::error('Terjadi kesalahan saat menambahkan tiket ke keranjang: ' . $e->getMessage());
+                \Log::error('Exception detail:', ['message' => $e->getMessage(), 'trace' => $e->getTraceAsString()]);
+                
+                // Mengirimkan response error
+                return response()->json(['success' => false, 'message' => 'Tiket gagal ditambahkan']);
             }
         }
-
     }
+
+    // Jika tidak ada tiket yang diproses
+    return response()->json(['success' => false, 'message' => 'Tidak ada tiket yang valid']);
+}
+
 
     public function editCart(Request $request)
     {
@@ -98,7 +134,8 @@ class CartController
                     'msttickettypes.category', 
                     'msttickettypes.description',
                     'msattractions.image1',
-                    'msusercart.id as cart_id')
+                    'msusercart.id as cart_id',
+                    'msusercart.ticketDate')
             ->get();
  
         $totalPrice = 0;

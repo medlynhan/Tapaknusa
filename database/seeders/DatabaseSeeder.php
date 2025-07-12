@@ -399,6 +399,7 @@ class DatabaseSeeder extends Seeder
             ['ticket_type_id' => 8, 'quantity' => 1, 'user_id' => 10],
             ['ticket_type_id' => 1, 'quantity' => 3, 'user_id' => 1],
             ['ticket_type_id' => 6, 'quantity' => 2, 'user_id' => 5],
+            ['ticket_type_id' => 6, 'quantity' => 2, 'user_id' => 13],
         ]);
 
     }

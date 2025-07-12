@@ -50,13 +50,14 @@
 .ticket-cart{
     background-color: var(--white);
     padding: 1em 2em;
-    border-radius: 0em;
+    border-radius: 0.2em;
     border: 0.1em solid var(--grey);
     display: grid;
     grid-template-areas: 
     "image head-title head-title  close-select"
     "image title title title"
     "image price price price"
+    "image ticketDate ticketDate ticketDate"
     "image detail detail detail"
     "button button button button";
     justify-content: space-between;
@@ -77,6 +78,17 @@
     height: 15em ;
     overflow: hidden;
     
+}
+
+.ticket-cart .ticketDate{
+    grid-area: ticketDate;
+    padding: 0.2em;
+    background-color: var(--red);
+    border-radius: 0.1em;
+    color: var(--white);
+    max-width: 80%;
+    min-width: 50%;
+    margin-bottom: 1em;
 }
 
 .image-cart img{
@@ -198,6 +210,7 @@
         "head-title close-select"
         "image image "
         "price price"
+        "ticketDate ticketDate"
         "title title"
         "detail detail"
         "button button";

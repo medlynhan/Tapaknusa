@@ -33,6 +33,13 @@
     min-width: 16.8em;
     overflow: hidden;
     gap: 0.5em;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;;
+}
+
+.card:hover{
+    transform: translateY(-0.2em);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
 }
 
 .card img {
@@ -41,7 +48,6 @@
     object-fit: cover;
     transition: transform 0.3s ease-in-out;
     transform-origin: bottom;
-    
     
 }
 

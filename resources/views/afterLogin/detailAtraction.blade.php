@@ -102,7 +102,17 @@
 
     <div class="information-modal" id="informationModal">
         <div class="information-content">
-            <p class="medium-text-font black">Tolong masukkan tanggal pemesanan terlebih dahulu.</p>
+            <p class="medium-text-font black dateEmpty">
+                Mohon untuk mengisi tanggal pemesanan terlebih dahulu.
+            </p>
+        @php
+            $festivalDate = $detailAttraction->first();
+            $formattedDate = \Carbon\Carbon::parse($festivalDate->schedule)->format('d F Y');
+        @endphp
+            <p class="medium-text-font black dateWrong">
+                 Festival akan berlangsung pada {{ $formattedDate}}.
+            </p>
+           
         </div>
     </div>
 
@@ -179,9 +189,13 @@
         
         $(".back-btn-section .title").text(dataDetail.title);
 
+        var schedule = dataDetail.schedule;
+        var date = new Date(schedule);
+        var formattedDate = date.toLocaleDateString('id-ID');
+
         if(dataDetail.schedule != null){
             console.log("schedule null");
-            $(".container .schedule p").text(dataDetail.schedule);
+            $(".container .schedule p").text(formattedDate);
         }else{
             console.log("schedule ga null");
             $(".container .schedule p").text(dataDetail.operational_hours);
@@ -217,21 +231,44 @@
         }
 
 
-        $(".container .search-ticket").append(`
-            <div class="search-box black medium-text-font ">
-                <div class="date-picker-container">
-                    <h2 class="medium-text-font black">Pilih tanggal</h2>
-                    <div class="header-date-picker-container">
-                        <input type="date" class="ticket-date-picker medium-text-font black" onClick="change">
-                        <p class="ticket-this-day-date">dd/mm/yyyy</p>
-                        <i class="ticket-calender-icon fi fi-br-calendar big-text-font black"></i>
-                    </div> 
-                </div>
-                <!--Submit button-->
-                <button  class="btn-search medium-text-font">Cari</button>
-            </div>
 
-        `);
+
+        const festivalDate = @json($festivalDate);
+
+        if (festivalDate.status === "festival"){
+            console.log("uda mausk belommmm");
+            $(".container .search-ticket").append(`
+                <div class="search-box black medium-text-font ">
+                    <div class="date-picker-container">
+                        <h2 class="medium-text-font black search-box-text">Tanggal festival</h2>
+                        <div class="header-date-picker-container">
+                            <p class="medium-text-font black">${formattedDate}</p>
+                            <i class="ticket-calender-icon fi fi-br-calendar big-text-font black"></i>
+                        </div> 
+                    </div>
+                    <!--Submit button-->
+                    <button  class="btn-search medium-text-font">Cari</button>
+                </div>
+
+            `);           
+
+        }else{
+            $(".container .search-ticket").append(`
+                <div class="search-box black medium-text-font ">
+                    <div class="date-picker-container">
+                        <h2 class="medium-text-font black search-box-text">Pilih tanggal</h2>
+                        <div class="header-date-picker-container">
+                            <input type="date" class="ticket-date-picker medium-text-font black" onClick="change">
+                            <p class="ticket-this-day-date">dd/mm/yyyy</p>
+                            <i class="ticket-calender-icon fi fi-br-calendar big-text-font black"></i>
+                        </div> 
+                    </div>
+                    <!--Submit button-->
+                    <button  class="btn-search medium-text-font">Cari</button>
+                </div>
+
+            `);
+        }
 
 
         dateCek($(".ticket-date-picker"),$(".ticket-this-day-date"));
@@ -239,28 +276,47 @@
         $(document).on("change", ".ticket-date-picker", function() {
             let tempDate = $(this).val();
             if (tempDate !== "") {
-                $(".ticket-this-day-date").css({"color": "var(--black)"});  // Menghapus border saat ada tanggal yang dipilih
+                $(".ticket-this-day-date").css({"color": "var(--black)"});  
             }else{
                 $(".ticket-this-day-date").css({"color": "var(--white)"}); 
             }
         });
 
 
+
+        let tempDate = "";
         function informationCard() {
+            console.log( "festivalDate : ", festivalDate.schedule);
 
             $(document).on("click",".search-ticket .btn-search",function () {
-                let tempDate = $(".ticket-date-picker").val();
+
+                tempDate = $(".ticket-date-picker").val();
                 console.log("temp : " + tempDate);
 
-                if(tempDate !== ""){
+                
+                console.log("festival status : "+festivalDate.status);
+            
+                if ((festivalDate.status === "festival")){
                     console.log("inputan udh ga kosong");
                     $(".ticket-date-picker").css({"border":"none"});
                     $(".container .ticket-types").css({"display":"flex"});
+                    console.log("coba 1");
+                    
                 }else{
-                    console.log("inputan ga boleh kosong");
-                    $(".information-modal").css({ display: "flex" });
-
+                    if (tempDate !== "" ){
+                        console.log("inputan udh ga kosong");
+                        $(".ticket-date-picker").css({"border":"none"});
+                        $(".container .ticket-types").css({"display":"flex"});
+                        console.log("coba 4");
+                    }else{
+                        console.log("inputan ga boleh kosong");
+                        $(".information-modal").css({ display: "flex" });
+                        $(".dateWrong").css({ display: "none" });
+                        $(".dateEmpty").css({ display: "flex" });
+                        console.log("coba 2");                       
+                    }
                 }
+
 
                 setTimeout(function () {
                     $(".information-modal").css({ display: "none" });
@@ -275,7 +331,6 @@
         
         let ticketTypes = @json($ticketTypes); 
         console.log("ticketTypes :"+ticketTypes);
-
 
         let ticketCount =0;
         if (ticketTypes.length > 0) {
@@ -363,52 +418,64 @@
 
         
 
-
-        function addToCart(ticketCount) {
-            $('.btn-keranjang').click(function () {
-                console.log("click");
-                let allTickets = []; 
-                // Array untuk menyimpan tiket yang akan ditambahkan ke keranjang
-                for (let i=0;i<ticketCount;i++){
-                    let ticketId = +$(`#ticket${i} .ticket-types-id`).text(); // Ambil title tiket
-                    let ticketQuantity = parseInt($(`#ticket${i} .item-quantity`).text(), 10);  // Ambil quantity tiket dan parse ke integer
-
-                    // Hanya kirim tiket yang quantity-nya lebih dari 0
-                    if (ticketQuantity != 0 ) {
-                        allTickets.push({
-                            id: ticketId,
-                            quantity: ticketQuantity
-                        });
-                    }
-                    
-                }
-                
-                console.log(allTickets);
-
-                if (allTickets.length > 0){ 
-                    $.ajax({
-                        url: '/addCart',  // Ganti dengan route yang sesuai
-                        type: 'POST',
-                        data: {
-                            _token: $('meta[name="csrf-token"]').attr('content'),  // Pastikan CSRF token ditambahkan
-                            tickets: allTickets
-                            
-                        },
-                        success: function (response) {
-                            $('.alreadyAdded').text('Tiket berhasil ditambahkan');
-                            alreadyAdded();
-                            // Lakukan sesuatu setelah data berhasil disimpan
-                        },
-                        error: function (xhr, status, error) {
-                            $('.alreadyAdded').text('Tiket gagal ditambahkan');
-                            alreadyAdded();
-                        }
-                    });
-                }   
-            });
-            
-
+function addToCart(ticketCount) {
+    $('.btn-keranjang').click(function () {
+        console.log("click");
+        let ticketDate = schedule;
+        if (dataDetail.status === "atraksi"){
+            ticketDate = tempDate;
         }
+        console.log("ajax temp date: " + ticketDate);
+
+        let allTickets = []; 
+        // Array untuk menyimpan tiket yang akan ditambahkan ke keranjang
+        for (let i = 0; i < ticketCount; i++) {
+            let ticketId = +$(`#ticket${i} .ticket-types-id`).text(); // Ambil ticket ID
+            let ticketQuantity = parseInt($(`#ticket${i} .item-quantity`).text(), 10);  // Ambil quantity tiket dan parse ke integer
+            let ticket = ticketTypes.find((ticket) => ticket.id === ticketId); // Cari tiket berdasarkan ID
+
+            // Hanya kirim tiket yang quantity-nya lebih dari 0
+            if (ticketQuantity != 0 ) {
+                allTickets.push({
+                    id: ticketId,
+                    quantity: ticketQuantity,
+                    ticketDate: ticketDate
+                });
+            }
+        }
+
+        console.log("allTicket: " + JSON.stringify(allTickets));
+
+        if (allTickets.length > 0) { 
+            $.ajax({
+                url: '/addCart',  // Ganti dengan route yang sesuai
+                type: 'POST',
+                data: {
+                    _token: $('meta[name="csrf-token"]').attr('content'),  // Pastikan CSRF token ditambahkan
+                    tickets: allTickets
+                },
+                success: function (response) {
+                    console.log(response);  // Log response untuk debugging
+                    if (response.success) {
+                        $('.alreadyAdded').text('Tiket berhasil ditambahkan');
+                    } else {
+                        $('.alreadyAdded').text('Tiket gagal ditambahkan: ' + response.message);
+                    }
+                    alreadyAdded();
+                },
+                error: function (xhr, status, error) {
+                    console.log(error);  // Log error untuk debugging
+                    $('.alreadyAdded').text('Tiket gagal ditambahkan');
+                    alreadyAdded();
+                }
+            });
+        } else {
+            $('.alreadyAdded').text('Tidak ada tiket yang valid untuk ditambahkan.');
+            alreadyAdded();
+        }
+    });
+}
+
 
         addToCart(ticketCount);
         

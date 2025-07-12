@@ -34,7 +34,9 @@
             <p class="superbig-text-font black">
                 <i class="fi fi-rr-time-quarter-to supersmall-heading-font black"></i> Segera Berlangsung
             </p>    
-            <img  class="festival-trend-advertisment" src="https://tapaknusa-images.imgix.net/festival-advertisment.png" alt="Festival terdekat">
+            <div class="advertisment-section-img">
+                 <img  class="festival-trend-advertisment advertisment" data-attribute="Festival Lompat Batu" src="https://tapaknusa-images.imgix.net/festival-advertisment.png" alt="Festival terdekat">
+            </div>
         </section>
 
         <!-- Explore Atraction Section -->
@@ -56,7 +58,7 @@
 
                 <div class="explore-addition">
                     <div class="lihat-lanjut">
-                        <a href="{{ route('Tapaknusaatraction') }}" class="medium-text-font red"><p>Lihat Lebih Lanjut →</p></a>
+                        <a href="{{ route('Tapaknusaatraction') }}" class="medium-text-font "><p>Lihat Lebih Lanjut →</p></a>
                     </div>
                 </div>
             </div>
@@ -78,7 +80,7 @@
                 </div>
                 <div class="explore-addition">
                     <div class="lihat-lanjut">
-                        <a href="{{ route('Tapaknusafestival') }}" class="medium-text-font red"><p>Lihat Lebih Lanjut →</p></a>
+                        <a href="{{ route('Tapaknusafestival') }}" class="medium-text-font "><p>Lihat Lebih Lanjut →</p></a>
                     </div>
                 </div>
             </div>
@@ -130,7 +132,9 @@
 
 
         <section class="points-section page-padding-left-right">
-           <img class="ws-click" src="https://tapaknusa-images.imgix.net/wawasan-nusantara-advertisment.png" alt="Wawasan Nusantara">
+             <div class="advertisment-section-img">
+                 <img  class="festival-trend-advertisment advertisment ws-click" data-attribute="Festival Lompat Batu" src="https://tapaknusa-images.imgix.net/wawasan-nusantara-advertisment.png" alt="Wawasan Nusantara">
+            </div>
         </section>
         
         <section class="faq-section page-padding-left-right">

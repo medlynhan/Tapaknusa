@@ -9,7 +9,7 @@
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
 
-    <link rel="icon"       href="{{asset('favicon.ico') }}" type="image/x-icon">
+    <link rel="icon"       href="{{asset('asset/favicon.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{asset('css/animation.css')}}">
     <link rel="stylesheet" href="{{asset('css/carousel.css')}}">
     <link rel="stylesheet" href="{{asset('css/font.css')}}">
@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="{{asset('css/page/patner.css')}}">
     <link rel="stylesheet" href="{{asset('css/page/pay.css')}}">
     <link rel="stylesheet" href="{{asset('css/page/searchResult.css')}}">
+    <link rel="stylesheet" href="{{asset('css/page/profile.css')}}">
 
     <!--google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -84,8 +85,8 @@
             </nav>
             <!--Login SignIn Button-->
             <div class="toggle-btn toggle-profile-btn">
-                <button class="btn-profile active medium-text-font"><i class="fi fi-sr-user white"></i></button>
-                 <p class="btn-profile-text">Hello, {{ Auth::check() && Auth::user()->name ? Auth::user()->name : 'User' }}!</p>
+                <button class="btn-profile active medium-text-font"><i class="fi fi-rr-circle-user big-text-font"></i></button>
+                 <p class="btn-profile-text">{{ Auth::check() && Auth::user()->name ? Auth::user()->name : 'User' }}</p>
             </div>
             <!--Burger Menu Header Icon-->
             <div class="burger-menu big-text-font">
@@ -115,7 +116,7 @@
             </div>
 
             <div class="burger-menu-open-list">
-                 <p><a class="medium-text-font" href="{{ route('cart') }}">Profile</a></p>
+                <p><a class="medium-text-font" href="{{ route('profile') }}">Profile</a></p>
                 <p><a class="medium-text-font" href="{{ route('cart') }}">Keranjang Belanja</a></p>
                 <p><a class="medium-text-font" href="{{ route('atraction') }}">Atraksi</a></p>
                 <p><a class="medium-text-font" href="{{ route('festival') }}">Festival</a></p>
@@ -315,6 +316,10 @@
             });
         });
         
+        $(".toggle-btn").on("click", function () {
+             window.location.href = "/profile";
+        });
+
         
     });  
 

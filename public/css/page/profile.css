@@ -1,0 +1,337 @@
+@import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-straight/css/uicons-regular-straight.css');
+@import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css');
+.profile-back-btn{
+    display:flex;
+    gap: 2em;
+    padding: 1em;
+    padding-bottom:0em;
+    flex-direction: row;
+    border-bottom: 0.1em var(--white) solid;
+    justify-items: center;
+    align-items: center;
+    justify-content: start;
+    background: transparent;
+    /* position: relative; */
+
+}
+
+
+.form-group {
+    margin: 1em 0em;
+}
+
+
+.form-control {
+    width: 100%;
+    padding: 0.5rem;
+    border: 0.1em solid var(--grey);
+    border-radius: 0.5em;
+    background: var(--white);
+    font-size: 1rem;
+    color: var(--black);
+}
+
+.form-control:disabled {
+    background: var(--white);
+    color: var(--black);
+}
+
+.form-text {
+    color: var(--grey);
+}
+
+.btn-profile-information {
+    padding: 1em;
+    background-color: var(--red);
+    color: var(--white);
+    border: none;
+    border-radius: 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+
+.btn-profile-information :hover {
+    background-color: var(--grey);
+}
+
+
+/* Disabled Form Control Styling for the Coin and Gamifikasi Status */
+.form-group input[disabled] {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+.back{
+    background: transparent;
+    background-color: none;
+    border: none;
+}
+
+.container-profile {
+    display: flex;
+    width: 100vw;
+    min-height: 100vh;
+}
+
+/* Grid layout dengan sidebar kiri 20% dan konten kanan 80% */
+.row-profile {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: 30vw 70vw;
+    align-items: center;
+    justify-items: space-between;
+    justify-content: space-between;
+}
+
+/* Sidebar Kiri */
+.col-left-profile {
+    display: fixed;
+    height: 100vh;
+    width: 100%;
+    background-color: var(--red);
+    padding: 1em;
+    overflow-y: hidden;
+}
+
+.col-right-profile {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    background-color: var(--white);
+    overflow-y: auto;
+}
+
+.profile-sidebar {
+    border-radius: 0.5em;
+
+}
+
+.list-profile {
+    list-style: none;
+    padding: 0;
+    padding-top: 2em;
+}
+
+.profile-item {
+    padding: 1em;
+    padding-left: 4em;
+    cursor: pointer;
+    text-decoration: none;
+    transition:  0.3s ease-in-out;
+}
+
+
+
+.profile-content{
+    display: flex;
+    gap: 2em;
+    padding: 4em;
+    width: 100%;
+    color: var(--black);
+}
+
+.profile-item.active {
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+
+.profile-content {
+    display: none;
+}
+
+.profile-content h3 {
+    padding-bottom:1em ;
+}
+
+
+.table-profile {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-profile th, .table-profile td {
+    padding: 1em;
+    text-align: left;
+    border-bottom: 0.2em solid var(--grey);
+}
+
+.table-profile th {
+    background-color: var(--cream);
+}
+
+/* Tombol Logout */
+.logout-form-profile {
+    margin-top: 1em;
+}
+
+.btn-logout-profile {
+    padding: 0.7em 1.8em;
+    background: var(--red);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 2em;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-logout-profile:hover {
+    background-color: var(--grey);
+}
+
+.password-container {
+    position: relative; /* Posisi relatif untuk mengatur elemen yang berada di dalamnya */
+}
+
+.password-container input {
+    width: 100%; 
+    padding-right: 1em; 
+}
+
+.btn-password-profile {
+    position: absolute; 
+    top: 50%; 
+    right: 1em; 
+    transform: translateY(-50%);
+    background: none; 
+    border: none;
+    cursor: pointer;
+}
+
+
+
+/*ticket*/
+
+.ticket-types-history{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    padding: 1em 0em;
+    padding-bottom: 10em;
+    scrollbar-width: none;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+.ticket-history{
+    background-color: var(--white);
+    padding: 1em 2em;
+    border-radius: 0.2em;
+    border: 0.1em solid var(--grey);
+    display: grid;
+    grid-template-areas: 
+    "date date date"
+    "image head-title head-title"
+    "image title title"
+    "image ticket-date ticket-date"
+    "image price price";
+    justify-content: start;
+    justify-items: start;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 0em;
+}
+
+
+.ticket-history .image-history{
+    grid-area: image;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10em;
+    height: 10em ;
+    overflow: hidden;
+    padding: 0em;
+    margin-right: 2em;
+    
+}
+
+.image-history img{
+    max-width: 100%;  
+    max-height: 100%; 
+    object-fit: contain; 
+    padding: 0em;
+}
+
+.ticket-history .head-title-history{
+    grid-area: head-title;
+    padding: 0em;
+
+}
+
+.ticket-history .atraction-title{
+    grid-area : title;
+}
+
+.ticket-history .history-date{
+    grid-area : date;
+    border: 0.1em solid var(--grey);
+    color:var(--grey);
+    padding: 0.2em;
+}
+
+.ticket-history .ticket-date{
+    grid-area : ticket-date;
+    background-color: var(--red);
+    color:var(--white);
+    padding: 0.2em 0.5em;
+}
+
+.ticket-history .price-history{
+    grid-area: price;
+    display: flex;
+    justify-items: flex-end;
+    flex-direction: column;
+    padding: 0em;
+}
+
+@media only screen and (min-width: 1600px) {
+}
+
+@media only screen and (max-width: 1599px) and (min-width: 1400px) {
+}
+
+@media only screen and (max-width: 1399px) and (min-width: 1200px) {
+}
+
+@media only screen and (max-width: 1199px) {
+
+      
+    
+
+}
+
+@media only screen and (max-width: 767px) {
+
+    .row-profile {
+        grid-template-columns: 35vw 65vw;
+    }
+
+    .ticket-history .image-history{
+        width: 7em;
+        height: 7em ;
+        
+    }
+
+}
+
+@media only screen and (max-width: 540px) {
+    
+
+    .ticket-history .image-history{
+        width: 5em;
+        height: 5em ;
+        
+    }
+
+
+}

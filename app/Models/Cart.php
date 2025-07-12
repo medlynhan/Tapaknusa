@@ -17,7 +17,8 @@ class Cart extends Model
         'total_price',
         'status',
         'created_at',
-        'updated_at'
+        'updated_at',
+        'ticketDate'
     ];
 
     protected $table = 'msusercart';

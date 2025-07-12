@@ -9,6 +9,7 @@ use App\Http\Controllers\HistoryController; // Mengimpor HistoryController
 use App\Http\Controllers\ReviewController; // Mengimpor ReviewController
 use App\Http\Controllers\TicketTypesController; // Mengimpor TicketTypesController
 use App\Http\Controllers\UserController; // Mengimpor UserController
+use App\Http\Controllers\ProfileController;
 
 //Authentication
 Route::post('/login', [AuthController::class, 'login'])->name('login');
@@ -51,3 +52,6 @@ Route::post('/deleteCart', [CartController::class, 'deleteCart'])->name('deleteC
 Route::get('/cart', [CartController::class, 'showCart'])->name('cart');
 
 Route::get('/pay', [HistoryController::class, 'makePayment'])->name('pay');
+Route::post('/addToHistory', [HistoryController::class, 'addToHistory'])->name('addToHistory');
+Route::get('/profile', [ProfileController::class, 'getProfileData'])->name('profile');
+Route::post('/updateUserProfile',[ProfileController::class, 'changeProfileData'])->name('updateUserProfile');
