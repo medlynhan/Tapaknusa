@@ -166,6 +166,10 @@ nav ul li a {
     padding: 0.2em 2em;
 }
 
+.btn-signin{
+    color:var(--red);
+}
+
  .btn-profile, .btn-name{
     display: grid;
     padding: 0em 0.7em;
