@@ -234,7 +234,9 @@ nav ul li a {
     background-color: var(--white);
     
 }
-
+.burger-icon{
+    color : var(--black);
+}
 
 .header-date-picker-container{
     width: 100%;
