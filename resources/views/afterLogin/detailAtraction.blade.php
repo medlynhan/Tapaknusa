@@ -30,8 +30,8 @@
         <!--Ticket Button-->
         <div class="ticket-button">
             <div> 
-                <h2 class="medium-text-font">Mulai dari</h2>
-                <p class="big-text-font"></p>
+                <h2 class="medium-text-font red">Mulai dari</h2>
+                <p class="big-text-font red "></p>
             </div>
             <a href="#searchTicketContainer"><button  class="btn-cari-ticket medium-text-font">Cari ticket</button></a>
         </div>
@@ -56,11 +56,11 @@
 
             <div class="ticket-price ">
                 <div>
-                    <p class="medium-text-font bold">Harga Total</p>
+                    <p class="medium-text-font bold black">Harga Total</p>
                     <div class="price-text">
-                        <p class="big-text-font">Rp&nbsp;</p>
-                        <p class="total-price big-text-font">0</p>
-                        <p class="big-text-font">,00</p>
+                        <p class="big-text-font black">Rp&nbsp;</p>
+                        <p class="total-price big-text-font black">0</p>
+                        <p class="big-text-font black">,00</p>
                     </div>
                     
                 </div>

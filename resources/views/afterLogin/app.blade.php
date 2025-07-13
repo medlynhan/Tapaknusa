@@ -58,7 +58,7 @@
     <header class="fadeInDown">
         <!--Container 1-->
         <div class="container1 page-padding-left-right">
-            <a class="heading-font logo" href="{{ route('home') }}"><h1 class="superbig-text-font dancing-script-font"></span>Tapaknusa</h1></a>
+            <a class="heading-font logo" href="{{ route('home') }}"><h1 class="superbig-text-font dancing-script-font logo-text"></span>Tapaknusa</h1></a>
             
             <div class="header-search-box black medium-text-font">
                 <div class="header-search-container">
@@ -79,8 +79,8 @@
 
             <nav class="big-text-font icon">
                 <ul class="hover-color">
-                    <li><a href="{{ route('patner') }}"><i class="fa-regular fa-handshake"></i></a></li>
-                    <li><a href="{{ route('cart') }}"><i class="fa fa-cart-shopping"></i></a></li>            
+                    <li><a href="{{ route('patner') }}"><i class="fa-regular fa-handshake icon-header"></i></a></li>
+                    <li><a href="{{ route('cart') }}"><i class="fa fa-cart-shopping icon-header"></i></a></li>            
                 </ul>
             </nav>
             <!--Login SignIn Button-->
@@ -90,16 +90,16 @@
             </div>
             <!--Burger Menu Header Icon-->
             <div class="burger-menu big-text-font">
-                <i class="fa-solid fa-bars medium-text-font"></i>
+                <i class="fa-solid fa-bars medium-text-font black burger-icon"></i>
             </div>    
         </div>
         <!--Container 2-->
         <div class="container2 page-padding-left-right">
             <nav>
                 <ul>
-                    <li><a class="medium-text-font" href="{{ route('atraction') }}">Atraksi</a></li>
-                    <li><a class="medium-text-font" href="{{ route('festival') }}">Festival</a></li>
-                    <li><a class="medium-text-font" href="{{ route('home') }}">Wawasan Nusantara</a></li>
+                    <li><a class="medium-text-font header-menu-text" href="{{ route('atraction') }}">Atraksi</a></li>
+                    <li><a class="medium-text-font header-menu-text" href="{{ route('festival') }}">Festival</a></li>
+                    <li><a class="medium-text-font header-menu-text" href="{{ route('home') }}">Wawasan Nusantara</a></li>
                 </ul>
             </nav>         
         </div>    
@@ -193,11 +193,11 @@
     <footer class="footer-section ">
         <div class="footer-container page-padding-left-right">
             <div class="footer-content">
-                <h2 class="superbig-text-font thin ">Let's, Get in touch!</h2>
+                <h2 class="superbig-text-font thin black">Let's, Get in touch!</h2>
                 <div  class="footer-social-media">
-                    <i class="fi fi-brands-instagram big-text-font"></i><i class="fi fi-brands-facebook big-text-font"></i><i class="fi fi-brands-tik-tok big-text-font"></i>
+                    <i class="fi fi-brands-instagram big-text-font black"></i><i class="fi fi-brands-facebook big-text-font black"></i><i class="fi fi-brands-tik-tok big-text-font black"></i>
                 </div>
-                <p class="medium-text-font">helo@tapaknusa.com</p>
+                <p class="medium-text-font black">helo@tapaknusa.com</p>
             </div>
             <div class="footer-categories"> 
                 <div class="footer-links">
@@ -232,7 +232,7 @@
         </div>
 
         <div class="footer-bottom ">
-            <p class="medium-text-font">© 2025 Tapaknusa. Made in Tangerang, Indonesia</p>
+            <p class="medium-text-font black">© 2025 Tapaknusa. Made in Tangerang, Indonesia</p>
         </div>
     </footer>
     @endif

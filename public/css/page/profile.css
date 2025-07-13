@@ -281,8 +281,8 @@
 
 .ticket-history .ticket-date{
     grid-area : ticket-date;
-    background-color: var(--red);
-    color:var(--white);
+    border:0.1em solid var(--red);
+    color:var(--red);
     padding: 0.2em 0.5em;
 }
 
