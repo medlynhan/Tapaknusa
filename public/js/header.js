@@ -1,10 +1,14 @@
 function loginRegister() {
     $(".btn-login").click(function () {
         $(".toggle-btn").removeClass("active");
+        $("#openSignUp").css({"color":"var(--red)"});
+        $("#openLogin").css({"color":"var(--white)"});
     });
 
     $(".btn-signin").click(function () {
         $(".toggle-btn").addClass("active");
+        $("#openSignUp").css({"color":"var(--white)"});
+        $("#openLogin").css({"color":"var(--red)"});
     });
     
 
@@ -112,6 +116,7 @@ function headerChangeColor(){
             $(".header-search-container").css({"border":"0.1em solid transparent"});
             $(".container2").css({"border-bottom":"0.1em solid var(--white)"});  
             $(".burger-icon").css({"color": "var(--white)"});
+             $(".btn-signin").css({"color": "var(--white)"});
         }else{
             // $("header").css({"background-color": "var(--black)"});
             $("header").css({"background-color": "var(--white)"});
@@ -119,8 +124,10 @@ function headerChangeColor(){
             $(".icon-header").css({"color": "var(--black)"});
             $(".header-menu-text").css({"color": "var(--black) !important"});
             $(".container1").css({"border-bottom":"0.1em solid var(--grey)"});
-            $(".header-search-container").css({"border":"0.1em solid var(--black)"});
+            $(".header-search-container").css({"border": "0.1em solid var(--black)"});
             $(".container2").css({"border-bottom":"none"});
+            $(".btn-signin").css({"color": "var(--red)"});
+            $(".burger-icon").css({"color": "var(--black)"});
             
         }
     }

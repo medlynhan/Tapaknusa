@@ -161,7 +161,8 @@
 
 .btn-cari-ticket{
     padding: 0.7em 1.8em;
-    border : 0.1em solid var(--white);
+    background-color: var(--red);
+    border: none;
     cursor: pointer;
     border-radius: 2em;
     transition: all 0.3s ease-in-out;
