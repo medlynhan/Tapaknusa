@@ -35,7 +35,8 @@
     background-color: var(--white);
     padding: 1.5em 3em;
     border-radius: 0.2em;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 0.1em solid var(--grey);
+    box-shadow: none;
     display: flex;
     flex-direction: column;
     gap:1em;
@@ -129,18 +130,18 @@ form #payment-form{
     margin-top: 2em;
     padding: 0.5rem 1rem;
     text-align: center;
-    background: var(--red);
-    color: white;
-    border: none;
+    background-color: var(--red);
+    color: var(--white);
     cursor: pointer;
     border-radius: 2rem;
-    transition: all 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
     z-index: 10;
     width: 100%;
 }
     
 #pay-btn:hover{
-    background: var(--grey);
+    transform: scale(1.02,1.02);
+     background-color: var(--red);
 }
 
 
@@ -154,9 +155,9 @@ form #payment-form{
     background-color: var(--white);
     color: var(--black);
     padding: 3em 1em;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border: 0.1em solid var(--grey);
     z-index: 100;
-    border-radius: 0.5em;
+    border-radius: 0.2em;
     text-align: center;
 }
 
@@ -174,6 +175,7 @@ form #payment-form{
     display: none;
     z-index: 50;
 }
+
 
 
 @media only screen and (min-width: 1600px) {
