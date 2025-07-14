@@ -210,7 +210,7 @@
 .ticket-types-history{
     display: flex;
     flex-direction: column;
-    gap: 2em;
+    gap: 0.5em;
     padding: 1em 0em;
     padding-bottom: 10em;
     scrollbar-width: none;
@@ -274,8 +274,8 @@
 
 .ticket-history .history-date{
     grid-area : date;
-    border: 0.1em solid var(--grey);
-    color:var(--grey);
+    border: 0.1em solid var(--darkGrey);
+    color:var(--darkGrey);
     padding: 0.2em;
 }
 
