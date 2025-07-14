@@ -11,7 +11,7 @@
 .cards-atraksi, .cards-festival {
     display: flex;
     justify-content: flex-start;
-    gap: 1em;
+    gap: 0.5em;
     border-radius: 0em;
     width: 100%; 
     margin: auto;
@@ -36,6 +36,7 @@
     box-shadow: none;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
 }
 
 .card:hover{
