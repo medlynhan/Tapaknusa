@@ -1,10 +1,14 @@
 function loginRegister() {
     $(".btn-login").click(function () {
         $(".toggle-btn").removeClass("active");
+        $(".btn-signin").css({"color":"var(--black)"});
+        $(".btn-login").css({"color":"var(--white)"});
     });
 
     $(".btn-signin").click(function () {
         $(".toggle-btn").addClass("active");
+        $(".btn-signin").css({"color":"var(--white)"});
+        $(".btn-login").css({"color":"var(--black)"});
     });
     
 
@@ -126,7 +130,7 @@ function headerChangeColor(){
             $(".btn-signin").css({"color": "var(--red)"});
             $(".burger-icon").css({"color": "var(--black)"});
              $(".btn-signin").css({"color": "var(--black)"});
-             $(".btn-login").css({"color": "var(--black)"});
+             $(".btn-login").css({"color": "var(--white)"});
             
         }
     }
