@@ -94,7 +94,8 @@ nav ul li a {
 }
 
 .container2 nav ul li a:hover {
-    background-color: rgba(169, 67, 76, 0.7); 
+    background-color: var(--red); 
+    color: var(--white);
    
 }
 
@@ -344,7 +345,8 @@ footer{
 }
 
 .footer-links ul li a:hover {
-    background-color: rgba(169, 67, 76, 0.7); 
+    background-color: var(--red); 
+    color: var(--white);
 }
 
 .footer-categories{
