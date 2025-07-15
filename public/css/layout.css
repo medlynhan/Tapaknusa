@@ -1,16 +1,15 @@
 :root {
     --red: rgb(169, 67, 76);
     --yellow: rgb(245 221 63);
-    --cream:#ffffff;  
-    --white:#ffffff;
-    --black: rgb(51, 51, 51);
-    --grey: rgb(224, 224, 224); 
-    --darkGrey :rgb(158, 158, 158); 
+    --cream:#fafafa;  
+    --white:#fafafa;
+    --black:#202123;
+    --grey: #e0e0e0; 
+    --darkGrey :#767676;
 }
-
 * {
     margin: 0;
-    padding: 0;
+    padding: 0;;
     box-sizing: border-box;
     box-shadow: none;
 }
