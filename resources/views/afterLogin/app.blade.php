@@ -9,7 +9,7 @@
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
 
-    <link rel="icon"       href="{{asset('asset/favicon.ico') }}" type="image/x-icon">
+    <link rel="icon"       href="{{asset('asset/island.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{asset('css/animation.css')}}">
     <link rel="stylesheet" href="{{asset('css/carousel.css')}}">
     <link rel="stylesheet" href="{{asset('css/font.css')}}">
