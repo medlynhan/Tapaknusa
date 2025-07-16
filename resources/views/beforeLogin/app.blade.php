@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Tapaknusa')</title>
 
-    <link rel="icon"       href="{{asset('asset/favicon.ico') }}" type="image/x-icon">
+    <link rel="icon"       href="{{asset('asset/island.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{asset('css/animation.css')}}">
     <link rel="stylesheet" href="{{asset('css/carousel.css')}}">
     <link rel="stylesheet" href="{{asset('css/font.css')}}">
