@@ -39,7 +39,7 @@ class AuthController
             $user = User::create([
                 'name' => $request->input('username'),
                 'email' => $request->input('email'),
-                'password' => $request->input('confirmPassword'), // Mengenkripsi password
+                'password' => bcrypt($request->input('confirmPassword')), // Mengenkripsi password
             ]);
 
             // Debugging: Cek apakah data sudah disimpan
@@ -48,6 +48,7 @@ class AuthController
             // Login otomatis setelah registrasi
             Auth::login($user);
 
+            return redirect()->route('Tapaknusahome')->with('success', 'Registrasi berhasil, Anda telah login.');
             return redirect()->route('Tapaknusahome');
         }
 
