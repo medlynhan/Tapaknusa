@@ -4,9 +4,7 @@
         
         attractions.forEach((wisata) => {
             var url = wisata.image1;
-            var filename = url.split('/').pop();
-            var baseUrl = "https://tapaknusa-images.imgix.net/";
-            var fullUrl = baseUrl + filename + "?auto=compress&fm=webp";
+            var fullUrl = url.replace('/gambar-atraksi', '');
 
             let card = `
                 <div class="card" data-attribute="${wisata.title}" onclick="redirectToDetail('${wisata.title}', '${wisata.status}')">
