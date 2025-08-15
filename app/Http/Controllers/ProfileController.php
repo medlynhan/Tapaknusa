@@ -32,7 +32,7 @@ class ProfileController
                     'mshistory.created_at',
                     'msttickettypes.category', 
                     'msttickettypes.description',
-                    \DB::raw('CONCAT("https://tapaknusa-images.imgix.net/", SUBSTRING_INDEX(msattractions.image1, "/", -1), "?auto=compress&fm=webp") as image1'),
+                    \DB::raw('REPLACE(msattractions.image1, "/gambar-atraksi", "") as image1'),
                     'mshistory.id as history_id')
             ->get();
         return view('afterLogin.profile', compact('user', 'history'));

@@ -81,9 +81,10 @@
         }
         
         function changeImageNameFormat(url){
-            var filename = url.split('/').pop();
-            var baseUrl = "https://tapaknusa-images.imgix.net/";
-            return  baseUrl + filename + "?auto=compress&fm=webp";
+            var filename = url.replace('/gambar-atraksi','');
+             return `{{ asset('${filename}') }}`;
+
+            
         }
         
 

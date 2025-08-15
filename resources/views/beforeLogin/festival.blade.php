@@ -33,27 +33,27 @@
                             </div>
                             <div class="location-grid thin">
                             <div class="culture-card card1" data-attribute="Yogyakarta">
-                                <img src="https://tapaknusa-images.imgix.net/yogyakarta.jpg" alt="Yogyakarta" loading="lazy">
+                                <img src="{{ asset('asset/yogyakarta.jpg') }}" alt="Yogyakarta" loading="lazy">
                                 <div class="label">Yogyakarta</div>
                                 <div class="info">21 Aktivitas</div>
                             </div>
                             <div class="culture-card card2" data-attribute="Sumatera">
-                                <img src="https://tapaknusa-images.imgix.net/sumatera.jpg" alt="Sumatera" loading="lazy">
+                                <img src="{{ asset('asset/sumatera.jpg') }}" alt="Sumatera" loading="lazy">
                                 <div class="label">Sumatera</div>
                                 <div class="info ">13 Aktivitas</div>
                             </div>
                             <div class="culture-card card3" data-attribute="Pulau Bali">
-                                <img src="https://tapaknusa-images.imgix.net/pulau-bali.jpg" alt="Bali" loading="lazy">
+                                <img src="{{ asset('asset/pulau-bali.jpg') }}" alt="Bali" loading="lazy">
                                 <div class="label">Bali</div>
-                                <div class="info">26 Aktivitas</div>
+                                <div class="info">26 Aktivitas</div>0
                             </div>
                             <div class="culture-card card4" data-attribute="Kalimantan">
-                                <img src="https://tapaknusa-images.imgix.net/kalimantan.jpg" alt="Kalimantan" loading="lazy">
+                                <img src="{{ asset('asset/kalimantan.jpg') }}" alt="Kalimantan" loading="lazy">
                                 <div class="label">Kalimantan</div>
                                 <div class="info">15 Aktivitas</div>
                             </div>
                             <div class="culture-card card5" data-attribute="Jawa Timur">
-                                <img src="https://tapaknusa-images.imgix.net/jawa-timur.jpg" alt="Jawa Timur" loading="lazy">
+                                <img src="{{ asset('asset/jawa-timur.jpg') }}" alt="Jawa Timur" loading="lazy">
                                 <div class="label">Jawa Timur</div>
                                 <div class="info">9 Aktivitas</div>
                             </div>
@@ -73,7 +73,7 @@
             <i class="fi fi-rr-time-quarter-to supersmall-heading-font black"></i> Segera Berlangsung
         </p>    
         <div class="advertisment-section-img">
-                <img  class="festival-trend-advertisment advertisment" data-attribute="Festival Lompat Batu" src="https://tapaknusa-images.imgix.net/festival-advertisment.png" alt="Festival terdekat">
+                <img  class="festival-trend-advertisment advertisment" data-attribute="Festival Lompat Batu" src="{{ asset('asset/festival-advertisment.png') }}" alt="Festival terdekat">
         </div>
     </section>
 
@@ -145,27 +145,27 @@
     
         <div class="culture-grid">
             <div class="culture-card card1" data-attribute="Yogyakarta">
-                <img src="https://tapaknusa-images.imgix.net/yogyakarta.jpg" alt="Yogyakarta" loading="lazy">
+                <img src="{{ asset('asset/yogyakarta.jpg') }}" alt="Yogyakarta" loading="lazy">
                 <div class="label">Yogyakarta</div>
                 <div class="info">21 Aktivitas</div>
             </div>
             <div class="culture-card card2" data-attribute="Sumatera">
-                <img src="https://tapaknusa-images.imgix.net/sumatera.jpg" alt="Sumatera" loading="lazy">
+                <img src="{{ asset('asset/sumatera.jpg') }}" alt="Sumatera" loading="lazy">
                 <div class="label">Sumatera</div>
                 <div class="info ">13 Aktivitas</div>
             </div>
             <div class="culture-card card3" data-attribute="Pulau Bali">
-                <img src="https://tapaknusa-images.imgix.net/pulau-bali.jpg" alt="Bali" loading="lazy">
+                <img src="{{ asset('asset/pulau-bali.jpg') }}" alt="Bali" loading="lazy">
                 <div class="label">Bali</div>
                 <div class="info">26 Aktivitas</div>
             </div>
             <div class="culture-card card4" data-attribute="Kalimantan">
-                <img src="https://tapaknusa-images.imgix.net/kalimantan.jpg" alt="Kalimantan" loading="lazy">
+                <img src="{{ asset('asset/kalimantan.jpg') }}" alt="Kalimantan" loading="lazy">
                 <div class="label">Kalimantan</div>
                 <div class="info">15 Aktivitas</div>
             </div>
             <div class="culture-card card5" data-attribute="Jawa Timur">
-                <img src="https://tapaknusa-images.imgix.net/jawa-timur.jpg" alt="Jawa Timur" loading="lazy">
+                <img src="{{ asset('asset/jawa-timur.jpg') }}" alt="Jawa Timur" loading="lazy">
                 <div class="label">Jawa Timur</div>
                 <div class="info">9 Aktivitas</div>
             </div>

@@ -204,10 +204,12 @@
         $(".container .address p").text(dataDetail.address);
         $(".container .ticket-button p").text(dataDetail.startPrice);
 
+        
         function changeImageNameFormat(url){
-            var filename = url.split('/').pop();
-            var baseUrl = "https://tapaknusa-images.imgix.net/";
-            return  baseUrl + filename + "?auto=compress&fm=webp";
+            var filename = url.replace('/gambar-atraksi','');
+             return `{{ asset('${filename}') }}`;
+
+            
         }
 
 

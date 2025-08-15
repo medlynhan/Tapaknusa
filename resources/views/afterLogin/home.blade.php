@@ -121,7 +121,7 @@
                     <div class="info">15 Aktivitas</div>
                 </div>
                 <div class="culture-card card5" data-attribute="Jawa Timur">
-                    <img src="{{ asset('asset/jaawa-timur.jpg') }}" alt="Jawa Timur" loading="lazy">
+                    <img src="{{ asset('asset/jawa-timur.jpg') }}" alt="Jawa Timur" loading="lazy">
                     <div class="label">Jawa Timur</div>
                     <div class="info">9 Aktivitas</div>
                 </div>

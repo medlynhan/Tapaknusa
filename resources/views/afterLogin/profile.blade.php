@@ -2,7 +2,7 @@
 @section('title', 'Tapaknusa')
 @section('content')
 
-<div class="container-profile fadeInDown">
+<div class="container-profile ">
     <div class="row-profile">
         <!-- Sidebar kiri -->
         <div class="col-left-profile">
@@ -20,7 +20,7 @@
         </div>
 
         <!-- Konten kanan -->
-        <div class="col-right-profile ">
+        <div class="col-right-profile fadeInDown">
             <div class="profile-content black fadeInDown" id="content-info-profile">
                 <h3 class="superbig-text-font black">Informasi Pengguna</h3>
                 
@@ -68,6 +68,7 @@
                             <p class="atraction-title medium-text-font black">{{$history->attraction_title}} </p>
                             <div class="image-history">
                                 <img src="{{$history->image1}}" alt="Image">
+                               
                             </div>
                             <div class="price-history big-text-font bold red ">
                                 <p><span>Rp </span><span class="theTicketPrice">{{ number_format($history->price * $history->quantity, 0, ',', '.') }}</span><span>,00 </span></p>
