@@ -35,7 +35,7 @@
                 <i class="fi fi-rr-time-quarter-to supersmall-heading-font black"></i> Segera Berlangsung
             </p>    
             <div class="advertisment-section-img">
-                 <img  class="festival-trend-advertisment advertisment" data-attribute="Festival Lompat Batu" src="{{ asset('asset/festival-advertisment.png') }}" alt="Festival terdekat">
+                 <img  class="festival-trend-advertisment advertisment" data-attribute="Festival Lompat Batu" src="{{ asset('storage/asset/festival-advertisment.png') }}" alt="Festival terdekat">
             </div>
         </section>
 
@@ -121,7 +121,7 @@
                     <div class="info">15 Aktivitas</div>
                 </div>
                 <div class="culture-card card5" data-attribute="Jawa Timur">
-                    <img src="{{ asset('asset/jawa-timur.jpg') }}" alt="Jawa Timur" loading="lazy">
+                    <img src="{{ asset('storage/asset/jawa-timur.jpg') }}" alt="Jawa Timur" loading="lazy">
                     <div class="label">Jawa Timur</div>
                     <div class="info">9 Aktivitas</div>
                 </div>
@@ -133,7 +133,7 @@
 
         <section class="points-section page-padding-left-right">
              <div class="advertisment-section-img">
-                 <img  class="festival-trend-advertisment advertisment ws-click" data-attribute="Festival Lompat Batu" src="{{ asset('asset/wawasan-nusantara-advertisment.png') }}" alt="Wawasan Nusantara">
+                 <img  class="festival-trend-advertisment advertisment ws-click" data-attribute="Festival Lompat Batu" src="{{ asset('storage/asset/wawasan-nusantara-advertisment.png') }}" alt="Wawasan Nusantara">
             </div>
         </section>
         
