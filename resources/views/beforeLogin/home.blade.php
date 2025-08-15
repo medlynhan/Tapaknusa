@@ -35,7 +35,7 @@
                 <i class="fi fi-rr-time-quarter-to supersmall-heading-font black"></i> Segera Berlangsung
             </p>    
             <div class="advertisment-section-img">
-                 <img  class="festival-trend-advertisment advertisment" data-attribute="Festival Lompat Batu" src="{{ secure_asset('asset/festival-advertisment.png') }}" alt="Festival terdekat">
+                 <img  class="festival-trend-advertisment advertisment" data-attribute="Festival Lompat Batu" src="{{ asset('festival-advertisment.png') }}" alt="Festival terdekat">
             </div>
         </section>
 
