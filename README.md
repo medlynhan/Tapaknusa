@@ -1,4 +1,4 @@
-# 🎫 Tapaknusa - IndoTourism Ticketing App 
+# 🏝️ Tapaknusa - IndoTourism Ticketing App 
 
 An e-commerce platform promoting Indonesian tourism, addressing the lack of awareness about cultural attractions and festivals, and offering **a seamless way to explore and purchase tickets.**
 
@@ -26,24 +26,16 @@ This project was initially created as a frontend-only entry for the **PARAS ICT 
 
 To run this project locally, follow these steps:
 
-1. Clone the repository  
-   `git clone https://github.com/medlynhan/tapaknusa.git`
+1. Clone the repository  `git clone https://github.com/medlynhan/tapaknusa.git`
 
-2. Navigate into the project folder  
-   `cd tapaknusa`
+2. Navigate into the project folder  `cd tapaknusa`
 
-3. Install dependencies using Composer  
-   `composer install`
+3. Install dependencies using Composer  `composer install`
 
-4. Generate the application key  
-   `php artisan key:generate`
+4. Generate the application key  `php artisan key:generate`
 
-5. Run the development server  
-   `php artisan serve`
+5. Run the development server  `php artisan serve`
 
 
-6. Open your browser and navigate to:
-    `
-    http://127.0.0.1:8000/
-    `
+6. Open your browser and navigate to: ` http://127.0.0.1:8000/`
 
