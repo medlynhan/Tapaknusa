@@ -45,6 +45,7 @@
     border: none;
     border-radius: 2em;
     outline: none;
+    background-color: var(--white);
 }
 
 .date-picker-container{
