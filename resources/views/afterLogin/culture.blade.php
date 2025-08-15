@@ -177,13 +177,13 @@
         let searchQueryItem = @json($location) || "";
         $(".location-title").text(searchQueryItem);
 
-    let heroCultureImage = searchQueryItem.toLowerCase().replace(/\s+/g, '-');
-
-    // Gunakan Blade untuk menginsert URL base aman, kemudian gabungkan dengan variabel JS
-    var heroCultureImageUrl = "https://tapaknusa-images.imgix.net/" + heroCultureImage + "-hero-image.jpg" + "?auto=compress&fm=webp";
-
-    // Mengubah background CSS menggunakan URL yang aman
-    $(".hero-culture").css("background", `url("${heroCultureImageUrl}") no-repeat center center/cover`);
+        let heroCultureImage = searchQueryItem.toLowerCase().replace(/\s+/g, '-');
+        let heroReplaceImage = heroCultureImage.replace('/gambar-atraksi','');
+        // Gunakan Blade untuk menginsert URL base aman, kemudian gabungkan dengan variabel JS
+        var heroCultureImageUrl = "asset/" + heroReplaceImage + ".jpg";
+        console.log(heroCultureImageUrl);
+        // Mengubah background CSS menggunakan URL yang aman
+        $(".hero-culture").css("background", `url("${heroCultureImageUrl}") no-repeat center center/cover`);
 
     
         $(".hero-culture .btn-search").click(function () {

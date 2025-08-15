@@ -1,14 +1,14 @@
 function loginRegister() {
     $(".btn-login").click(function () {
         $(".toggle-btn").removeClass("active");
-        $(".btn-signin").css({"color":"var(--black)"});
-        $(".btn-login").css({"color":"var(--white)"});
+        // $(".btn-signin").css({"color":"var(--black)"});
+        // $(".btn-login").css({"color":"var(--white)"});
     });
 
     $(".btn-signin").click(function () {
         $(".toggle-btn").addClass("active");
-        $(".btn-signin").css({"color":"var(--white)"});
-        $(".btn-login").css({"color":"var(--black)"});
+        // $(".btn-signin").css({"color":"var(--white)"});
+        // $(".btn-login").css({"color":"var(--black)"});
     });
     
 
@@ -103,40 +103,52 @@ function headerScroll() {
     $(window).on("scroll", checkScroll);
 }
 
+
 function headerChangeColor(){
     function changeBackgroundColor(){
-        if ($(window).scrollTop() == (0/100) * window.innerHeight){
+        const scrollTop = $(window).scrollTop();
+        const winH     = $(window).height();
+        const docH     = $(document).height();
+
+        const atTop    = scrollTop === 0;
+        const isActive = $(".toggle-btn").hasClass("active");
+
+        // Jika scroll berada di atas
+        if (atTop){
             $("header").css({"background-color": "transparent"});  
             $(".container2").css({"border-bottom":"0.1em solid var(--white)"}); 
             $(".container1").css({"border-bottom":"0.1em solid var(--white)"});  
-            $(".logo-text").css({"color": "var(--white) "});
-            $(".icon-header").css({"color": "var(--white)"});
-            $(".header-menu-text").css({"color": "var(--white) "});
-            $(".container1").css({"border-bottom":"0.1em solid var(--white)"});
+            $(".logo-text, .icon-header, .header-menu-text, .burger-icon").css({"color": "var(--white)"});
             $(".header-search-container").css({"border":"0.1em solid transparent"});
-            $(".container2").css({"border-bottom":"0.1em solid var(--white)"});  
-            $(".burger-icon").css({"color": "var(--white)"});
-             $(".btn-signin").css({"color": "var(--white)"});
-             $(".btn-login").css({"color": "var(--white)"});
-        }else{
-            // $("header").css({"background-color": "var(--black)"});
+            $(".btn-signin, .btn-login").css({"color": "var(--white)"});
+
+        } else {
+            // Ketika scroll berada di bawah (atau bukan top)
             $("header").css({"background-color": "var(--white)"});
-            $(".logo-text").css({"color": "var(--black)"});
-            $(".icon-header").css({"color": "var(--black)"});
-            $(".header-menu-text").css({"color": "var(--black)"});
+            $(".logo-text, .icon-header, .header-menu-text, .burger-icon").css({"color": "var(--black)"});
             $(".container1").css({"border-bottom":"0.1em solid var(--grey)"});
             $(".header-search-container").css({"border": "0.1em solid var(--black)"});
             $(".container2").css({"border-bottom":"none"});
-            $(".btn-signin").css({"color": "var(--red)"});
-            $(".burger-icon").css({"color": "var(--black)"});
-             $(".btn-signin").css({"color": "var(--black)"});
-             $(".btn-login").css({"color": "var(--white)"});
-            
+
+            // Mengecek jika toggle-btn aktif
+            if (isActive) {
+                // Jika active: btn-signin putih
+                $(".btn-signin").css({"color": "var(--white)"});
+                $(".btn-login").css({"color": "var(--red)"}); // btn-login tetap merah
+            } else {
+                // Jika tidak active: btn-login putih
+                $(".btn-signin").css({"color": "var(--red)"}); // btn-signin tetap merah
+                $(".btn-login").css({"color": "var(--white)"});
+            }
         }
     }
+
+    // Setiap kali scroll atau resize, update status warna
     changeBackgroundColor();
     $(window).on("scroll", changeBackgroundColor);
+    $(window).on("resize", changeBackgroundColor);
 }
+
 
 function menuPopUp(){
     $(".burger-menu").click(function () {

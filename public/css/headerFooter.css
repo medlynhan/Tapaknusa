@@ -172,6 +172,7 @@ nav ul li a {
     background-color: transparent;
     position: relative;
     padding: 0.2em 2em;
+    /* mix-blend-mode: difference; */
 }
 
 .btn-signin{
