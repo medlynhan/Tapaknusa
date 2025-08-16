@@ -39,3 +39,8 @@ To run this project locally, follow these steps:
 
 6. Open your browser and navigate to: ` http://127.0.0.1:8000/`
 
+## 🎬 Video Preview
+Here's a quick preview of the website :
+
+👉 https://drive.google.com/file/d/1r9EAn5lX4WhL6F5K789aDp_1Qf2Zr4E2/view?usp=drivesdk 
+
