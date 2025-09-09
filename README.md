@@ -25,22 +25,25 @@ This project was initially created as a frontend-only entry for the **PARAS ICT 
 - Order History
 
   
-## 🚦 Running the Project
+## 🚦 Running Locally
 
-To run this project locally, follow these steps:
+To run this project locally, make sure you have XAMPP installed and start Apache & MySQL from the XAMPP control panel.
 
-1. Clone the repository  `git clone https://github.com/medlynhan/tapaknusa.git`
+1. Copy or move this project folder into the htdocs directory of your XAMPP installation.
 
-2. Navigate into the project folder  `cd tapaknusa`
+2. Clone the repository  `git clone https://github.com/medlynhan/tapaknusa.git`
 
-3. Install dependencies using Composer  `composer install`
+3. Navigate into the project folder  `cd tapaknusa`
 
-4. Generate the application key  `php artisan key:generate`
+4. Copy .env.example to .env `cp .env.example .env`
 
-5. Run the development server  `php artisan serve`
+5. Install dependencies using Composer  `composer install`
 
+6. Generate the application key  `php artisan key:generate`
 
-6. Open your browser and navigate to: ` http://127.0.0.1:8000/`
+7. Run the development server  `php artisan serve`
+
+8. Open your browser and navigate to: ` http://127.0.0.1:8000/`
 
 ## 🎬 Video Preview
 Here's a quick preview of the website :
