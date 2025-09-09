@@ -2,6 +2,8 @@
 
 An e-commerce platform promoting Indonesian tourism, addressing the lack of awareness about cultural attractions and festivals, and offering **a seamless way to explore and purchase tickets.**
 
+👉 [Tapaknusa Live Demo](https://tapaknusa.up.railway.app/)
+
 ## 👩‍💻 Project Background
 
 This project was initially created as a frontend-only entry for the **PARAS ICT X Web Design Competition 🏆** but has since evolved into a full-stack web application. **The main focus of this website is UI/UX design 🧑‍🎨**, as I aimed to create a user-friendly and visually appealing experience, ensuring that the user journey is intuitive and enjoyable.
@@ -21,6 +23,7 @@ This project was initially created as a frontend-only entry for the **PARAS ICT 
 - Search & Filter
 - Shopping Cart
 - Order History
+
   
 ## 🚦 Running the Project
 
