@@ -33,24 +33,42 @@ class AuthController
         }
     
         // Proses registrasi
+
         public function register(Request $request)
         {
-            
+            // Validasi manual supaya bisa kontrol pesan error
+            $validator = \Validator::make($request->all(), [
+                'username' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255|unique:users,email',
+                'confirmPassword' => 'required|string|min:6',
+            ], [
+                'email.unique' => 'Email ini sudah terdaftar, silakan gunakan email lain.',
+            ]);
+
+            // Kalau gagal validasi → balik ke halaman sebelumnya dengan error
+            if ($validator->fails()) {
+                return back()->withErrors([
+                    'email' => "Email ini sudah terdaftar, silakan gunakan email lain",
+                ]);
+            }
+
+            // Kalau lolos validasi → buat user
             $user = User::create([
                 'name' => $request->input('username'),
                 'email' => $request->input('email'),
-                'password' => bcrypt($request->input('confirmPassword')), // Mengenkripsi password
+                'password' => bcrypt($request->input('confirmPassword')),
             ]);
 
-            // Debugging: Cek apakah data sudah disimpan
-            //dd($user); // Cek apakah user berhasil dibuat
-
-            // Login otomatis setelah registrasi
+            // Login otomatis
             Auth::login($user);
 
-            return redirect()->route('Tapaknusahome')->with('success', 'Registrasi berhasil, Anda telah login.');
-            return redirect()->route('Tapaknusahome');
+
+
+            return redirect()->route('Tapaknusahome')
+                ->with('success', 'Registrasi berhasil, Anda telah login.');
         }
+
+
 
 
             

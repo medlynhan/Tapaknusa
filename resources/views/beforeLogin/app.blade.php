@@ -163,7 +163,10 @@
                 <input id="register-username" name="username" class="small-text-font black" type="text" placeholder="Username" required>
                 <span id="register-username-error" class="supersmall-text-font red"></span>
 
-                <input id="register-email" name="email" class="small-text-font black" type="email" placeholder="Email" required>
+                <input id="register-email" name="email" class="small-text-font black" type="email"
+                    placeholder="Email" value="{{ old('email') }}" required>
+                
+
                 <span id="register-email-error" class="supersmall-text-font red"></span>
 
                 <input id="register-password" name="password" class="small-text-font black" type="password" placeholder="Password" required>
@@ -171,6 +174,8 @@
 
                 <input id="register-confirmPassword" name="confirmPassword" class="small-text-font black" type="password" placeholder="Confirm Password" required>
                 <span id="register-confirmPassword-error" class="supersmall-text-font red"></span>
+                
+                <span id="signup-error" class="supersmall-text-font red"></span>
 
                 <button type="submit" class="btn-signUp-content small-text-font" disabled>Submit</button>
                 <p class="small-text-font">Sudah punya akun ? <span class="needToLogin small-text-font bold red">Login</span></p>
@@ -247,7 +252,20 @@
         goToSignUpPage();
 
 
-        @if ($errors->any())
+        // Kalau error validasi register → buka modal SignUp
+        @if ( $errors->has('email') )
+            $('#signup-error').text("{{ $errors->first('email') }}");
+            if ($(window).width() <= 1199) {
+                $(".burger-modal").css({"display":"flex"});
+                $(".burger-menu-open").animate({"right":"0%"},500);
+            }
+
+            setTimeout(function() {
+                $('.signUp-modal').css({ "display" : "flex" });
+            }, 800);
+        @endif
+
+        @if ($errors->has('message'))
             // Ambil pesan kesalahan dan tampilkan di span dengan id login-error
             $('#login-error').text("{{ $errors->first('message') }}");
             if ($(window).width() <= 1199) {

@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Tapaknusa')</title>
     <!--css-->
-    @vite('resources/css/app.css')
-    @vite('resources/js/app.js')
 
     <link rel="icon"       href="{{asset('asset/island.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{asset('css/animation.css')}}">
